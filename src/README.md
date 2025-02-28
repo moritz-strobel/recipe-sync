@@ -1,3 +1,8 @@
+#### Resources
+- http://localhost:4200/
+- https://material.angular.io/components/
+
+
 #### Components Structure & Dependencies:
 - angular-material:
 	- button
@@ -80,3 +85,24 @@
 	- form-field as AM-form-field
 - page-report --> mostly static simple SCSS
 	- form-field as AM-form-field
+
+
+#### Layout Guidelines:
+- Von außen nach innen
+- Wo grid, wo Flexbox
+- mobile First
+- main layout in appcomponent.html:
+	- header
+	- router-outlet
+	- footer
+	- overlay (hidden by default)
+	- dialog-cookies
+
+
+#### ToDo
+- Implement all Components
+- Realize all dependencies 
+- Guards (geschützte Routen e.g. Profilepage)
+- Restful API to nest.js server
+- Font: Roboto
+- Favicon
