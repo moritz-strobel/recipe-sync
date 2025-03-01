@@ -88,7 +88,26 @@
 
 
 #### Services
-- 
+- Create
+- Read
+- Update 
+- Delete 
+- Other
+	- getRatingAvg() : return float
+	- search() : return List of Entities
+		---> search by above entities, ingredients and combined searches of those, e.g. recipes of user x with rating > 4,3
+	- authenticateUser() : return (bool, errMsg)
+
+
+#### Types
+- user
+- recipe
+- tag
+- category
+- rating
+- comment
+- notification
+- cookbook
 
 
 #### Layout Guidelines:
