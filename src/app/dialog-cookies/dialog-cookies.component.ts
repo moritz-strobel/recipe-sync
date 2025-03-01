@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './dialog-cookies.component.html',
   styleUrl: './dialog-cookies.component.scss'
 })
+
 export class DialogCookiesComponent {
 
 }
