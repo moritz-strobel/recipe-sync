@@ -52,7 +52,7 @@
 		- logo as other-component
 		- company-name as AM
 - other:
-	- flexbox
+	- flexbox --> didnt work out stucked to mat-list or mat-grid-list
 	- logo 
 	- search bar
 		- chips as AM-chips-with-input

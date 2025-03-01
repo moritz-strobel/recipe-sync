@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './card-cookbook.component.html',
   styleUrl: './card-cookbook.component.scss'
 })
+
 export class CardCookbookComponent {
 
 }
