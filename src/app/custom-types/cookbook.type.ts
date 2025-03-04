@@ -1,3 +1,6 @@
+import { Recipe } from "./recipe.type";
+import { User } from "./user.type";
+
 export type CookBook = {
     id: string;
     createdAt: Date;
@@ -9,6 +12,6 @@ export type CookBook = {
     isDeleteable: boolean; // e.g. every user has a list of favorite recipes. this list shall not be public nor shall it be deleted (deletion results in empty cookbook) 
     isPublic: boolean;
     description: string;
-    coverImageUrl: string; // URL zum Titelbild
+    coverImage: string; // URL zum Titelbild
     recipes: Recipe; // List of references to recipes 
 }

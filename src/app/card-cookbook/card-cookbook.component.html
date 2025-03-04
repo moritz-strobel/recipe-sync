@@ -1,1 +1,26 @@
 <p>card-cookbook works!</p>
+
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div 
+      mat-card-avatar 
+      class="example-header-image"
+      [style]="'background-image: url(' + cookbook.coverImage + ');'"
+      ></div>
+      <mat-card-title>{{ cookbook.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <span>
+            {{ cookbook.user.username }}
+        </span>
+      </mat-card-subtitle>
+      
+    </mat-card-header>
+    <img [src]="'data:image/jpeg;base64,' + cookbook.coverImage"/>
+    <mat-card-content>
+      <p>
+        {{ cookbook.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>

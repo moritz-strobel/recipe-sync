@@ -1,0 +1,7 @@
+<p>cards-recipe-container works!</p>
+
+<div class="card-container">
+    @for (recipe of (recipes$ | async); track recipe.id){
+        <app-card-recipe [recipe]="recipe"></app-card-recipe>
+    }
+</div>

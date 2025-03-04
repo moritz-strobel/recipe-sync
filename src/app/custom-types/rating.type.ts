@@ -1,3 +1,5 @@
+import { User } from "./user.type";
+
 export type Rating = {
     id: string;
     createdAt: Date;

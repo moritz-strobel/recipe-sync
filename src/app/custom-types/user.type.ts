@@ -8,7 +8,7 @@ export type User = {
     email: string;
     passwordHash: string;   
     profileTextUrl: Text;
-    profileImageUrl: Image;
+    profileImage: string; // base64string image
     allowEmailNotifiaction: boolean;
     allowUpdates: boolean;
     allowAds: boolean;

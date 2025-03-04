@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-container{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    row-gap: 1rem;
+    justify-content: center;
+    
+    app-product-card{
+        width: calc(25% - 1rem)
+    }
+}

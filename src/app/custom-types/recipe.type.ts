@@ -18,9 +18,9 @@ export type Recipe = {
     preperationTime: bigint; // how long for preperation e.g. cut vegetables 
     overallCookingTime: bigint; // how long for cooking 
     recipeText: Text; // Actual recipe text
-    images?: Image; // optional images embeded into recipe text, array?
+    images?: string[]; // image as base64string
     videoUrl?: string // optional video link to e.g. YT
-    coverImage: Image; // URL zum Titelbild
+    coverImage: string; // image as base64string
     categories: Category; // List of References to Categories
     tags: Tag[]; // Array references to Tags
     rating: Rating[]; // Array of ratings --> An average shall be displayed

@@ -123,9 +123,15 @@
 
 
 #### ToDo
-- Implement all Components
-- Realize all dependencies 
-- Guards (geschützte Routen e.g. Profilepage)
-- Restful API to nest.js server
-- Font: Roboto
-- Favicon
+- basic implementation of pages 
+- abhängigkeiten und biolerplate
+- favicon mit initialien -> Rs (for Recipe sync)
+- font Roboto als local font
+- pages boilerplate
+- dummy rest api
+- scss styling 
+- final implemntaion / setup of all components, types and services
+- nestjs setup
+- nestjs implementaion 
+- testing
+- prep presentation
