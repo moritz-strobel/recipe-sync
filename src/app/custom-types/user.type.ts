@@ -3,16 +3,11 @@ export type User = {
     createdAt: Date;
     updatedAt: Date;
 
+    name: string;
+    last_name: string;
     username: string;
-    nationality: string;
     email: string;
     passwordHash: string;   
-    profileTextUrl: Text;
+    profileText: Text;
     profileImage: string; // base64string image
-    allowEmailNotifiaction: boolean;
-    allowUpdates: boolean;
-    allowAds: boolean;
-    notifiactions: Notification; // A user shal be informed if he gets followed, also when hes not signed in currently (notifiaction on next sign in)
-    follows: User; // Reference to a user. User can follow eachother
-    follower: User;
 }
