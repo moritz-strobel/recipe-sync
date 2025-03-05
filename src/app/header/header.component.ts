@@ -20,5 +20,5 @@ import { SearchbarComponent } from "../other/searchbar/searchbar.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  
 }
