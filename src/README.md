@@ -128,10 +128,10 @@
 - favicon mit initialien -> Rs (for Recipe sync)
 - font Roboto als local font
 - pages boilerplate
-- dummy rest api
+- dummy rest api --> moritz
 - scss styling 
 - final implemntaion / setup of all components, types and services
-- nestjs setup
-- nestjs implementaion 
+- nestjs setup --> moritz
+- nestjs implementaion --> moritz
 - testing
 - prep presentation
