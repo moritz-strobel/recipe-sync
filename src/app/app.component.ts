@@ -18,12 +18,12 @@ import { CardsRecipeContainerComponent } from "./cards-recipe-container/cards-re
     RegisterComponent,
     ForgotPasswordComponent,
     CardsCookbookContainerComponent,
-    CardsRecipeContainerComponent
+    CardsRecipeContainerComponent,
 ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 
 export class AppComponent {
-    title = 'recipe-sync';
+    title = 'recipe-sync'; 
 }
