@@ -103,10 +103,6 @@
 - user
 - recipe
 - tag
-- category
-- rating
-- comment
-- notification
 - cookbook
 
 
@@ -124,8 +120,8 @@
 
 #### ToDo
 - Implement all Components
-- Realize all dependencies 
-- Guards (geschützte Routen e.g. Profilepage)
+- Realize all dependencies
+- implement basic styling e.g. header --> position: fixed
 - Restful API to nest.js server
 - Font: Roboto
 - Favicon
