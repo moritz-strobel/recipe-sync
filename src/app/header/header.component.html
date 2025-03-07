@@ -1,23 +1,23 @@
-<!--
-   on mobile burger menu on left side icon on the right
--->
-
-<!--
-    https://material.angular.io/components/grid-list/overview#grid-list-overview
--->
-
 <header>
+    <app-icon-name-container></app-icon-name-container>
+    
+    <app-searchbar></app-searchbar>
+    
     <ul>
-        <app-icon-name-container></app-icon-name-container>
-    
-        <app-searchbar></app-searchbar>
-    
-        <app-button-icon-link-container></app-button-icon-link-container>
+        <li>
+            <app-menu-tree-recipes></app-menu-tree-recipes>
+        </li>
+        <li>
+            <a href="" mat-button>Cookbook Icon</a>
+        </li>
+        <li>
+            <a href="" mat-button>Profile Icon</a>
+        </li>
+        <li>
+            <a href="" mat-button>Home Icon</a>
+        </li>
+        <li>
+           <button mat-button>Login</button>
+        </li>
     </ul>
-
-    <mat-divider></mat-divider>
 </header>
-
-<!--
-   /on mobile burger menu on left side icon on the right
--->

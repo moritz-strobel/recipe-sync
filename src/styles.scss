@@ -1,17 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.scss */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Apply global styles */
 
-.card-container{
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    row-gap: 1rem;
-    justify-content: center;
-    
-    app-product-card{
-        width: calc(25% - 1rem)
-    }
+$global-margin: 1rem;
+$global-border-radius: .5rem;
+$color-background-main: #f0f0f0;
+
+:root{
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
 }

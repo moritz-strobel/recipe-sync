@@ -3,20 +3,22 @@
 
     https://material.angular.io/components/list/overview
 -->
+<mat-divider></mat-divider>
 
-<mat-grid-list cols="1">
-
-    <mat-divider></mat-divider>
-
-    <p>footer works!</p>
-
-    <app-icon-name-container></app-icon-name-container>
-
-    <mat-list>
-        <a mat-button href="./about-us">About us</a>
-        <a mat-button href="./guidelines">Guidelines</a>
-        <a mat-button href="./impress">Impressum</a>
-        <a mat-button href="./report">Report</a>
-    </mat-list>
-
-</mat-grid-list>
+<footer>
+    <app-icon-name-container class="col"></app-icon-name-container>
+    <ul class="col">
+        <li>
+            <a mat-button href="./about-us">About us</a>
+        </li>     
+        <li>
+            <a mat-button href="./guidelines">Guidelines</a>
+        </li>
+        <li>
+            <a mat-button href="./impress">Impressum</a>
+        </li>           
+        <li>
+            <a mat-button href="./report">Report</a>
+        </li>
+    </ul>
+</footer>

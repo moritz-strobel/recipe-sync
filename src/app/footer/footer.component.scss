@@ -1,0 +1,23 @@
+@import "../../styles.scss";
+
+footer {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 0;
+    background-color: $color-background-main;
+    height: 20rem;
+    align-items: center;
+    
+    .col {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
