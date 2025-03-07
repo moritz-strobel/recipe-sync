@@ -103,10 +103,6 @@
 - user
 - recipe
 - tag
-- category
-- rating
-- comment
-- notification
 - cookbook
 
 
