@@ -1,23 +1,28 @@
 <header>
-    <app-icon-name-container></app-icon-name-container>
-    
-    <app-searchbar></app-searchbar>
-    
+    <input type="checkbox" name="" id="chk1">
+
+    <div class="logo"><h1>Recipes<br>sync.</h1></div>
+
+    <div class="search-bar">
+        <form action="">
+            <input type="text" name="search" id="srch" placeholder="Search">
+            <button type="submit"><i>search</i></button>
+        </form>
+    </div>
+
     <ul>
-        <li>
-            <app-menu-tree-recipes></app-menu-tree-recipes>
-        </li>
-        <li>
-            <a href="" mat-button>Cookbook Icon</a>
-        </li>
-        <li>
-            <a href="" mat-button>Profile Icon</a>
-        </li>
-        <li>
-            <a href="" mat-button>Home Icon</a>
-        </li>
-        <li>
-           <button mat-button>Login</button>
-        </li>
+        <li><a href="./cookbook-home">Cookbook</a></li>
+
+        <li><a href="./profile">Profile</a></li>
+
+        <li><a href="./">Home</a></li>
+
+        <li><a href="./login">Login</a></li>
     </ul>
+
+    <div class="menu">
+        <label for="chk1">
+            <i>M</i>
+        </label>
+    </div>
 </header>

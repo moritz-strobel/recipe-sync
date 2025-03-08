@@ -9,6 +9,9 @@ import { LandingComponent } from './page/landing/landing.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { RecipeComponent } from './page/recipe/recipe.component';
 import { ReportComponent } from './page/report/report.component';
+import { LoginComponent } from './page/login/login.component';
+import { RegisterComponent } from './page/register/register.component';
+import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -18,8 +21,11 @@ export const routes: Routes = [
     { path: 'extended-search', component: ExtendedSearchComponent },
     { path: 'guidelines', component: GuidelinesComponent },
     { path: 'impress', component: ImpressComponent },
+    { path: 'login', component: LoginComponent},
     { path: 'profile', component: ProfileComponent },
     { path: 'recipe', component: RecipeComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'report', component: ReportComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

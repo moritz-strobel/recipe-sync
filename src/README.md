@@ -3,27 +3,50 @@
 - https://material.angular.io/components/
 
 
+#### Layout Guidelines:
+- Von außen nach innen
+- Wo grid, wo Flexbox
+- mobile First
+- main layout in appcomponent.html:
+	- header
+	- router-outlet
+	- footer
+	- overlay (hidden by default)
+	- dialog-cookies
+
+
+#### ToDo
+- font Roboto (local)
+- favicon RS
+- api interface
+- tag
+- searchbar
+- logo
+- icon name container
+- headers nav section
+- header
+- footer
+- card recipe
+- card cookbook
+- container
+- landing page
+- login
+- about us
+- recipe page
+- cookbook home
+- cookbook
+- guidelines
+- report
+- impress
+- cookbook page
+- search result page
+- profile
+- unify styling
+- final preps
+- presentation
+
+
 #### Components Structure & Dependencies:
-- angular-material:
-	- button
-	- checkbox
-	- chips
-	- dialog
-	- divider
-	- form-field
-	- grid
-	- icon
-	- input
-	- label
-	- list
-	- menu
-	- paginator
-	- progress-spinner
-	- table
-	- toolbar
-	- tooltip --> properties: pos:above | showDelay:250 | hideDelay:250
-	- tree
-	- sidenav
 - card-cookbook --> whole thing as click-able label
 - card-recipe
 - cards-container --> show multiple overviews (generic) 
@@ -108,30 +131,3 @@
 - comment
 - notification
 - cookbook
-
-
-#### Layout Guidelines:
-- Von außen nach innen
-- Wo grid, wo Flexbox
-- mobile First
-- main layout in appcomponent.html:
-	- header
-	- router-outlet
-	- footer
-	- overlay (hidden by default)
-	- dialog-cookies
-
-
-#### ToDo
-- basic implementation of pages 
-- abhängigkeiten und biolerplate
-- favicon mit initialien -> Rs (for Recipe sync)
-- font Roboto als local font
-- pages boilerplate
-- dummy rest api --> moritz
-- scss styling 
-- final implemntaion / setup of all components, types and services
-- nestjs setup --> moritz
-- nestjs implementaion --> moritz
-- testing
-- prep presentation

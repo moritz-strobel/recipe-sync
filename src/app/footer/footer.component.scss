@@ -1,23 +1,29 @@
-@import "../../styles.scss";
+@use "../../styles";
 
 footer {
+    height: 30rem;
+
     display: grid;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 1fr;
-    margin: 0;
-    padding: 0;
-    background-color: $color-background-main;
-    height: 20rem;
-    align-items: center;
+    grid-template-areas: 
+        "logo nav nothing";
+    grid-template-columns: 30% 40% 30%;
+    background-color: rgba(0, 0, 0, 0.5);
     
-    .col {
-        padding: 0;
-        margin: 0 auto;
-    }
+    align-items: center;
 
     ul{
+        grid-area: nav;
+        justify-self: center;
+
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    .copy-right{
+        grid-area: nothing;
+        justify-self: end;
+
+        margin-right: 2rem;
     }
 }

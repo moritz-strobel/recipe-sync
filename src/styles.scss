@@ -1,13 +1,88 @@
-/* styles.scss */
+@use 'sass:color';
 
-/* Apply global styles */
-
-$global-margin: 1rem;
-$global-border-radius: .5rem;
-$color-background-main: #f0f0f0;
-
-:root{
-    align-items: center;
-    margin: 0 auto;
-    padding: 0;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
+.logo{
+  grid-area: logo;
+  justify-self: start;
+
+  color: #fff;
+  margin-left: 2rem;
+  text-transform: uppercase;
+  font-size: 15px;
+  width: 100px;
+}
+
+
+/*
+// Define global colorscheme 
+$dark-theme: false;
+$font: 'Roboto', sans-serif;
+$primary-color: hsl(120, 60%, 64%, 100%); 
+$accent-color: hsl(120, 75%, 24%, 100%);
+$highlight-color: hsl(0, 60%, 64%, 100%);
+$highlight-color-2: hsl(0, 60%, 24%, 100%);
+$color-background-main: hsl(0, 0%, 93%, 100%);
+$color-background-secondary: hsl(0, 0%, 80%, 100%);
+$text-color-primary: hsl(0, 0%, 20%, 100%);
+$text-color-secondary: hsl(0, 0%, 40%, 100%);
+
+
+// Define global attributes 
+$border-radius: 1rem;
+
+
+// Media queries
+@media (prefers-color-scheme: dark) {
+    $dark-theme: true;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    $dark-theme: false;
+  }
+
+
+// Set colorscheme based on $dark-theme
+@if $dark-theme {
+    $primary-color: hsl(120, 75%, 24%, 100%);
+    $accent-color: hsl(120, 60%, 64%, 100%);
+    $highlight-color: hsl(0, 60%, 24%, 100%);
+    $highlight-color-2: hsl(0, 60%, 64%, 100%);
+    $color-background-main: hsl(0, 0%, 20%, 100%);
+    $color-background-secondary: hsl(0, 0%, 40%, 100%);
+    $text-color-primary: hsl(0, 0%, 93%, 100%);
+    $text-color-secondary: hsl(0, 0%, 80%, 100%);
+}@else{
+    //Do nothing
+}
+
+
+// Set global styles
+:root{
+    font-family: $font;
+}
+
+body{
+    color: $text-color-primary;
+    background-color: $color-background-main;
+} 
+
+
+// Global classes 
+.button {
+  background-color: $primary-color;
+  border: 1px solid $accent-color;
+  border-radius: $border-radius; 
+}
+
+.button:hover {
+    background-color: $highlight-color;
+    border-color: $text-color-secondary;
+    color: $text-color-secondary;
+  }
+    */
