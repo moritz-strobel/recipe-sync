@@ -126,8 +126,16 @@
 - user
 - recipe
 - tag
-- category
-- rating
-- comment
-- notification
 - cookbook
+
+
+#### Layout Guidelines:
+- Von außen nach innen
+- Wo grid, wo Flexbox
+- mobile First
+- main layout in appcomponent.html:
+	- header
+	- router-outlet
+	- footer
+	- overlay (hidden by default)
+	- dialog-cookies
