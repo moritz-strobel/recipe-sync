@@ -1,1 +1,22 @@
-<p>report works!</p>
+<header>
+    <h1>Report Content</h1>
+</header>
+<main>
+    <form action="submit_report.php" method="POST" class="report-form">
+        <label for="content-url">Content URL:</label>
+        <input type="url" id="content-url" name="content-url" required>
+
+        <label for="reason">Reason for Reporting:</label>
+        <select id="reason" name="reason" required>
+            <option value="illegal">Illegal Content</option>
+            <option value="copyright">Copyright Violation</option>
+            <option value="offensive">Offensive Content</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="details">Details:</label>
+        <textarea id="details" name="details" rows="4" required></textarea>
+
+        <button type="submit">Submit Report</button>
+    </form>
+</main>
