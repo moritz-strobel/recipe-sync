@@ -1,1 +1,87 @@
-<p>profile works!</p>
+<div class="profile-form-container">
+    <h2>Profile</h2>
+    <form #profileForm="ngForm">
+        <label for="first_name">First Name:</label>
+        <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            [(ngModel)]="user.first_name"
+            [readonly]="!isEditMode"
+        />
+
+        <label for="last_name">Last Name:</label>
+        <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            [(ngModel)]="user.last_name"
+            [readonly]="!isEditMode"
+        />
+
+        <label for="username">Username:</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="user.username"
+            [readonly]="!isEditMode"
+        />
+
+        <label for="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="user.email"
+            [readonly]="!isEditMode"
+        />
+
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="user.password"
+            [readonly]="!isEditMode"
+        />
+
+        <label for="profileText">Profile Text:</label>
+        <textarea
+            id="profileText"
+            name="profileText"
+            [(ngModel)]="user.profileText"
+            [readonly]="!isEditMode"
+        ></textarea>
+
+        <label for="profileImage">Profile Image:</label>
+        <input
+            type="file"
+            id="profileImage"
+            name="profileImage"
+            (change)="onFileSelected($event)"
+            [disabled]="!isEditMode"
+        />
+
+        <!-- Preview the uploaded image -->
+        <div *ngIf="user.profileImage && !isEditMode">
+            <h3>Profile Picture:</h3>
+            <img [src]="user.profileImage" alt="Profile Picture" class="profile-image-preview" />
+        </div>
+
+        <button
+            type="button"
+            *ngIf="!isEditMode"
+            (click)="toggleEditMode()"
+        >
+            Edit
+        </button>
+        <button
+            type="button"
+            *ngIf="isEditMode"
+            (click)="saveChanges()"
+        >
+            Save
+        </button>
+    </form>
+</div>

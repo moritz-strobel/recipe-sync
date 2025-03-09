@@ -1,7 +1,15 @@
-<p>cards-cookbook-container works!</p>
+<div class="horizontal-container">
+    <button class="nav-button left-button" (click)="scrollLeft()">&lt;</button>
+    <div class="card-container">
+        @for (cookbook of (cookbooks$ | async); track cookbook.id){
+            <app-card-cookbook [cookbook]="cookbook"></app-card-cookbook>
+        }
+    </div>
+    <button class="nav-button right-button" (click)="scrollRight()">&gt;</button>
+  </div>
 
+<!--
 <div class="card-container">
-    @for (cookbook of (cookbooks$ | async); track cookbook.id){
-        <app-card-cookbook [cookbook]="cookbook"></app-card-cookbook>
-    }
+    
 </div>
+-->

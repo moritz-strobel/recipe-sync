@@ -18,6 +18,7 @@
 #### ToDo
 - font Roboto (local)
 - favicon RS
+- partial routes for search result
 - api interface
 - tag
 - searchbar

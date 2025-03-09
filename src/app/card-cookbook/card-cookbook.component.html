@@ -1,5 +1,12 @@
-<p>card-cookbook works!</p>
+<div class="cookbook-card">
+  <img [src]="cookBook.coverImage" alt="{{ cookBook.title }}" class="cookbook-cover" />
+  <h3>{{ cookBook.title }}</h3>
+  <p>{{ cookBook.description }}</p>
+  <button *ngIf="!cookBook.isDeleteable" (click)="deleteCookBook()">Delete</button>
+  <button (click)="toggleFavorite()">{{ cookBook.isFavorite ? 'Unfavorite' : 'Favorite' }}</button>
+</div>
 
+<!--
 <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
       <div 
@@ -24,3 +31,4 @@
     <mat-card-actions>
     </mat-card-actions>
   </mat-card>
+-->

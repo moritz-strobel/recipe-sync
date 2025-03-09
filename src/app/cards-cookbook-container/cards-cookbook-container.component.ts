@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CardCookbookComponent } from '../card-cookbook/card-cookbook.component';
 
@@ -25,5 +25,36 @@ export class CardsCookbookContainerComponent {
 
   constructor(private readonly readService: ReadService){
     this.cookbooks$ = this.readService.readReadCookbooks();
+  }
+
+  /*
+  @Input() cookbooks$!: Observable<
+    {
+      id: string;
+      createdAt: Date;
+      updatedAt: Date;
+      user: { id: string; name: string };
+      title: string;
+      isFavorite: boolean;
+      isDeleteable: boolean;
+      isPublic: boolean;
+      description: string;
+      coverImage: string;
+      recipes: { id: string; name: string }[];
+    }[]
+  >;*/
+
+  @ViewChild('cardContainer') cardContainer!: ElementRef;
+
+  scrollLeft() {
+    this.cardContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  scrollRight() {
+    this.cardContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
+  trackByCookbookId(index: number, cookbook: { id: string }): string {
+    return cookbook.id;
   }
 }

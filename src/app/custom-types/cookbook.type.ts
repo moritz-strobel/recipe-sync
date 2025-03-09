@@ -13,5 +13,5 @@ export type CookBook = {
     isPublic: boolean;
     description: string;
     coverImage: string; // URL zum Titelbild
-    recipes: Recipe; // List of references to recipes 
+    recipes: Recipe[]; // List of references to recipes 
 }

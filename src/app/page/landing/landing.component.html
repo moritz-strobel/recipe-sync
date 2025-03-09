@@ -1,1 +1,29 @@
-<p>landing works!</p>
+<div class="landing-page">
+    <div class="section">
+      <h2>Best of Today: Lunch</h2>
+      <button class="nav-button left">←</button>
+      <div class="items-container">
+        <app-card-recipe *ngFor="let recipe of lunchRecipes" [recipe]="recipe"></app-card-recipe>
+      </div>
+      <button class="nav-button right">→</button>
+    </div>
+  
+    <div class="section">
+      <h2>Best of Today: Breakfast</h2>
+      <button class="nav-button left">←</button>
+      <div class="items-container">
+        <app-card-recipe *ngFor="let recipe of breakfastRecipes" [recipe]="recipe"></app-card-recipe>
+      </div>
+      <button class="nav-button right">→</button>
+    </div>
+  
+    <div class="section">
+      <h2>Best of Today: Dinner</h2>
+      <button class="nav-button left">←</button>
+      <div class="items-container">
+        <app-card-recipe *ngFor="let recipe of dinnerRecipes" [recipe]="recipe"></app-card-recipe>
+      </div>
+      <button class="nav-button right">→</button>
+    </div>
+  </div>
+  

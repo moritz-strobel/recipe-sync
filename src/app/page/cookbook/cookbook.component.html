@@ -1,1 +1,34 @@
-<p>cookbook works!</p>
+<div class="cookbook-container">
+    <mat-form-field>
+      <mat-label>Cookbook Title</mat-label>
+      <input matInput placeholder="Enter title" [formControl]="title" required />
+      @if (title.invalid) {
+        <mat-error>{{titleErrorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Cover Image URL</mat-label>
+      <input matInput placeholder="Enter cover image URL" [formControl]="coverImage" />
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput rows="3" [formControl]="description"></textarea>
+    </mat-form-field>
+  
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="saveCookbook()">Save</button>
+      <button mat-raised-button color="warn" (click)="deleteCookbook()" [disabled]="!isDeleteable()">Delete</button>
+    </div>
+  
+    <div class="cookbook-preview" *ngIf="cookbook">
+      <h2>{{cookbook.title}}</h2>
+      <img [src]="cookbook.coverImage" alt="Cookbook Cover" />
+      <p>{{cookbook.description}}</p>
+      <ul>
+        <li *ngFor="let recipe of cookbook.recipes">{{recipe.title}}</li>
+      </ul>
+    </div>
+  </div>
+  
