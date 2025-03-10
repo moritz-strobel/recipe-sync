@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-//import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { CookBook } from '../custom-types/cookbook.type';
 
 @Component({
   selector: 'app-card-cookbook',
   imports: [
-    //MatCardModule,
+    MatCardModule,
     CommonModule
   ],
   templateUrl: './card-cookbook.component.html',

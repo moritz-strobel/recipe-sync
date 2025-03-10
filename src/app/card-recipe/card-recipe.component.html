@@ -1,49 +1,40 @@
-<p>card-recipe works!</p>
-
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <div 
-      mat-card-avatar 
-      class="example-header-image"
-      [style]="'background-image: url(' + recipe.coverImage + ');'"
-      ></div>
-      <mat-card-title>{{ recipe.title }}</mat-card-title>
-      <mat-card-subtitle>
-        <span>
-          Tags: 
-          @for (tag of (recipe.tags); track recipe.id){
-            <p> {{ tag }} </p>
-          }
-        </span>  
-      </mat-card-subtitle>
-      
-    </mat-card-header>
-    <img [src]="'data:image/jpeg;base64,' + recipe.coverImage"/>
-    <mat-card-content>
-      <p>
-        {{ recipe.nutri_score }}
-      </p>
-      <p>
-        {{ recipe.ingredients }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <span>
-            <p>
-                {{ recipe.shares }}
-            </p>
-            <p>
-                {{ recipe.shares }}
-            </p>
-            <p>
-                {{ recipe.steps }}
-            </p>
-            <p>
-                {{ recipe.user }}
-            </p>
-        </span>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <div 
+    mat-card-avatar 
+    class="example-header-image"
+    [style]="'background-image: url(' + recipe.coverImage + ');'"
+    ></div>
+    <mat-card-title>{{ recipe.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <span>
+        <p>Creator: {{ recipe.user.username }}</p>
+        <p>Tags: </p>
+        @for (tag of (recipe.tags); track recipe.id){
+          <p>{{ tag }} </p>
+        }
+      </span>  
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img [src]="recipe.coverImage"/>
+  <mat-card-content>
+    <p>Overall: {{ recipe.general_score }}</p><br>
+    <p>Nutri-SCore: {{ recipe.nutri_score }}</p><br>
+    <p>Overall cooking time: {{ recipe.overallCookingTime }}</p><br>
+    <p>Steps: {{ recipe.steps }}</p><br>
+    <p>ingredients:</p><br>
+    <ul>
+      @for (ingredient of (recipe.ingredients); track recipe.id){
+        <li>{{ ingredient }}</li>
+      }
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+      <span>
+        <!-- Save into a cookbook | Like  | Share -->
+      </span>
+  </mat-card-actions>
+</mat-card>
 
 
   <!--

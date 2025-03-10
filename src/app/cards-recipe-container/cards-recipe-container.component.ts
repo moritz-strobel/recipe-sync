@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CardRecipeComponent } from '../card-recipe/card-recipe.component';
 
 // Services
 import { ReadService } from '../rest-services/read.service';
-import { OtherService	 } from '../rest-services/other.service';
 
 import { Recipe } from '../custom-types/recipe.type';
 
@@ -24,5 +23,15 @@ export class CardsRecipeContainerComponent {
 
   constructor(private readonly readService: ReadService){
     this.recipes$ = this.readService.readReadRecipes();
+  }
+
+  @ViewChild('cardContainer') cardContainer!: ElementRef;
+
+  scrollLeft() {
+    this.cardContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  scrollRight() {
+    this.cardContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
   }
 }

@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CardCookbookComponent } from '../card-cookbook/card-cookbook.component';
 
 // Services
 import { ReadService } from '../rest-services/read.service';
-import { OtherService	 } from '../rest-services/other.service';
 
 // Types
 import { CookBook } from '../custom-types/cookbook.type';

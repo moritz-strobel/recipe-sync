@@ -11,7 +11,7 @@ export type Recipe = {
     isPublic: boolean;
     general_score: "healthy" | "neutral" | "unhealthy";
     nutri_score: "A" | "B" | "C" | "D" | "E";
-    ingredients: string; // Array of strings, each string beeing a ingredient 
+    ingredients: string[]; // Array of strings, each string beeing a ingredient 
     steps: bigint; // How many steps 
     preperationTime: bigint; // how long for preperation e.g. cut vegetables 
     overallCookingTime: bigint; // how long for cooking 
@@ -20,7 +20,4 @@ export type Recipe = {
     videoUrl?: string // optional video link to e.g. YT
     coverImage: string; // image as base64string
     tags: Tag[]; // Array references to Tags
-    views: bigint; // How many times a recipes has been viewed
-    shares: bigint; // How many times a recipes has been shared
-    comments: Comment[]; // Array of Comments 
 }
