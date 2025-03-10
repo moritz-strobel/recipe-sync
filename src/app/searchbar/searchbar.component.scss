@@ -1,5 +1,4 @@
-/*
-div {
+/*div {
     display: flex;
     justify-content: center;
     margin: 1rem 0;
@@ -12,19 +11,76 @@ div {
 }
 
 input {
-    //background: none;
-    //border: none;
     font-size: 1.5rem;
     width: 100%;
+    outline: none;
+    border: none;
+    margin-left: 1rem;
 
     &:focus {
         outline: none;
     }
 }
 
-button {
+.button {
     background: none;
     border: 1px none;
     cursor: pointer;
 }
-    */
+*/
+
+.searchbar {
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 80%;
+    background: #f9f9f9;
+    gap: 1rem;
+  
+    .dropdown {
+      justify-self: left;
+      background: none;
+      font-size: 1.2rem;
+      border: none;
+      outline: none;
+      padding: 0.25rem;
+      border-radius: 5px;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+  
+    input {
+      justify-self: center;
+      background: none;
+      font-size: 1.5rem;
+      border: none;
+      outline: none;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  
+    .button {
+      justify-self: right;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      margin-right: 1rem;
+      border-radius: 25px;
+  
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  

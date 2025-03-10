@@ -1,4 +1,13 @@
-<div>
-  <input type="text" placeholder="Search..."/>
-  <button type="submit"><img src="assets/svg/search.svg" alt="Search" /></button>
+<div class="searchbar">
+  <select class="dropdown">
+    @for (option of searchCategories; track $index) {
+      <option width="fit-content"> {{ option }} </option>   
+    }
+  </select>
+
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." />
+
+  <button type="submit" class="button" (click)="onSearch()">
+    <img src="assets/svg/search.svg" alt="Search"/>
+  </button>
 </div>
