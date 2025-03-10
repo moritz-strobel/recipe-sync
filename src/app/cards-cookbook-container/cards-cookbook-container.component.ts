@@ -26,23 +26,6 @@ export class CardsCookbookContainerComponent {
     this.cookbooks$ = this.readService.readReadCookbooks();
   }
 
-  /*
-  @Input() cookbooks$!: Observable<
-    {
-      id: string;
-      createdAt: Date;
-      updatedAt: Date;
-      user: { id: string; name: string };
-      title: string;
-      isFavorite: boolean;
-      isDeleteable: boolean;
-      isPublic: boolean;
-      description: string;
-      coverImage: string;
-      recipes: { id: string; name: string }[];
-    }[]
-  >;*/
-
   @ViewChild('cardContainer') cardContainer!: ElementRef;
 
   scrollLeft() {
@@ -51,9 +34,5 @@ export class CardsCookbookContainerComponent {
 
   scrollRight() {
     this.cardContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
-  }
-
-  trackByCookbookId(index: number, cookbook: { id: string }): string {
-    return cookbook.id;
   }
 }

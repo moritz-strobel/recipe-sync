@@ -6,6 +6,7 @@ import { CardRecipeComponent } from '../card-recipe/card-recipe.component';
 // Services
 import { ReadService } from '../rest-services/read.service';
 
+// Types
 import { Recipe } from '../custom-types/recipe.type';
 
 @Component({
