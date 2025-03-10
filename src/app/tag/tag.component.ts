@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
+
+import { Tag } from '../custom-types/tag.type';
 
 @Component({
   selector: 'app-tag',
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './tag.component.html',
   styleUrl: './tag.component.scss'
 })
-export class TagComponent {
 
+export class TagComponent {
+ @Input() tag!: Tag;
 }
