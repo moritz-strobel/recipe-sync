@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CardCookbookComponent } from '../card-cookbook/card-cookbook.component';
-
-// Services
-import { ReadService } from '../rest-services/read.service';
 
 // Types
 import { CookBook } from '../custom-types/cookbook.type';
@@ -20,19 +17,24 @@ import { CookBook } from '../custom-types/cookbook.type';
 })
 
 export class CardsCookbookContainerComponent {
-  cookbooks$: Observable<CookBook[]>;
+ @Input({ alias: "heading", required: false }) heading!: string;
+ @Input({ alias: "cookbooks", required: true }) cookbooks$!: Observable<CookBook[]>;
 
-  constructor(private readonly readService: ReadService){
-    this.cookbooks$ = this.readService.readReadCookbooks();
-  }
+  constructor(){ }
 
   @ViewChild('cardContainer') cardContainer!: ElementRef;
 
-  scrollLeft() {
-    this.cardContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+  scrollLeft(): void {
+    this.cardContainer.nativeElement.scrollBy({
+      left: -300, // Adjust this value as needed
+      behavior: 'smooth'
+    });
   }
 
-  scrollRight() {
-    this.cardContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+  scrollRight(): void {
+    this.cardContainer.nativeElement.scrollBy({
+      left: 300, // Adjust this value as needed
+      behavior: 'smooth'
+    });
   }
 }

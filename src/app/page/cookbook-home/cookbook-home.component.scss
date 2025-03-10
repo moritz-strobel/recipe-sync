@@ -1,32 +1,5 @@
 @use '../../../styles';
 
-.cookbook-overview {
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  .cookbook-overview h1 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
-  .cookbook-section {
-    margin-bottom: 40px;
-  }
-  
-  .cookbook-section h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #555;
-    text-align: left;
-    padding-left: 10px;
-    border-left: 4px solid #4caf50;
-  }
-  
-  .cookbook-section app-cards-cookbook-container {
-    margin: 0 auto;
-    width: 100%;
-  }
-  
+app-cards-cookbook-container {
+    background-color: styles.$color-background-main;
+}
