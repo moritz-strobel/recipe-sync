@@ -172,9 +172,13 @@ article {
 }
 
 .card {
-  max-width: calc(22 * 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: calc(25 * 1rem);
   margin: calc(2 * margin);
-  height: fit-content;
+  height: 100%;
   padding: 1rem;
 
   mat-card-title {
@@ -187,10 +191,21 @@ article {
     color: gray;
   }
   
-  mat-card-content p {
-    font-size: 1em;
-    line-height: 1.5;
-    margin: 0;
+  mat-card-content {
+    ul{
+      list-style: none;
+    
+    li{
+      padding-left: 1rem;
+    }
+    }
+
+    p{
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
   }
   
   mat-card-actions {
