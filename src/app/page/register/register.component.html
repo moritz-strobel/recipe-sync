@@ -1,11 +1,12 @@
 <!--
   https://material.angular.io/components/stepper/overview
 -->
-<main class="page">
+<main class="page small">
   <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
   </button>
-  <mat-stepper [linear]="isLinear" #stepper>
+
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Fill out your name</ng-template>
@@ -18,8 +19,9 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
         <mat-form-field>
           <mat-label>Address</mat-label>
           <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
@@ -39,4 +41,13 @@
       </div>
     </mat-step>
   </mat-stepper>
+
+  <div class="actions">
+    <span>
+      Already have an Account? <a href="./login">login</a>
+    </span>
+    <span>
+      Forgot Password? <a href="./forgot-password">reset</a>
+    </span>
+  </div>
 </main>

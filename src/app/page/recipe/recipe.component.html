@@ -1,45 +1,74 @@
 <main class="page recipe-container">
-  <img [src]="recipe.coverImage" alt="Recipe Cover" class="cover-image" />
   <h1>{{ recipe.title }}</h1>
-  <p><strong>Nutri-Score:</strong> {{ recipe.nutri_score }}</p>
-  <p><strong>General Score:</strong> {{ recipe.general_score }}</p>
+  <section>
+    <img
+      src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
+      alt="Recipe Cover" class="responsive-img" />
 
-  <div class="meta-info">
+    <div>
+      <p><strong>Nutri-Score:</strong> {{ recipe.nutri_score }}</p>
+      <p><strong>General Score:</strong> {{ recipe.general_score }}</p>
+    </div>
+  </section>
+
+  <section class="meta-info">
     <p><strong>Created At:</strong> {{ recipe.createdAt | date }}</p>
     <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }}</p>
     <p><strong>User:</strong> {{ recipe.user.username }}</p>
     <p><strong>Public:</strong> {{ recipe.isPublic ? 'Yes' : 'No' }}</p>
-  </div>
+  </section>
 
-  <h2>Ingredients</h2>
-  <ul>
-    <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
-  </ul>
+  <section>
+    <h2>Ingredients</h2>
+    <ul>
+      @for (ingredient of (recipe.ingredients); track recipe.id){
+      <li>{{ ingredient }}</li>
+      }
+    </ul>
+  </section>
 
-  <h2>Steps</h2>
-  <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
+  <section>
+    <h2>Steps</h2>
+    <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
+  </section>
 
-  <h2>Preparation & Cooking Time</h2>
-  <p><strong>Preparation Time:</strong> {{ recipe.preperationTime }} minutes</p>
-  <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookingTime }} minutes</p>
+  <section>
+    <h2>Preparation & Cooking Time</h2>
+    <p><strong>Preparation Time:</strong> {{ recipe.preperationTime }} minutes</p>
+    <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookingTime }} minutes</p>
+  </section>
 
-  <h2>Recipe</h2>
-  <p>{{ recipe.recipeText }}</p>
+  <section>
+    <h2>Recipe</h2>
+    <p>{{ recipe.recipeText }}</p>
+  </section>
 
-  <div *ngIf="recipe.images?.length">
+  <section>
     <h2>Additional Images</h2>
+    @if (recipe.images) {
     <div class="images">
-      <img *ngFor="let image of recipe.images" [src]="image" alt="Recipe Image" />
+      @for (image of (recipe.images); track recipe.id){
+      <img [src]='image' alt="">
+      }
     </div>
-  </div>
+    }
+  </section>
 
-  <div *ngIf="recipe.videoUrl">
+  <section>
+    @if (recipe.videoUrl) {
     <h2>Video</h2>
     <a [href]="recipe.videoUrl" target="_blank">Watch Video</a>
-  </div>
+    }
+  </section>
 
-  <div class="tags">
-    <h2>Tags</h2>
-    <span *ngFor="let tag of recipe.tags" class="tag">{{ tag.name }}</span>
-  </div>
+  <section>
+    <h2>
+      Tags:
+    </h2>
+    <span>
+      @for (tag of (recipe.tags); track tag.id){
+      {{ tag.name }}
+      }
+    </span>
+  </section>
 </main>

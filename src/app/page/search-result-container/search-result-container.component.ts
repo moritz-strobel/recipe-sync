@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './search-result-container.component.html',
   styleUrl: './search-result-container.component.scss'
 })
+
 export class SearchResultContainerComponent {
 
 }

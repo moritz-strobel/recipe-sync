@@ -1,1 +1,11 @@
 @use '../../../styles';
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.small{
+    width: 40rem;
+  }

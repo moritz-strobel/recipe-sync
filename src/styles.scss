@@ -24,7 +24,6 @@
   box-shadow: none;
 }
 
-
 // Define global colorscheme 
 $dark-theme: false;
 $primary-color: hsl(120, 60%, 64%, 100%);
@@ -54,7 +53,7 @@ $page-width: 80%;
   $dark-theme: false;
 }
 
-@media(max-width: 800) {
+@media(max-width: 900) {
   $page-width: 100%;
 }
 
@@ -212,4 +211,10 @@ article {
     display: flex;
     justify-content: space-between;
   }
+}
+
+.actions {
+  margin-top: $u;
+  display: flex;
+  justify-content: space-between;
 }
