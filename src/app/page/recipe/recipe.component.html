@@ -1,1 +1,46 @@
-<p>recipe works!</p>
+<div class="recipe-container">
+    <img [src]="recipe.coverImage" alt="Recipe Cover" class="cover-image" />
+    <h1>{{ recipe.title }}</h1>
+    <p><strong>Nutri-Score:</strong> {{ recipe.nutri_score }}</p>
+    <p><strong>General Score:</strong> {{ recipe.general_score }}</p>
+    
+    <div class="meta-info">
+      <p><strong>Created At:</strong> {{ recipe.createdAt | date }}</p>
+      <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }}</p>
+      <p><strong>User:</strong> {{ recipe.user.username }}</p>
+      <p><strong>Public:</strong> {{ recipe.isPublic ? 'Yes' : 'No' }}</p>
+    </div>
+  
+    <h2>Ingredients</h2>
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+    </ul>
+  
+    <h2>Steps</h2>
+    <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
+  
+    <h2>Preparation & Cooking Time</h2>
+    <p><strong>Preparation Time:</strong> {{ recipe.preperationTime }} minutes</p>
+    <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookingTime }} minutes</p>
+  
+    <h2>Recipe</h2>
+    <p>{{ recipe.recipeText }}</p>
+  
+    <div *ngIf="recipe.images?.length">
+      <h2>Additional Images</h2>
+      <div class="images">
+        <img *ngFor="let image of recipe.images" [src]="image" alt="Recipe Image" />
+      </div>
+    </div>
+  
+    <div *ngIf="recipe.videoUrl">
+      <h2>Video</h2>
+      <a [href]="recipe.videoUrl" target="_blank">Watch Video</a>
+    </div>
+  
+    <div class="tags">
+      <h2>Tags</h2>
+      <span *ngFor="let tag of recipe.tags" class="tag">{{ tag.name }}</span>
+    </div>
+  </div>
+  
