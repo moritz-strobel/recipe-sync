@@ -1,28 +1,17 @@
-<div class="horizontal-container">
-    <div class="card-container">
-        @for (recipe of (recipes$ | async); track recipe.id){
-        <app-card-recipe [recipe]="recipe"></app-card-recipe>
-        }
-    </div>
-</div>
-<!--
 <section>
     @if(heading){
     <h2>{{ heading }}</h2>
     }
 
-    <div class="section">
-        <button class="nav-button left">&lt;</button>
+    <div class="container">
+        <button class="nav-button" (click)="scrollLeft()">&lt;</button>
 
-        <div class="horizontal-container">
-            <div class="card-container">
-                @for (cookbook of (cookbooks$ | async); track cookbook.id){
-                <app-card-cookbook [cookbook]="cookbook"></app-card-cookbook>
-                }
-            </div>
+        <div class="card-container" #cardContainer>
+            @for (recipe of (recipes$ | async); track recipe.id){
+            <app-card-recipe [recipe]="recipe"></app-card-recipe>
+            }
         </div>
 
-        <button class="nav-button right">&gt;</button>
+        <button class="nav-button" (click)="scrollRight()">&gt;</button>
     </div>
 </section>
--->

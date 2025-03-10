@@ -1,32 +1,27 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CardsRecipeContainerComponent } from '../../cards-recipe-container/cards-recipe-container.component';
+
+// Type
 import { Recipe } from '../../custom-types/recipe.type';
+
+// Service
 import { ReadService } from '../../rest-services/read.service';
-import { CardRecipeComponent } from '../../card-recipe/card-recipe.component';
 
 @Component({
   selector: 'app-landing',
-  imports: [CardRecipeComponent],
+  imports: [
+    CardsRecipeContainerComponent
+  ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
+
 export class LandingComponent {
 
-  lunchRecipes$: Observable<Recipe[]>;
-  breakfastRecipes$: Observable<Recipe[]>;
-  dinnerRecipes$: Observable<Recipe[]>;
+  recipes$: Observable<Recipe[]>;
 
   constructor(private readonly readService: ReadService) {
-    this.lunchRecipes$ = this.readService.readReadRecipes();
-    this.breakfastRecipes$ = this.readService.readReadRecipes();
-    this.dinnerRecipes$ = this.readService.readReadRecipes();
-  }
-
-  scrollLeft(container: HTMLElement): void {
-    container.scrollLeft -= 200;
-  }
-
-  scrollRight(container: HTMLElement): void {
-    container.scrollLeft += 200;
+    this.recipes$ = this.readService.readReadRecipes();
   }
 }

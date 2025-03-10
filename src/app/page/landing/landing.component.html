@@ -1,37 +1,11 @@
-<main class="page landing-page">
+<main class="page">
   <section>
-    <h2>Best of Today: Breakfast</h2>
-
-    <div class="section">
-      <button class="nav-button left">&lt;</button>
-      
-      <div class="items-container">
-        <app-card-recipe *ngFor="let recipe of breakfastRecipes" [recipe]="recipe"></app-card-recipe>
-      </div>
-
-      <button class="nav-button right">&gt;</button>
-    </div>
+    <h1>Landing or Home</h1>
   </section>
 
-  <section>
-    <h2>Best of Today: Lunch</h2>
-    <div class="section">
-      <button class="nav-button left">&lt;</button>
-      <div class="items-container">
-        <app-card-recipe *ngFor="let recipe of lunchRecipes" [recipe]="recipe"></app-card-recipe>
-      </div>
-      <button class="nav-button right">&gt;</button>
-    </div>
-  </section>
+  <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes$"></app-cards-recipe-container>
 
-  <section>
-    <h2>Best of Today: Dinner</h2>
-    <div class="section">
-      <button class="nav-button left">&lt;</button>
-      <div class="items-container">
-        <app-card-recipe *ngFor="let recipe of dinnerRecipes" [recipe]="recipe"></app-card-recipe>
-      </div>
-      <button class="nav-button right">&gt;</button>
-    </div>
-  </section>
+  <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes$"></app-cards-recipe-container>
+
+  <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes$"></app-cards-recipe-container>
 </main>

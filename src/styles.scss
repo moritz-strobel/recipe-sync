@@ -78,7 +78,7 @@ body {
   background-color: $color-background-main;
 }
 
-h1{
+h1 {
   font-size: calc(2 * $u);
 }
 
@@ -134,4 +134,35 @@ article {
   box-shadow: 0 0 $u rgba(0, 0, 0, 0.1);
 
   background-color: $primary-color;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  gap: $u;
+
+  .nav-button {
+    cursor: pointer;
+    background-color: $color-background-main;
+    border: 0rem;
+    border-radius: $border-radius;
+    padding: $padding;
+    font-weight: bold;
+    font-size: calc(1.5 * $u);
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: nowrap;
+
+    gap: $u;
+
+    overflow: hidden;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
