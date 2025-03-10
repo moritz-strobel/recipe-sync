@@ -20,6 +20,10 @@
   width: 100px;
 }
 
+.no-shadow{
+  box-shadow: none;
+}
+
 
 // Define global colorscheme 
 $dark-theme: false;
@@ -122,8 +126,8 @@ article {
   margin-top: calc(0.25 * $margin);
   margin-bottom: calc(0.5 * $margin);
 
-  min-width: calc(1.5 * 16 * $u);
-  min-height: calc(1.5 * 9 * $u);
+  min-width: calc(16 * $u);
+  min-height: calc(9 * $u);
 
   height: auto;
 
@@ -164,5 +168,33 @@ article {
     ::-webkit-scrollbar {
       display: none;
     }
+  }
+}
+
+.card {
+  max-width: calc(22 * 1rem);
+  margin: calc(2 * margin);
+  height: fit-content;
+  padding: 1rem;
+
+  mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1em;
+    color: gray;
+  }
+  
+  mat-card-content p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
   }
 }

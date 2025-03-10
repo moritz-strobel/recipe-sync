@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CookBook } from '../custom-types/cookbook.type';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-card-cookbook',
   imports: [
+    MatButtonModule,
     MatCardModule,
     CommonModule
   ],
@@ -16,31 +18,19 @@ import { CookBook } from '../custom-types/cookbook.type';
 export class CardCookbookComponent {
   @Input({ alias: "cookbook", required: true }) cookbook!: CookBook;
 
-  @Input() cookBook!: {
-    id: string;
-    createdAt: Date;
-    updatedAt: Date;
-    user: { id: string; name: string }; // Assuming a simple User type
-    title: string;
-    isFavorite: boolean;
-    isDeleteable: boolean;
-    isPublic: boolean;
-    description: string;
-    coverImage: string;
-    recipes: { id: string; name: string }[]; // Assuming a simple Recipe type
-  };
+  constructor() { }
 
   toggleFavorite() {
-    this.cookBook.isFavorite = !this.cookBook.isFavorite;
-    console.log(`CookBook "${this.cookBook.title}" is now ${this.cookBook.isFavorite ? 'a favorite' : 'not a favorite'}`);
+    this.cookbook.isFavorite = !this.cookbook.isFavorite;
+    console.log(`Cookbook "${this.cookbook.title}" is now ${this.cookbook.isFavorite ? 'a favorite' : 'not a favorite'}`);
   }
 
   deleteCookBook() {
-    if (!this.cookBook.isDeleteable) {
+    if (!this.cookbook.isDeleteable) {
       console.warn('This cookbook cannot be deleted.');
       return;
     }
-    console.log(`CookBook "${this.cookBook.title}" deleted.`);
+    console.log(`Cookbook "${this.cookbook.title}" deleted.`);
     // Add logic to delete the cookbook via an API call
   }
 }
