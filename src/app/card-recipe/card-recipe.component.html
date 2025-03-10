@@ -1,22 +1,19 @@
 <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
-    <div 
-    mat-card-avatar 
-    class="example-header-image"
-    [style]="'background-image: url(' + recipe.coverImage + ');'"
-    ></div>
+    <div mat-card-avatar class="example-header-image" [style]="'background-image: url(' + recipe.coverImage + ');'">
+    </div>
     <mat-card-title>{{ recipe.title }}</mat-card-title>
     <mat-card-subtitle>
       <span>
         <p>Creator: {{ recipe.user.username }}</p>
         <p>Tags: </p>
         @for (tag of (recipe.tags); track recipe.id){
-          <p>{{ tag }} </p>
+        <p>{{ tag }} </p>
         }
-      </span>  
+      </span>
     </mat-card-subtitle>
   </mat-card-header>
-  <img [src]="recipe.coverImage"/>
+  <img [src]="recipe.coverImage" />
   <mat-card-content>
     <p>Overall: {{ recipe.general_score }}</p><br>
     <p>Nutri-SCore: {{ recipe.nutri_score }}</p><br>
@@ -25,37 +22,13 @@
     <p>ingredients:</p><br>
     <ul>
       @for (ingredient of (recipe.ingredients); track recipe.id){
-        <li>{{ ingredient }}</li>
+      <li>{{ ingredient }}</li>
       }
     </ul>
   </mat-card-content>
   <mat-card-actions>
-      <span>
-        <!-- Save into a cookbook | Like  | Share -->
-      </span>
+    <span>
+      <!-- Save into a cookbook | Like  | Share -->
+    </span>
   </mat-card-actions>
 </mat-card>
-
-
-  <!--
-function imageToBase64(imagePath: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const fs = require('fs');
-        
-        fs.readFile(imagePath, (err: NodeJS.ErrnoException, data: Buffer) => {
-            if (err) {
-                return reject(err);
-            }
-            const base64String = data.toString('base64');
-            resolve(base64String);
-        });
-    });
-}
-
-// Usage
-const imagePath = 'path/to/your/image.jpg';
-imageToBase64(imagePath)
-    .then(base64String => console.log(base64String))
-    .catch(err => console.error(err));
-
-  -->

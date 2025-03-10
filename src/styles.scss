@@ -1,13 +1,15 @@
 @use 'sass:color';
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
-.logo{
+
+// independent classes
+.logo {
   grid-area: logo;
   justify-self: start;
 
@@ -19,11 +21,9 @@
 }
 
 
-/*
 // Define global colorscheme 
 $dark-theme: false;
-$font: 'Roboto', sans-serif;
-$primary-color: hsl(120, 60%, 64%, 100%); 
+$primary-color: hsl(120, 60%, 64%, 100%);
 $accent-color: hsl(120, 75%, 24%, 100%);
 $highlight-color: hsl(0, 60%, 64%, 100%);
 $highlight-color-2: hsl(0, 60%, 24%, 100%);
@@ -34,51 +34,104 @@ $text-color-secondary: hsl(0, 0%, 40%, 100%);
 
 
 // Define global attributes 
-$border-radius: 1rem;
+$u: 1rem;
+$border-radius: $u;
+$margin: $u;
+$padding: $u;
+$page-width: 80%;
 
 
 // Media queries
 @media (prefers-color-scheme: dark) {
-    $dark-theme: true;
-  }
-  
-  @media (prefers-color-scheme: light) {
-    $dark-theme: false;
-  }
+  $dark-theme: true;
+}
+
+@media (prefers-color-scheme: light) {
+  $dark-theme: false;
+}
+
+@media(max-width: 800) {
+  $page-width: 100%;
+}
 
 
 // Set colorscheme based on $dark-theme
 @if $dark-theme {
-    $primary-color: hsl(120, 75%, 24%, 100%);
-    $accent-color: hsl(120, 60%, 64%, 100%);
-    $highlight-color: hsl(0, 60%, 24%, 100%);
-    $highlight-color-2: hsl(0, 60%, 64%, 100%);
-    $color-background-main: hsl(0, 0%, 20%, 100%);
-    $color-background-secondary: hsl(0, 0%, 40%, 100%);
-    $text-color-primary: hsl(0, 0%, 93%, 100%);
-    $text-color-secondary: hsl(0, 0%, 80%, 100%);
-}@else{
-    //Do nothing
+  $primary-color: hsl(120, 75%, 24%, 100%);
+  $accent-color: hsl(120, 60%, 64%, 100%);
+  $highlight-color: hsl(0, 60%, 24%, 100%);
+  $highlight-color-2: hsl(0, 60%, 64%, 100%);
+  $color-background-main: hsl(0, 0%, 20%, 100%);
+  $color-background-secondary: hsl(0, 0%, 40%, 100%);
+  $text-color-primary: hsl(0, 0%, 93%, 100%);
+  $text-color-secondary: hsl(0, 0%, 80%, 100%);
+}
+
+@else {
+  //Do nothing
 }
 
 
-// Set global styles
-body{
-    color: $text-color-primary;
-    background-color: $color-background-main;
-} 
+// Set global style
+body {
+  color: $text-color-primary;
+  background-color: $color-background-main;
+}
+
+h1{
+  font-size: calc(2 * $u);
+}
+
+h1,
+h2,
+h3 {
+  margin: calc(0.5 * $margin) 0rem;
+}
+
+section {
+  margin-bottom: calc(2 * $margin);
+}
+
+article {
+  margin-bottom: $margin;
+}
 
 
-// Global classes 
-.button {
+// Set global classes
+.page {
+  justify-self: center;
+  width: $page-width;
+
+  margin: 0;
+  margin-top: calc(2.5 * $margin);
+  margin-bottom: calc(2.5 * $margin);
+
+  padding: calc(1.25 * $padding);
+
+  background-color: $color-background-secondary;
+
+  border: 0rem;
+  border-radius: $border-radius;
+  box-shadow: 0rem 1rem calc(0.5 * $u) rgba(0, 0, 0, 0.1625);
+}
+
+.responsive-img {
+  justify-self: center;
+
+  margin: 0rem;
+  margin-top: calc(0.25 * $margin);
+  margin-bottom: calc(0.5 * $margin);
+
+  min-width: calc(1.5 * 16 * $u);
+  min-height: calc(1.5 * 9 * $u);
+
+  height: auto;
+
+  max-width: calc(2.5 * 16 * $u);
+  max-height: calc(2.5 * 9 * $u);
+
+  border-radius: $border-radius;
+  box-shadow: 0 0 $u rgba(0, 0, 0, 0.1);
+
   background-color: $primary-color;
-  border: 1px solid $accent-color;
-  border-radius: $border-radius; 
 }
-
-.button:hover {
-    background-color: $highlight-color;
-    border-color: $text-color-secondary;
-    color: $text-color-secondary;
-  }
-    */

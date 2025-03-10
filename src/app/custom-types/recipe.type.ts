@@ -15,7 +15,7 @@ export type Recipe = {
     steps: bigint; // How many steps 
     preperationTime: bigint; // how long for preperation e.g. cut vegetables 
     overallCookingTime: bigint; // how long for cooking 
-    recipeText: Text; // Actual recipe text
+    recipeText: string; // Actual recipe text
     images?: string[]; // image as base64string
     videoUrl?: string // optional video link to e.g. YT
     coverImage: string; // image as base64string

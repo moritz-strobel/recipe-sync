@@ -8,6 +8,6 @@ export type User = {
     username: string;
     email: string;
     passwordHash: string;   
-    profileText: Text;
+    profileText: string;
     profileImage: string; // base64string image
 }

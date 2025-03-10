@@ -61,7 +61,7 @@ export class CookbookComponent {
         username: 'JohnDoe', 
         email: 'john.doe@example.com', 
         passwordHash: 'hashed_password_here', 
-        profileText: new Text("Sample profile text"), 
+        profileText: 'Sample profile text', 
         profileImage: 'base64string_of_profile_image'
     },
     
