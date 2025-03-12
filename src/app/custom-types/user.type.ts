@@ -1,3 +1,6 @@
+import { CookBook } from "./cookbook.type";
+import { Recipe } from "./recipe.type";
+
 export type User = {
     id: string;
     createdAt: Date;
@@ -10,4 +13,7 @@ export type User = {
     passwordHash: string;   
     profileText: string;
     profileImage: string; // base64string image
+
+    //recipes: Recipe[];
+    //cookbooks: CookBook[];
 }
