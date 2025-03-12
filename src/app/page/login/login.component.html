@@ -1,40 +1,7 @@
 <!--
   https://material.angular.io/components/form-field/overview
 -->
-<main class="page small">
-  <div class="example-container">
-    <mat-form-field>
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
-      @if (email.invalid) {
-      <mat-error>{{errorMessage()}}</mat-error>
-      }
-    </mat-form-field>
-  </div>
 
-  <div class="example-container">
-    <mat-form-field>
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide() ? 'password' : 'text'" />
-      <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide()">
-        <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-
-    <mat-form-field floatLabel="always">
-      <mat-label>Amount</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" />
-      <span matTextPrefix>$&nbsp;</span>
-      <span matTextSuffix>.00</span>
-    </mat-form-field>
-  </div>
-  <div class="actions">
-    <span>
-      Forgot Password? <a href="./forgot-password">reset</a>
-    </span>
-    <span>
-      Don't have an Account? <a href="./register">register</a>
-    </span>
-  </div>
-</main>
+<div class=" page login-div">
+  <app-login-form></app-login-form>
+</div>

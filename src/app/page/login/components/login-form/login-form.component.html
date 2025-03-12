@@ -1,0 +1,17 @@
+<h1>Sign In</h1>
+<form (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
+    <div>
+        <input formControlName="username_or_email" id="email" required type="text">
+        <label for="email">Email</label>
+    </div>
+    <div>
+        <input formControlName="password" id="password" required type="password">
+        <label for="password">Password</label>
+    </div>
+    <app-submit-button>Continue</app-submit-button>
+</form>
+<ng-container #errorMessage/>
+<div>
+    Don't have an account yet?
+    <app-switch-form-button>Create Account</app-switch-form-button>
+</div>

@@ -1,0 +1,11 @@
+@use "../link-button/link-button.component" as styles;
+
+:host {
+    width: fit-content;
+}
+
+button {
+    @include styles.link-button;
+    color: #1A2A3A;
+    text-decoration: underline;
+}

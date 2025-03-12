@@ -1,0 +1,20 @@
+:host {
+    width: fit-content;
+}
+
+@mixin button {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 1em 1.5em;
+    width: 100%;
+    border: none;
+    font-size: 0.8em;
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+button {
+    @include button;
+}

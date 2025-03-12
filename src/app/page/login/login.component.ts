@@ -5,16 +5,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { merge } from 'rxjs';
+import { LoginFormComponent } from "./components/login-form/login-form.component";
 
 @Component({
   selector: 'app-login',
   imports: [
-    MatFormFieldModule, 
-    MatInputModule, 
-    FormsModule, 
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
     ReactiveFormsModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    LoginFormComponent
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
