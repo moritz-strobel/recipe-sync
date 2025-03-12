@@ -799,15 +799,16 @@ export class ReadService {
   ///////////////////////////////////////////////////////////////////////////////////
 
   readReadCookbooks() {
-    /*const result$ = this.http.get<{ cookbooks: CookBook[] }>(this.addrs + 'cookbooks');
-    return result$.pipe(
-      map((body: { cookbooks: CookBook[] }) => {
-        return body.cookbooks;
-      })
-    );*/
+    /*return this.http.get<{ cookbooks: CookBook[] }>(this.addrs + 'cookbooks')
+      .subscribe({
+        next: result => result.cookbooks,
+        error: err => console.log(err)
+      });*/
 
     return this.cookbooks$;
   }
+
+  
 
   readReadRecipes() {
     /*const result$ = this.http.get<{ recipes: Recipe[] }>(this.addrs + 'recipes');
