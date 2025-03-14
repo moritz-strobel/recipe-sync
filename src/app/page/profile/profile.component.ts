@@ -1,19 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ImageEditableComponent } from "../../image-editable/image-editable.component";
+import { EditableImageComponent } from "../../editable-image/editable-image.component";
 
 @Component({
   selector: 'app-profile',
   imports: [
     CommonModule,
-    FormsModule
-  ],
+    FormsModule,
+    ImageEditableComponent,
+    EditableImageComponent
+],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 
 export class ProfileComponent {
-  isEditMode: boolean = false;
+@ViewChild("#profileImage") profileImage!: ImageEditableComponent;
+
+  canSave: boolean = false;
 
   user = {
     id: '',
@@ -26,29 +32,12 @@ export class ProfileComponent {
     profileImage: '' // Base64 string representation of the image
   };
 
-  toggleEditMode() {
-    this.isEditMode = true; // Switch to edit mode
+  showSaveBtn() {
+    this.canSave = true;
   }
 
   saveChanges() {
-    this.isEditMode = false; // Switch back to view mode
-    console.log('User data saved:', this.user);
-    // Add logic to save the user data to your backend (e.g., via an API call)
-  }
-
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-
-    if (input?.files?.length) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        this.user.profileImage = reader.result as string; // Convert file to base64 string
-        console.log('Profile image updated:', this.user.profileImage);
-      };
-
-      reader.readAsDataURL(file); // Convert the image to Base64
-    }
+    this.canSave = false;
+    // Add logic to save the user data to backend
   }
 }

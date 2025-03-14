@@ -1,26 +1,31 @@
 <main class="landing">
-  <article calss="top">
-    <section class="left">
+  <article>
+    <section class="top">
       <img
         src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
-        alt="Recipe Cover" class="responsive-img" />
-      <div>
-        <h1>Tets</h1>
+        alt="Recipe Cover" class="responsive-img left" />
+      <div class="right">
+        <h1>
+          <!--
+            {{ (recipe$ | async)?.title }}
+          -->
+          <Title></Title>
+        </h1>
         <p>
-          -,jdkbvökejnveäklvneväervälre <br>ölknv+pwvmcäwlkcnjwe+cidnwcäwlkcnweäöclewnwelkcne
-          <br>lsknvälkncwecjnWÄKJNCÄOINCWEÄLKCNÄOCINACÄLKNCÄLNeoicwdoivhslknvdsäoinäoi
-          <br>älaskndslknvwicwec,ksdnölkfölkdjfasojrälgojsälfkjdsf09u+ojf
-          <br>äkljsälckjqw+icjocjqwijfwöelkfhdsöklfjdnölfkniufhökjn983vh4üon
+          <!--
+            {{ (recipe$ | async)?.describtion }}
+          -->
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis animi ea quae optio quam officia vel eos provident! Magnam cum voluptates iste quasi deleniti earum possimus ea accusantium esse veniam?
         </p>
       </div>
     </section>
 
-    <section class="right">
+    <section>
       <h2>
         Tags:
       </h2>
       <span>
-        
+
       </span>
     </section>
   </article>
@@ -32,10 +37,10 @@
       </h1>
     </section>
 
-    <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes"></app-cards-recipe-container>
 
-    <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes"></app-cards-recipe-container>
 
-    <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes"></app-cards-recipe-container>
   </div>
 </main>

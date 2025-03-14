@@ -1,4 +1,22 @@
-<main class="page profile-form-container">
+<app-editable-image></app-editable-image>
+
+<!--
+<main class="profile-form-container">
+    <label for="profileImage">Profile Image:</label>
+    <input type="file" id="profileImage" name="profileImage" (change)="onFileSelected($event)"
+        [disabled]="!isEditMode" />
+
+
+    <app-image-editable id="profileImage"></app-image-editable>
+
+    <button type="button" *ngIf="!isEditMode" (click)="toggleEditMode()">
+        Edit
+    </button>
+    <button type="button" *ngIf="isEditMode" (click)="saveChanges()">
+        Save
+    </button>
+
+
     <h2>Profile</h2>
     <form #profileForm="ngForm">
         <label for="first_name">First Name:</label>
@@ -20,21 +38,9 @@
         <textarea id="profileText" name="profileText" [(ngModel)]="user.profileText"
             [readonly]="!isEditMode"></textarea>
 
-        <label for="profileImage">Profile Image:</label>
-        <input type="file" id="profileImage" name="profileImage" (change)="onFileSelected($event)"
-            [disabled]="!isEditMode" />
 
-        <!-- Preview the uploaded image -->
-        <div *ngIf="user.profileImage && !isEditMode">
-            <h3>Profile Picture:</h3>
-            <img [src]="user.profileImage" alt="Profile Picture" class="profile-image-preview" />
-        </div>
 
-        <button type="button" *ngIf="!isEditMode" (click)="toggleEditMode()">
-            Edit
-        </button>
-        <button type="button" *ngIf="isEditMode" (click)="saveChanges()">
-            Save
-        </button>
+
     </form>
 </main>
+-->

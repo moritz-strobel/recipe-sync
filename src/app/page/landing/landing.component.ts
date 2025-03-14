@@ -4,23 +4,24 @@ import { CardsRecipeContainerComponent } from '../../cards-recipe-container/card
 // Type
 import { Recipe } from '../../custom-types/recipe.type';
 import { RecipeService } from '../../services/recipe.service';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-landing',
     imports: [
-        CardsRecipeContainerComponent
+        CardsRecipeContainerComponent,
+        AsyncPipe
     ],
     templateUrl: './landing.component.html',
     styleUrl: './landing.component.scss'
 })
 
 export class LandingComponent {
+    recipe$ : Observable<Recipe>;
     recipes: Recipe[] = [];
 
     constructor(private readonly recipeService: RecipeService) {
-        this.recipeService.get("1").subscribe({
-            next: (recipe: Recipe) => this.recipes.push(recipe),
-            error: (err) => console.log(err),
-        });
+        this.recipe$ = this.recipeService.getRecipeById("1")
     }
 }
