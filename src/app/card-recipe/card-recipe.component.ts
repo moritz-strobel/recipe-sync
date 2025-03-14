@@ -2,14 +2,14 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Recipe } from '../custom-types/recipe.type';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-recipe',
   imports: [
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterLink
   ],
   templateUrl: './card-recipe.component.html',
   styleUrl: './card-recipe.component.scss'
@@ -37,6 +37,6 @@ export class CardRecipeComponent {
   }
 
   displayRecipePage(){
-    //this.recipe.user.username = "s";
+    console.log(this.recipe.id);
   }
 }

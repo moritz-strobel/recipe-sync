@@ -1,15 +1,38 @@
-<main class="page">
+<main class="landing">
+  <article calss="hero">
+    <section class="left">
+      <img
+        src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
+        alt="Recipe Cover" class="responsive-img" />
+      <div>
+        <h1></h1>
+        <p>
+          
+        </p>
+      </div>
+    </section>
 
+    <section class="right">
+      <h2>
+        Tags:
+      </h2>
+      <span>
+        
+      </span>
+    </section>
+  </article>
 
-  <section>
-    <h1>
-      Browse some Recipes
-    </h1>
-  </section>
+  <div class="page">
+    <section>
+      <h1>
+        Browse some Recipes
+      </h1>
+    </section>
 
-  <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes$"></app-cards-recipe-container>
 
-  <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes$"></app-cards-recipe-container>
 
-  <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes$"></app-cards-recipe-container>
+    <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes$"></app-cards-recipe-container>
+  </div>
 </main>

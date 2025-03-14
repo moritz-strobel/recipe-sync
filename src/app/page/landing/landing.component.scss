@@ -1,1 +1,23 @@
 @use '../../../styles';
+
+.landing{
+    margin: 0%;
+    padding: 0%;
+}
+
+.hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.left {
+    margin: 0%;
+    padding: 0%;   
+}
+
+.right {
+    margin: 0%;
+    padding: 0%;  
+}

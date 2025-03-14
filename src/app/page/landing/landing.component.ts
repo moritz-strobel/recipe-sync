@@ -20,8 +20,21 @@ import { ReadService } from '../../rest-services/read.service';
 export class LandingComponent {
 
   recipes$: Observable<Recipe[]>;
+  recipe!: Recipe;
 
-  constructor(private readonly readService: ReadService) {
-    this.recipes$ = this.readService.readReadRecipes();
+
+  constructor(private readonly read: ReadService) {
+    this.recipes$ = this.read.readReadRecipes();
+  }
+
+  ngOnInit(): void {
+    var id = 1;
+
+    if(id){
+      this.read.readRecipeById(id.toString()).subscribe({
+        next: result => this.recipe = result.recipe,
+        error: err => console.log(err)
+      });
+    }
   }
 }
