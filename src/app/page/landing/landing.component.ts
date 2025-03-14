@@ -11,7 +11,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-landing',
     imports: [
         CardsRecipeContainerComponent,
-        AsyncPipe
+        //AsyncPipe
     ],
     templateUrl: './landing.component.html',
     styleUrl: './landing.component.scss'

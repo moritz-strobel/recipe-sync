@@ -1,42 +1,47 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-editable-image',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './editable-image.component.html',
-  styleUrl: './editable-image.component.scss'
+  styleUrls: ['./editable-image.component.scss']
 })
 export class EditableImageComponent {
-  @Input() src?: string;
-  @Input() alt?: string;
+  @Input() src?: string; // Holds the source of the image
+  @Input() alt?: string; // Holds the alt text of the image
 
-  constructor() { }
+  showPlaceholder: boolean = true; // Initially show the placeholder icon
 
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
+  onImageError() {
+    this.showPlaceholder = true; // Show placeholder if the image fails to load
+  }
 
-    if (input?.files?.length) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        this.src = reader.result as string; // Convert file to base64 string
-        console.log('Profile image updated:', this.src);
-      };
-
-      reader.readAsDataURL(file); // Convert the image to Base64
-    }
+  onImageLoad() {
+    this.showPlaceholder = false; // Hide placeholder if the image loads successfully
   }
 
   onEdit() {
     const fileInput = document.createElement('input'); // Dynamically create an <input type="file">
     fileInput.type = 'file';
-    fileInput.accept = 'image/*'; // Ensure only image files can be selected
-
+    fileInput.accept = 'image/*'; // Allow only image files
     fileInput.addEventListener('change', (event: Event) => {
-      this.onFileSelected(event); // Delegate to the onFileSelected method
+      this.onFileSelected(event); // Handle file selection
     });
+    fileInput.click(); // Open the file picker
+  }
 
-    fileInput.click(); // Trigger the file picker dialog
+  private onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input?.files?.length) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.src = reader.result as string; // Update the image source
+        this.showPlaceholder = false; // Ensure the placeholder is hidden
+      };
+      reader.readAsDataURL(input.files[0]); // Convert the image to Base64
+    }
   }
 }

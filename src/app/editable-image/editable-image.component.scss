@@ -1,0 +1,43 @@
+.image-container {
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+    background-color: rgb(173, 173, 173);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;    
+}
+
+.image-container img[hidden] {
+    display: none; /* Ensures the image is hidden if the placeholder is shown */
+}
+
+.responsive-img {
+    margin: 0; /* Simplified margin handling */
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-icon {
+    font-size: 4rem; /* Placeholder size */
+    color: white;
+}
+
+.edit-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    color: white;
+    display: none; /* Hide by default */
+    cursor: pointer;
+}
+
+.image-container:hover .edit-button {
+    display: block; /* Show only on hover */
+}

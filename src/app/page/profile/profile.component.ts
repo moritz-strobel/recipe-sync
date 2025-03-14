@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ImageEditableComponent } from "../../image-editable/image-editable.component";
 import { EditableImageComponent } from "../../editable-image/editable-image.component";
 
 @Component({
@@ -9,15 +8,14 @@ import { EditableImageComponent } from "../../editable-image/editable-image.comp
   imports: [
     CommonModule,
     FormsModule,
-    ImageEditableComponent,
     EditableImageComponent
-],
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 
 export class ProfileComponent {
-@ViewChild("#profileImage") profileImage!: ImageEditableComponent;
+  @ViewChild("#profileImage") profileImage!: EditableImageComponent;
 
   canSave: boolean = false;
 
