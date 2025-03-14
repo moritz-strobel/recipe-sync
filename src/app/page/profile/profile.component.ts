@@ -2,14 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EditableImageComponent } from "../../editable-image/editable-image.component";
+import { CardsCookbookContainerComponent } from "../../cards-cookbook-container/cards-cookbook-container.component";
+import { CardsRecipeContainerComponent } from "../../cards-recipe-container/cards-recipe-container.component";
 
 @Component({
   selector: 'app-profile',
   imports: [
     CommonModule,
     FormsModule,
-    EditableImageComponent
-  ],
+    EditableImageComponent,
+    CardsCookbookContainerComponent,
+    CardsRecipeContainerComponent
+],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

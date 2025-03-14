@@ -13,10 +13,17 @@
     display: none; /* Ensures the image is hidden if the placeholder is shown */
 }
 
-.responsive-img {
-    margin: 0; /* Simplified margin handling */
-    width: auto;
-    height: auto;
+.image-container:hover .edit-button {
+    display: block; /* Show only on hover */
+}
+
+.img {
+    width: fit-content; /* Match the container's width */
+    height: fit-content; /* Match the container's height */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 0; /* Retain existing styles */
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
@@ -33,11 +40,9 @@
     border: none;
     padding: 8px;
     border-radius: 50%;
+    width: 2rem; /* Ensures uniform width */
+    height: 2rem; /* Ensures uniform height */
     color: white;
     display: none; /* Hide by default */
     cursor: pointer;
-}
-
-.image-container:hover .edit-button {
-    display: block; /* Show only on hover */
 }
