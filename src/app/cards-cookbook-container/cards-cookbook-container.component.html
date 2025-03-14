@@ -7,7 +7,7 @@
         <button class="nav-button"  (click)="scrollLeft()">&lt;</button>
 
         <div class="card-container" #cardContainer>
-            @for (cookbook of (cookbooks$ | async); track cookbook.id){
+            @for (cookbook of (cookbooks); track cookbook.id){
             <app-card-cookbook [cookbook]="cookbook"></app-card-cookbook>
             }
         </div>

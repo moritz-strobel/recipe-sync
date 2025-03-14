@@ -9,12 +9,12 @@ export type Recipe = {
     title: string;
 	user: User, // Referenz auf User
     isPublic: boolean;
-    general_score: "healthy" | "neutral" | "unhealthy";
-    nutri_score: "A" | "B" | "C" | "D" | "E";
-    ingredients: string[]; // Array of strings, each string beeing a ingredient 
-    steps: bigint; // How many steps 
-    preperationTime: bigint; // how long for preperation e.g. cut vegetables 
-    overallCookingTime: bigint; // how long for cooking 
+    generalScore: "healthy" | "neutral" | "unhealthy";
+    nutriScore: "A" | "B" | "C" | "D" | "E";
+    ingredients: string[]; // Array of strings, each string beeing a ingredient
+    steps: bigint; // How many steps
+    preparationTime: bigint; // how long for preperation e.g. cut vegetables
+    overallCookTime: bigint; // how long for cooking
     recipeText: string; // Actual recipe text
     images?: string[]; // image as base64string
     videoUrl?: string // optional video link to e.g. YT
