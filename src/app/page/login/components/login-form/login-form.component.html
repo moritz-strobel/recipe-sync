@@ -11,7 +11,14 @@
     <app-submit-button>Continue</app-submit-button>
 </form>
 <ng-container #errorMessage/>
-<div>
-    Don't have an account yet?
-    <app-switch-form-button>Create Account</app-switch-form-button>
-</div>
+
+<section>
+    <div>
+        Don't have an account yet?
+        <app-switch-form-button url="/register">Create Account</app-switch-form-button>
+    </div>
+    <div>
+        Forgot password?
+        <app-switch-form-button url="/forgot-password">Reset Password</app-switch-form-button>
+    </div>    
+</section>

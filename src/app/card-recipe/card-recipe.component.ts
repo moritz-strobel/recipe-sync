@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Recipe } from '../custom-types/recipe.type';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-recipe',
@@ -32,5 +34,9 @@ export class CardRecipeComponent {
     console.log(`Cookbook "${this.recipe.title}" deleted.`);
     // Add logic to delete the cookbook via an API call
     */
+  }
+
+  displayRecipePage(){
+    //this.recipe.user.username = "s";
   }
 }

@@ -8,12 +8,10 @@
     padding-bottom: 0.25rem;
     border: 1px solid #ccc;
     border-radius: 25px;
-    width: 80%;
     background: #f9f9f9;
     gap: 1rem;
   
     .dropdown {
-      justify-self: left;
       background: none;
       font-size: 1.2rem;
       border: none;
@@ -25,13 +23,13 @@
     }
   
     input {
-      justify-self: center;
       background: none;
       font-size: 1.5rem;
       border: none;
       outline: none;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
+
   
       &:focus {
         outline: none;
@@ -39,7 +37,6 @@
     }
   
     .button {
-      justify-self: right;
       background: none;
       border: 0;
       cursor: pointer;

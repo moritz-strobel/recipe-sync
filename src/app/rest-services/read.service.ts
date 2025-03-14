@@ -811,7 +811,7 @@ export class ReadService {
   
 
   readReadRecipes() {
-    /*const result$ = this.http.get<{ recipes: Recipe[] }>(this.addrs + 'recipes');
+    /*const result$ = this.http.get<{ recipes: Recipe[] }>(this.addrs + 'recipe');
     return result$.pipe(
       map((body: { recipes: Recipe[] }) => {
         return body.recipes;
@@ -819,6 +819,11 @@ export class ReadService {
     );*/
 
     return this.recipes$;
+  }
+  
+  readRecipeById(id: string){
+    //return this.recipes$[1]
+    return this.http.get<{ recipe: Recipe }>(this.addrs + `recipe/${id}`);
   }
 
   readReadTags() {

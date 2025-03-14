@@ -26,6 +26,6 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'report', component: ReportComponent },
-    { path: 'search', component: SearchResultContainerComponent },
+    { path: 'search', component: SearchResultContainerComponent },  
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

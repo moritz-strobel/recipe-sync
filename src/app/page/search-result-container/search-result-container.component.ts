@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-result-container',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './search-result-container.component.scss'
 })
 
-export class SearchResultContainerComponent {
-
+export class SearchResultContainerComponent implements OnInit {
+  ngOnInit(): void {
+    console.log("test query") 
+  }
 }
