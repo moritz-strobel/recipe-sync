@@ -12,6 +12,7 @@ header{
     border-bottom-right-radius: 10px;
     box-shadow: 0 0 10px #000;
     background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1rem);
     position: fixed;
     margin-top: -6rem;
 }

@@ -2,12 +2,14 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CookBook } from '../custom-types/cookbook.type';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-cookbook',
   imports: [
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterLink
   ],
   templateUrl: './card-cookbook.component.html',
   styleUrl: './card-cookbook.component.scss'

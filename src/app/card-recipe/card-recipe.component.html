@@ -1,5 +1,5 @@
-<button class="card-button" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
-  <mat-card class="card" appearance="outlined">
+<mat-card class="card" appearance="outlined">
+  <div class="card-button" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
     <mat-card-header>
       <mat-card-title>{{ recipe.title }}</mat-card-title>
       <mat-card-subtitle>
@@ -8,17 +8,17 @@
           Tags:
           <span>
             @for (tag of (recipe.tags); track tag.id){
-                {{ tag.name }}
-              }
+            {{ tag.name }}
+            }
           </span>
         </p>
       </mat-card-subtitle>
     </mat-card-header>
-  
+
     <img mat-card-image
       src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/stockfood/stockfood-12626099.jpg?h=c9f93661&itok=WVIrLcLH"
       class="responsive-img no-shadow" alt="Recipe cover image" />
-  
+
     <mat-card-content>
       <table class="info-table">
         <tr>
@@ -47,10 +47,10 @@
         </ul>
       </div>
     </mat-card-content>
-  
-    <mat-card-actions>
-      <button mat-button (click)="toggleFavorite()">{{ recipe.isPublic ? 'Unfavorite' : 'Favorite' }}</button>
-      <button mat-button color="warn" (click)="deleteCookBook()">Delete</button>
-    </mat-card-actions>
-  </mat-card>
-</button>
+  </div>
+
+  <mat-card-actions>
+    <button mat-button (click)="toggleFavorite()">{{ recipe.isPublic ? 'Unfavorite' : 'Favorite' }}</button>
+    <button mat-button color="warn" (click)="deleteCookBook()">Delete</button>
+  </mat-card-actions>
+</mat-card>

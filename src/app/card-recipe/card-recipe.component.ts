@@ -35,8 +35,4 @@ export class CardRecipeComponent {
     // Add logic to delete the cookbook via an API call
     */
   }
-
-  displayRecipePage(){
-    console.log(this.recipe.id);
-  }
 }

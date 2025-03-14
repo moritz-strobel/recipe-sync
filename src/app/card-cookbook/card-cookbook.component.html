@@ -1,25 +1,27 @@
 <mat-card class="card" appearance="outlined">
-  <mat-card-header>
-    <mat-card-title>{{ cookbook.title }}</mat-card-title>
-    <mat-card-subtitle>
-      <span>
-        {{ cookbook.user.username }}
-      </span>
-    </mat-card-subtitle>
-  </mat-card-header>
-
-  <img mat-card-image
+    <div class="card-button" [routerLink]="'/cookbook'" [queryParams]="{ id: cookbook.id }">
+    <mat-card-header>
+      <mat-card-title>{{ cookbook.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <span>
+          {{ cookbook.user.username }}
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    
+    <img mat-card-image
     src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/1500_1130/public/2018-02/pochierteeierpoachedeggsfruehstueckbrunchzubereitungmethodevegetarisch.jpg?h=2e7c44a8&itok=9nIWOQLC"
     class="responsive-img no-shadow" alt="Cookbook cover image" />
-
-  <mat-card-content>
-    <p>
-      {{ cookbook.description }}
-    </p>
-  </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-button (click)="toggleFavorite()">{{ cookbook.isFavorite ? 'Unfavorite' : 'Favorite' }}</button>
-    <button mat-button color="warn" (click)="deleteCookBook()">Delete</button>
-  </mat-card-actions>
-</mat-card>
+    
+    <mat-card-content>
+      <p>
+        {{ cookbook.description }}
+      </p>
+    </mat-card-content>
+    
+  </div>
+    <mat-card-actions>
+      <button mat-button (click)="toggleFavorite()">{{ cookbook.isFavorite ? 'Unfavorite' : 'Favorite' }}</button>
+      <button mat-button color="warn" (click)="deleteCookBook()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
