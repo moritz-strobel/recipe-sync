@@ -1,4 +1,4 @@
-<button class="card-button" (onclick)="displayRecipePage()">
+<button class="card-button" (click)="displayRecipePage()">
   <mat-card class="card" appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{ recipe.title }}</mat-card-title>
@@ -14,24 +14,24 @@
         </p>
       </mat-card-subtitle>
     </mat-card-header>
-  
+
     <img mat-card-image
       src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/stockfood/stockfood-12626099.jpg?h=c9f93661&itok=WVIrLcLH"
       class="responsive-img no-shadow" alt="Recipe cover image" />
-  
+
     <mat-card-content>
       <table class="info-table">
         <tr>
-          <td>Overall:</td>
-          <td>{{ recipe.general_score }}</td>
+          <td>Overall</td>
+          <td>{{ recipe.generalScore }}</td>
         </tr>
         <tr>
           <td>Nutri-Score:</td>
-          <td>{{ recipe.nutri_score }}</td>
+          <td>{{ recipe.nutriScore }}</td>
         </tr>
         <tr>
           <td>Overall cooking time:</td>
-          <td>{{ recipe.overallCookingTime }} minutes</td>
+          <td>{{ recipe.overallCookTime }} minutes</td>
         </tr>
         <tr>
           <td>Steps:</td>
@@ -47,7 +47,7 @@
         </ul>
       </div>
     </mat-card-content>
-  
+
     <mat-card-actions>
       <button mat-button (click)="toggleFavorite()">{{ recipe.isPublic ? 'Unfavorite' : 'Favorite' }}</button>
       <button mat-button color="warn" (click)="deleteCookBook()">Delete</button>

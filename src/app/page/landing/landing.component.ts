@@ -1,27 +1,26 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { CardsRecipeContainerComponent } from '../../cards-recipe-container/cards-recipe-container.component';
 
 // Type
 import { Recipe } from '../../custom-types/recipe.type';
-
-// Service
-import { ReadService } from '../../rest-services/read.service';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
-  selector: 'app-landing',
-  imports: [
-    CardsRecipeContainerComponent
-  ],
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss'
+    selector: 'app-landing',
+    imports: [
+        CardsRecipeContainerComponent
+    ],
+    templateUrl: './landing.component.html',
+    styleUrl: './landing.component.scss'
 })
 
 export class LandingComponent {
+    recipes: Recipe[] = [];
 
-  recipes$: Observable<Recipe[]>;
-
-  constructor(private readonly readService: ReadService) {
-    this.recipes$ = this.readService.readReadRecipes();
-  }
+    constructor(private readonly recipeService: RecipeService) {
+        this.recipeService.get("1").subscribe({
+            next: (recipe: Recipe) => this.recipes.push(recipe),
+            error: (err) => console.log(err),
+        });
+    }
 }

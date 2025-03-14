@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DeleteService } from './delete.service';
+import { CookbookService } from './cookbook.service';
 
-describe('DeleteService', () => {
-  let service: DeleteService;
+describe('CookbookService', () => {
+  let service: CookbookService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DeleteService);
+    service = TestBed.inject(CookbookService);
   });
 
   it('should be created', () => {
