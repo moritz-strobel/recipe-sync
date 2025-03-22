@@ -1,69 +1,47 @@
-<main class="page">
-    <article class="user-data">
-        <app-editable-image></app-editable-image>
+<main class="main">
+    <section class="user-container">
+        <section class="top-container">
+            <app-editable-image></app-editable-image>
+            
+            <section class="info">
+                <div class="userData">
+                    <app-editable-input [text]="'MyUserName'" [heading]="'Username'"></app-editable-input>
+                    <app-editable-input [text]="'Jane'"[heading]="'First Name'" ></app-editable-input>
+                    <app-editable-input [text]="'Doe'"[heading]="'Last Name'" ></app-editable-input>
+                    <app-editable-input [text]="'example@mail.com'"[heading]="'Email'" ></app-editable-input>
+                    <app-editable-input [text]="'**************'"[heading]="'Password'" ></app-editable-input>
+                </div>
+            </section>
+        </section>
 
-    </article>
-<!--
-    <article class="user-own-recipes">
-        <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes"></app-cards-recipe-container>
-    </article>
+        <article class="user-bio">
+            <p>
+                {{ user.profileText }}
+            </p>
+        </article>
+    </section>
 
-    <article class="user-own-cookbooks">
-        <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
-    </article>
+    <section class="recipes-container-container">
+        <!--
+        <article class="user-own-recipes">
+            <app-cards-recipe-container heading="My Recipes" [recipes]="recipes"></app-cards-recipe-container>
+        </article>
 
-    <article class="user-saved-recipes">
-        <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes"></app-cards-recipe-container>
-    </article>
+        <article class="user-own-cookbooks">
+            <app-cards-recipe-container heading="My cookbooks" [recipes]="recipes"></app-cards-recipe-container>
+        </article>
+        -->
+    </section>
 
-    <article class="user-saved-cookbooks">
-        <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
-    </article>
--->
+    <section class="cookbooks-container-container">
+        <!--
+        <article class="user-saved-recipes">
+            <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
+        </article>
+    
+        <article class="user-saved-cookbooks">
+            <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
+        </article>
+        -->
+    </section>
 </main>
-
-
-<!--
-<main class="profile-form-container">
-    <label for="profileImage">Profile Image:</label>
-    <input type="file" id="profileImage" name="profileImage" (change)="onFileSelected($event)"
-        [disabled]="!isEditMode" />
-
-
-    <app-image-editable id="profileImage"></app-image-editable>
-
-    <button type="button" *ngIf="!isEditMode" (click)="toggleEditMode()">
-        Edit
-    </button>
-    <button type="button" *ngIf="isEditMode" (click)="saveChanges()">
-        Save
-    </button>
-
-
-    <h2>Profile</h2>
-    <form #profileForm="ngForm">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" [(ngModel)]="user.first_name" [readonly]="!isEditMode" />
-
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" [(ngModel)]="user.last_name" [readonly]="!isEditMode" />
-
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" [(ngModel)]="user.username" [readonly]="!isEditMode" />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="user.email" [readonly]="!isEditMode" />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="user.password" [readonly]="!isEditMode" />
-
-        <label for="profileText">Profile Text:</label>
-        <textarea id="profileText" name="profileText" [(ngModel)]="user.profileText"
-            [readonly]="!isEditMode"></textarea>
-
-
-
-
-    </form>
-</main>
--->

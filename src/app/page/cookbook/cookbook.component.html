@@ -1,33 +1,56 @@
-<main class="page cookbook">
-  <mat-form-field>
-    <mat-label>Cookbook Title</mat-label>
-    <input matInput placeholder="Enter title" [formControl]="title" required />
-    @if (title.invalid) {
-    <mat-error>{{titleErrorMessage()}}</mat-error>
+<main class="main">
+    <section class="recipe-data-section">
+        <div>
+            <h1>{{ cookbook?.title }}</h1>
+        </div>
+
+        <div>
+            <img src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
+                alt="Recipe Cover" class="responsive-img" />
+        </div>
+
+        <div>
+            <div>
+                <p><strong>User:</strong> {{ cookbook?.user?.username }} </p>
+            </div>
+
+            <div>
+                <p><strong>Created At:</strong> {{ cookbook?.createdAt | date }} </p>
+                <p><strong>Updated At:</strong> {{ cookbook?.updatedAt | date }} </p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        divider
+      -->
+
+    <section class="describtion-section">
+        <div>
+            <h2>Describtion</h2>
+        </div>
+
+        <div>
+            <p>
+                {{ cookbook?.description }}
+            </p>
+        </div>
+    </section>
+
+
+    @if( cookbook?.recipes ){
+    <!--
+        divider
+    -->
+    <section class="recipes-section">
+        @for (recipe of (cookbook?.recipes); track recipe.id){
+        <!--
+            divider
+        -->
+        <div class="recipe-card-v2-container">
+            <app-card-recipe-v2></app-card-recipe-v2>
+        </div>
+        }
+    </section>
     }
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Cover Image URL</mat-label>
-    <input matInput placeholder="Enter cover image URL" [formControl]="coverImage" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput rows="3" [formControl]="description"></textarea>
-  </mat-form-field>
-
-  <div class="actions">
-    <button mat-raised-button color="primary" (click)="saveCookbook()">Save</button>
-    <button mat-raised-button color="warn" (click)="deleteCookbook()" [disabled]="!isDeleteable()">Delete</button>
-  </div>
-
-  <div class="cookbook-preview" *ngIf="cookbook">
-    <h2>{{cookbook.title}}</h2>
-    <img [src]="cookbook.coverImage" alt="Cookbook Cover" />
-    <p>{{cookbook.description}}</p>
-    <ul>
-      <li *ngFor="let recipe of cookbook.recipes">{{recipe.title}}</li>
-    </ul>
-  </div>
 </main>

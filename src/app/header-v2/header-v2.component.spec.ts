@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CookbookHomeComponent } from './cookbook-home.component';
+import { HeaderV2Component } from './header-v2.component';
 
-describe('CookbookHomeComponent', () => {
-  let component: CookbookHomeComponent;
-  let fixture: ComponentFixture<CookbookHomeComponent>;
+describe('HeaderV2Component', () => {
+  let component: HeaderV2Component;
+  let fixture: ComponentFixture<HeaderV2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CookbookHomeComponent]
+      imports: [HeaderV2Component]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CookbookHomeComponent);
+    fixture = TestBed.createComponent(HeaderV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

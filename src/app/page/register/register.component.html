@@ -1,53 +1,62 @@
-<!--
-  https://material.angular.io/components/stepper/overview
--->
-<main class="page small">
-  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-
-  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+<main class="main">
+  <div class="stepper">
+    <!-- Steps -->
+    <div class="step" *ngFor="let step of steps" [class.active]="isActive(step.id)">
+      <div class="step-circle">
+        <i [class]="step.icon"></i>
       </div>
-    </mat-step>
-  </mat-stepper>
+      <div class="step-content">
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+        <!-- Step 1: Sign Up -->
+        <div *ngIf="isActive(1) && step.id === 1">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="Enter your email">
+            <div class="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+              Valid email is required
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" formControlName="password" placeholder="Create a password">
+            <div class="error" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <!-- Step 2: Verify Email -->
+        <div *ngIf="isActive(2) && step.id === 2">
+          <div class="form-field">
+            <label>Verification Code</label>
+            <input type="text" formControlName="verificationCode" placeholder="Enter code">
+            <div class="error" *ngIf="registerForm.get('verificationCode')?.touched && registerForm.get('verificationCode')?.invalid">
+              Verification code is required
+            </div>
+          </div>
+        </div>
+        <!-- Step 3: Complete Profile -->
+        <div *ngIf="isActive(3) && step.id === 3">
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" formControlName="name" placeholder="Enter your name">
+            <div class="error" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+              Name is required
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Preferences (Optional)</label>
+            <input type="text" formControlName="preferences" placeholder="e.g., Newsletter">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="actions">
-    <span>
-      Already have an Account? <a href="./login">login</a>
-    </span>
-    <span>
-      Forgot Password? <a href="./forgot-password">reset</a>
-    </span>
+    <!-- Navigation Buttons -->
+    <div class="stepper-controls">
+      <button [disabled]="currentStep === 1" (click)="prevStep()">Previous</button>
+      <button *ngIf="currentStep < steps.length" (click)="nextStep()">Next</button>
+      <button *ngIf="currentStep === steps.length" [disabled]="registerForm.invalid" (click)="onSubmit()">Finish</button>
+    </div>
   </div>
 </main>

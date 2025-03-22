@@ -1,13 +1,13 @@
 <div class="searchbar">
-  <select class="dropdown">
-    @for (option of searchCategories; track $index) {
-      <option> {{ option }} </option>   
-    }
+  <select class="dropdown" [(ngModel)]="selectedCategory">
+      @for (option of searchCategories; track $index) {
+          <option [value]="option">{{ option }}</option>
+      }
   </select>
 
-  <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." />
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." (keyup.enter)="onSearch()" />
 
   <button type="submit" class="button" (click)="onSearch()">
-    <img src="assets/svg/search.svg" alt="Search"/>
+      <i class="fas fa-search"></i>
   </button>
 </div>

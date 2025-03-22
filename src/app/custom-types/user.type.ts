@@ -6,9 +6,9 @@ export type User = {
     createdAt: Date;
     updatedAt: Date;
 
+    username: string;
     first_name: string;
     last_name: string;
-    username: string;
     email: string;
     passwordHash: string;   
     profileText: string;

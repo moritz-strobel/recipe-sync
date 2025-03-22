@@ -1,1 +1,26 @@
-<p>editable-input works!</p>
+<div class="profile-field-container" (mouseleave)="finishProfileEdit($event)">
+    <div class="header-row">
+      <h3 *ngIf="heading">{{ heading }}</h3>
+      <button class="profile-edit-toggle" (click)="startProfileEdit()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+    
+    <div class="input-container">
+      <p *ngIf="!editing" class="profile-field-display" (click)="startProfileEdit()">
+        {{ text || defaultText }}
+      </p>
+      <input type="text" *ngIf="editing" [value]="text" class="profile-field-editor" (blur)="finishProfileEdit($event)"
+             (keyup.enter)="saveProfileField($event)" (input)="updateProfileField($event)" #editableInput />
+    </div>
+  </div>
+
+<!--
+div >> parent responsible for Event of losing focus(also calls save), Hover Event
+    h3  >> static
+        >> initial value passed by caller
+    btn >> dynamic
+        >> gets dispayed only if parent is hovered over
+        >> icon gets displayed aside the end of the heading
+    input >> value gets passed by caller, if null, dispplay defaultvalue for value (which is also passed by caller)
+-->

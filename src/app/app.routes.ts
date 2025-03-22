@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { AboutUsComponent } from './page/about-us/about-us.component';
 import { CookbookComponent } from './page/cookbook/cookbook.component';
-import { CookbookHomeComponent } from './page/cookbook-home/cookbook-home.component';
 import { GuidelinesComponent } from './page/guidelines/guidelines.component';
 import { ImpressComponent } from './page/impress/impress.component';
 import { LandingComponent } from './page/landing/landing.component';
@@ -17,7 +16,6 @@ export const routes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'about-us', component: AboutUsComponent },
     { path: 'cookbook', component: CookbookComponent },
-    { path: 'cookbook-home', component: CookbookHomeComponent },
     { path: 'guidelines', component: GuidelinesComponent },
     { path: 'impress', component: ImpressComponent },
     { path: 'login', component: LoginComponent},

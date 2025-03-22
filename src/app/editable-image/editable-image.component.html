@@ -1,12 +1,9 @@
 <div class="image-container">
-    <img 
-        [src]="src" 
-        [alt]="alt" 
-        class="img" 
-        (error)="onImageError()" 
-        (load)="onImageLoad()" 
+    <img [src]="src" [alt]="alt" class="img" (error)="onImageError()" (load)="onImageLoad()"
         [hidden]="showPlaceholder" />
+
     <i *ngIf="showPlaceholder" class="fas fa-image placeholder-icon"></i>
+
     <button class="edit-button" (click)="onEdit()">
         <i class="fas fa-edit"></i>
     </button>

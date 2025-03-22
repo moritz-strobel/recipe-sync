@@ -1,56 +1,13 @@
-<app-header></app-header>
+<div class="app-container">
+    <div div="header-container">
+        <app-header-v2/>
+    </div>
 
-<div class="margin-top">
-    <router-outlet></router-outlet>
+    <div class="router-outlet-container">
+        <router-outlet/>
+    </div>
+
+    <div class="footer-container">
+        <app-footer/>
+    </div>
 </div>
-
-<app-footer></app-footer>
-<!--    final implementation
-
->>> Fragen:
-    - Route mit Btn click ändern und Recipe anzeigen
-    - Typ User ändern: hinzufügen von Cookbooks and Recipes
-
-
->>>> Routes:
-    - cookbook/id
-    - cookbook/name
-    - recipe/id
-    - recipe/name
-    - recipe/tags >> generisch sein, d.h. anzahl an verkettungen ist unbekannt
-    - best-of/today
-    - best-of/month
-    - best-of/vegetarian
-    - user/id
-    - user/userName
-
-5. login
-    - tokens
-    - protected routes
-
-6. forgot password
-    - mail dioaloge
-    - reset pw if email code was correct
-    - new password input
-    - repeat new password input
-    - design login
-
-7. register
-    - stepper 
-    - design: login
-
-13. Search result container
-
-- scss styling > fix headder
-
-14. favicon mit initialien -> Rs (for Recipe sync) & font Roboto als local font
-
-16. nestjs setup with angular project
-
-17. testing
-
-
->>>> Vorlesung:
-    - 
-
--->

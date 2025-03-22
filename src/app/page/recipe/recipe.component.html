@@ -1,25 +1,61 @@
-<main class="page recipe-container">
-  <h1>{{ recipe.title }}</h1>
-  <section>
-    <img
-      src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
-      alt="Recipe Cover" class="responsive-img" />
+<main class="main">
+  <section class="recipe-data-section">
+    <div>
+      <h1>{{ recipe.title }}</h1>
+    </div>
 
     <div>
+      <img
+        src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
+        alt="Recipe Cover" class="responsive-img" />
+    </div>
+
+    <div>
+      <div>
+        <p><strong>User:</strong> {{ recipe.user.username }} </p>
+      </div>
+
+      <div>
+        <p><strong>Created At:</strong> {{ recipe.createdAt | date }} </p>
+        <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }} </p>
+      </div>
+    </div>
+
+    <div class="tags-container">
+      <p>
+        <strong>Tags:</strong>
+        @for (tag of (recipe.tags); track tag.id){
+        {{ tag.name }}
+        }
+      </p>
+    </div>
+
+    <div class="meta-data-container">
       <p><strong>Nutri-Score:</strong> {{ recipe.nutriScore }}</p>
       <p><strong>General Score:</strong> {{ recipe.generalScore }}</p>
+      <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
+      <p><strong>Preparation Time:</strong> {{ recipe.preparationTime }} minutes</p>
+      <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookTime }} minutes</p>
+      @if (recipe.videoUrl) {
+      <p>
+        <strong>Video</strong>
+        <a [href]="recipe.videoUrl" target="_blank">Watch a Video</a>
+      </p>
+      }
     </div>
   </section>
 
-  <section class="meta-info">
-    <p><strong>Created At:</strong> {{ recipe.createdAt | date }} </p>
-    <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }} </p>
-    <p><strong>User:</strong> {{ recipe.user.username }} </p>
-    <p><strong>Public:</strong> {{ recipe.isPublic ? 'Yes' : 'No' }} </p>
-  </section>
+  <!--
+    divider
+  -->
 
-  <section>
-    <h2>Ingredients</h2>
+  <section class="ingredients-section">
+    <div>
+      <h2>Ingredients</h2>
+    </div>
+    <!--
+      here, also implement a portion calculator
+    -->
     <ul>
       @for (ingredient of (recipe.ingredients); track recipe.id){
       <li>{{ ingredient }}</li>
@@ -27,48 +63,33 @@
     </ul>
   </section>
 
-  <section>
-    <h2>Steps</h2>
-    <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
-  </section>
+  <!--
+    divider
+  -->
 
-  <section>
-    <h2>Preparation & Cooking Time</h2>
-    <p><strong>Preparation Time:</strong> {{ recipe.preparationTime }} minutes</p>
-    <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookTime }} minutes</p>
-  </section>
-
-  <section>
-    <h2>Recipe</h2>
+  <section class="recipe-text-section">
+    <div>
+      <h2>Recipe</h2>
+    </div>
     <p>{{ recipe.recipeText }}</p>
   </section>
 
-  <section>
-    <h2>Additional Images</h2>
-    @if (recipe.images) {
-    <div class="images">
+  @if (recipe.images) {
+  <!--
+    divider
+  -->
+
+  <section class="additional-images-section">
+    <div>
+      <h2>Additional Images</h2>
+    </div>
+
+    <div class="images-container">
       @for (image of (recipe.images); track recipe.id){
       <img [src]='image' alt="">
       }
     </div>
-    }
   </section>
+  }
 
-  <section>
-    @if (recipe.videoUrl) {
-    <h2>Video</h2>
-    <a [href]="recipe.videoUrl" target="_blank">Watch Video</a>
-    }
-  </section>
-
-  <section>
-    <h2>
-      Tags:
-    </h2>
-    <span>
-      @for (tag of (recipe.tags); track tag.id){
-      {{ tag.name }}
-      }
-    </span>
-  </section>
 </main>

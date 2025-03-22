@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputEditableComponent } from './input-editable.component';
+import { CardRecipeV2Component } from './card-recipe-v2.component';
 
-describe('InputEditableComponent', () => {
-  let component: InputEditableComponent;
-  let fixture: ComponentFixture<InputEditableComponent>;
+describe('CardRecipeV2Component', () => {
+  let component: CardRecipeV2Component;
+  let fixture: ComponentFixture<CardRecipeV2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputEditableComponent]
+      imports: [CardRecipeV2Component]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputEditableComponent);
+    fixture = TestBed.createComponent(CardRecipeV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,52 +1,77 @@
+@use '../../color-scheme' as colors;
+
 .searchbar {
-    justify-self: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
     border-radius: 25px;
-    background: #f9f9f9;
-    gap: 1rem;
-  
-    .dropdown {
-      background: none;
-      font-size: 1.2rem;
-      border: none;
-      outline: none;
-      padding: 0.25rem;
-      border-radius: 5px;
-      margin-left: 1rem;
-      cursor: pointer;
-    }
-  
-    input {
-      background: none;
-      font-size: 1.5rem;
-      border: none;
-      outline: none;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
+    background: rgba(249, 249, 249, 0.9);
+    gap: 0.5rem;
 
-  
-      &:focus {
+    .dropdown {
+        background: none;
+        font-size: 1rem;
+        border: none;
         outline: none;
-      }
+        padding: 0.25rem;
+        border-radius: 5px;
+        margin-left: 0.5rem;
+        cursor: pointer;
+        color: darkgreen;
     }
-  
+
+    input {
+        flex: 1;
+        background: none;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        margin: 0 0.5rem;
+        color: darkgreen;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
     .button {
-      background: none;
-      border: 0;
-      cursor: pointer;
-      margin-right: 1rem;
-      border-radius: 25px;
-  
-      img {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        border-radius: 25px;
+        color: darkgreen; // Color for the icon
+        
+        i {
+            font-size: 1.2rem; // Size of the icon
+        }
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
     }
-  }
-  
+}
+
+@media screen and (max-width: 768px) {
+    .searchbar {
+        padding: 0.3rem;
+        
+        .dropdown {
+            font-size: 0.9rem;
+            margin-left: 0.3rem;
+        }
+        
+        input {
+            font-size: 0.9rem;
+            margin: 0 0.3rem;
+        }
+        
+        .button i {
+            font-size: 1rem;
+        }
+    }
+}

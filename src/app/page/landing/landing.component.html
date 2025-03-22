@@ -1,46 +1,52 @@
-<main class="landing">
-  <article>
-    <section class="top">
-      <img
-        src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
-        alt="Recipe Cover" class="responsive-img left" />
-      <div class="right">
-        <h1>
-          <!--
-            {{ (recipe$ | async)?.title }}
-          -->
-          <Title></Title>
-        </h1>
-        <p>
-          <!--
-            {{ (recipe$ | async)?.describtion }}
-          -->
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis animi ea quae optio quam officia vel eos provident! Magnam cum voluptates iste quasi deleniti earum possimus ea accusantium esse veniam?
-        </p>
+<main class="main">
+  <section class="hero">
+    <article>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugiat incidunt natus illum accusamus aut minima quisquam necessitatibus enim nulla ab quam nihil veniam soluta reprehenderit rem inventore, id quaerat!</p>
       </div>
+    </article>
+  
+    <article>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugiat incidunt natus illum accusamus aut minima quisquam necessitatibus enim nulla ab quam nihil veniam soluta reprehenderit rem inventore, id quaerat!</p>
+      </div>
+    </article>
+  
+    <!--
+      Sticky / fixed when scrolled beneeth this element
+    -->
+    <article>
+      <app-searchbar></app-searchbar>
+    </article>
+  
+    <article>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugiat incidunt natus illum accusamus aut minima quisquam necessitatibus enim nulla ab quam nihil veniam soluta reprehenderit rem inventore, id quaerat!</p>
+      </div>
+    </article>
+  
+    <article>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugiat incidunt natus illum accusamus aut minima quisquam necessitatibus enim nulla ab quam nihil veniam soluta reprehenderit rem inventore, id quaerat!</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="browse-recipes">
+    <section>
+      <app-card-recipe-v2></app-card-recipe-v2>
     </section>
 
     <section>
-      <h2>
-        Tags:
-      </h2>
-      <span>
-
-      </span>
+      <app-card-recipe-v2></app-card-recipe-v2>
     </section>
-  </article>
 
-  <div class="page">
     <section>
-      <h1>
-        Browse some Recipes
-      </h1>
+      <app-card-recipe-v2></app-card-recipe-v2>
     </section>
 
-    <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes"></app-cards-recipe-container>
-
-    <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes"></app-cards-recipe-container>
-
-    <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes"></app-cards-recipe-container>
-  </div>
+    <section>
+      <app-card-recipe-v2></app-card-recipe-v2>
+    </section>
+  </section>
 </main>

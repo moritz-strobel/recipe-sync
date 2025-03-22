@@ -8,6 +8,7 @@ import { merge } from 'rxjs';
 import { CookBook } from '../../custom-types/cookbook.type';
 import { User } from '../../custom-types/user.type';
 import { CommonModule } from '@angular/common';
+import { CardRecipeV2Component } from "../../card-recipe-v2/card-recipe-v2.component";
 
 @Component({
   selector: 'app-cookbook',
@@ -18,7 +19,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-  ],
+    CardRecipeV2Component
+],
   templateUrl: './cookbook.component.html',
   styleUrls: ['./cookbook.component.scss']
 })

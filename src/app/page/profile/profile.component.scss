@@ -1,68 +1,27 @@
-@use '../../../styles';
+@use '../../../styles.scss';
 
-.profile-form-container form label {
-    display: block;
-    font-weight: bold;
-    color: #555;
+.userData {
+    align-content: center;
+    width: fit-content;
+    background-color: none; // Changed from #45a049 to dark green
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 30rem;
 }
 
-.profile-form-container form input[type="text"],
-.profile-form-container form input[type="email"],
-.profile-form-container form input[type="password"],
-.profile-form-container form input[type="file"],
-.profile-form-container form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: #555;
+.top-container {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #2E4A2E;
+    width:fit-content;
+    border-radius: 1rem;  
 }
 
-.profile-form-container form input[type="file"]:disabled,
-.profile-form-container form input[readonly],
-.profile-form-container form textarea[readonly] {
-    background-color: #e9ecef;
-    color: #999;
-    cursor: not-allowed;
+.info {
+    display: flex;
+    justify-content: center;
 }
 
-.profile-form-container form textarea {
-    resize: none;
-}
-
-.profile-form-container form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.profile-form-container form button:hover {
-    background-color: #45a049;
-}
-
-#saveButton {
-    background-color: #007BFF;
-}
-
-#saveButton:hover {
-    background-color: #0056b3;
-}
-
-.profile-image-preview {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 10px auto;
-    border: 2px solid #ccc;
+.user-bio{
+    width: 60rem;
 }

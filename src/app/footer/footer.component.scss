@@ -1,29 +1,20 @@
-@use "../../styles";
+@use '../../styles.scss' as g;
 
-footer {
+.footer {
     height: 30rem;
-
     display: grid;
-    grid-template-areas: 
-        "logo nav nothing";
-    grid-template-columns: 30% 40% 30%;
-    background-color: rgba(0, 0, 0, 0.5);
-    
-    align-items: center;
+    place-items: center;
+    background-color: lightgray;
+    gap: 2rem;
 
-    ul{
-        grid-area: nav;
+    .links{
         justify-self: center;
-
+        list-style: none;
         margin: 0;
         padding: 0;
-        list-style: none;
     }
 
     .copy-right{
-        grid-area: nothing;
-        justify-self: end;
-
-        margin-right: 2rem;
+        justify-self: center;
     }
 }
