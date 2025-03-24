@@ -2,22 +2,53 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  //font-family: Roboto, sans-serif;
 }
+
+// Background Shades (Whites)
+$white: #ffffff;
+$white-1: #e3e3e3;
+$white-2: #c7c7c7;
+$white-3: #ababab;
+$white-4: #8f8f8f;
+
+// Text Shades (Blacks)
+$black: #1c1c1c;
+$black-1: #383838;
+$black-2: #545454;
+$black-3: #707070;
+$black-4: #8c8c8c;
+
+// Accent Colors
+$accent-1: #3acb67;
+$accent-2: #4cd686;
+$accent-3: #71e0a8;
+$accent-4: #e0a86c;
+$accent-5: #df535c;
 
 html {
   font-size: 16px;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, $white-2 1px, transparent 1px),
+    linear-gradient($white-2 1px, transparent 1px);
+  background-size: 2rem 2rem; // Size of the checker squares
+  background-color: $white;
 }
 
-/*
-// Color Variables
-$baseColor: #2E4A2E;
-$secondaryColor: #D3D3D3;
-$errorColor: #C0000D;
-$linkColor: #E9FCE9;
+// Rem sizes
+$xxs:     0.25rem; 
+$xs:      0.5rem;
+$s:       0.75rem;  //samll
+$n:       1rem;     //normal
+$m:       1.25rem;  //medium
+$b:       1.75rem;  //big
+$l:       2.5rem;   //large
+$xl:      3.75rem;
+$xxl:     6.25rem; 
+$threeXl: 10rem;
+$forXl:   15rem;
 
-// Shadow Variables
-$shadow-default: 0 0 10px rgba(0, 0, 0, 0.5);
-$shadow-hover: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
-$shadow-button: 0 0 7px rgba(0, 0, 0, 0.75);
-$shadow-disabled: rgba(0, 0, 0, 0.75) 0 0 7px inset;
-*/
+body {
+  background: rgba($white, 0.6);
+}

@@ -1,8 +1,8 @@
 <header class="header">
     <div class="logo-container">
         <div class="logo">
-            <p>RECIPES</p>
-            <p>SYNC.</p>
+            <p>RECIPES<br>
+            SYNC.</p>
         </div>
     </div>
 
@@ -20,26 +20,26 @@
         </div>
 
         <div class="humburger-container">
-            <button class="hamburger" (click)="toggleMenu()">
+            <div class="hamburger" (click)="toggleMenu()">
                 <i class="fas fa-bars"></i>
-            </button>
-        </div>
+            </div>
 
-        <div class="nav-menu-container">
-            <ul class="nav-menu" [class.open]="menuOpen">
-                <li><a href="./" (click)="toggleMenu()">Home</a></li>
-                <!--
-                    divider elem
-                -->
-                <li><a href="" (click)="toggleMenu()">Log In</a></li>
-                <li><a href="" (click)="toggleMenu()">Register</a></li>
-                <!--
-                    divider elem
-                -->
-                <li><a href="" (click)="toggleMenu()">About Us</a></li>
-                <li><a href="" (click)="toggleMenu()">Guidelines</a></li>
-                <li><a href="" (click)="toggleMenu()">Report</a></li>
-            </ul>
+            <div class="nav-menu-container">
+                <ul class="nav-menu" [class.open]="menuOpen">
+                    <li><a href="./" (click)="toggleMenu()">Home</a></li>
+                    <!--
+                        divider elem
+                    -->
+                    <li><a href="" (click)="toggleMenu()">Log In</a></li>
+                    <li><a href="" (click)="toggleMenu()">Register</a></li>
+                    <!--
+                        divider elem
+                    -->
+                    <li><a href="" (click)="toggleMenu()">About Us</a></li>
+                    <li><a href="" (click)="toggleMenu()">Guidelines</a></li>
+                    <li><a href="" (click)="toggleMenu()">Report</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
@@ -48,30 +48,28 @@
     <!--
         Show like-save container only on pages 'cookbook' & 'recipe'
     -->
-    <div class="like-save-container">
-        <div class="plus-icon-container">
-            <button class="plus" (click)="toggleMenu()">
-                <i class="fas fa-thumbs-up"></i>
-            </button>
+    <div class="like-icon-container">
+        <div class="like" (click)="toggleMenu()">
+            <i class="fas fa-thumbs-up"></i>
         </div>
-
-        <div class="plus-icon-container">
-            <button class="plus" (click)="toggleMenu()">
-                <i class="fas fa-bookmark"></i>
-            </button>
-        </div>
-    </div>    
-
-    <div class="plus-icon-container">
-        <button class="plus" (click)="togglePlusMenu()">
-            <i class="fas fa-add"></i>
-        </button>
     </div>
 
-    <div class="plus-menu-container">
-        <ul class="plus-menu" [class.open]="menuOpen">
-            <li><a href="./" (click)="togglePlusMenu()">Create Cookbook</a></li>
-            <li><a href="./" (click)="togglePlusMenu()">Create Recipe</a></li>
-        </ul>
+    <div class="save-icon-container">
+        <div class="save" (click)="toggleMenu()">
+            <i class="fas fa-bookmark"></i>
+        </div>
+    </div>
+
+    <div class="plus-icon-container">
+        <div class="plus" (click)="togglePlusMenu()">
+            <i class="fas fa-add"></i>
+        </div>
+
+        <div class="plus-menu-container">
+            <ul class="plus-menu" [class.open]="menuOpen">
+                <li><a href="./" (click)="togglePlusMenu()">Create Cookbook</a></li>
+                <li><a href="./" (click)="togglePlusMenu()">Create Recipe</a></li>
+            </ul>
+        </div>
     </div>
 </div>

@@ -1,0 +1,204 @@
+@use "../../styles.scss" as v;
+
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: v.$n;
+    background-color: none;
+    position: fixed;
+}
+
+.logo-container {
+    background-color: #a0a0a088;
+    backdrop-filter: blur(v.$xxs);
+    border-radius: v.$l;
+    padding: v.$n;
+
+    .logo {
+        p {
+            background: transparent;
+            font-size: v.$l;
+            font-weight: bold;
+            font-family: serif;
+            line-height: calc(v.$l);
+        }
+
+        p:hover {
+            cursor: default;
+        }
+    }
+}
+
+.navigation-section {
+    display: flex;
+    gap: v.$n;
+
+    .direct-link-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: v.$black;
+            background-color: v.$white;
+            border-radius: v.$xxl;
+            padding: v.$xs;
+            font-size: v.$m;
+            background-color: v.$white-1;
+        }
+
+        a:hover {
+            border: 1px solid v.$accent-1;
+            background-color: v.$white-2;
+        }
+    }
+
+    .humburger-container {
+        display: grid;
+        gap: v.$n;
+        background-color: v.$white-1;
+        border-radius: 50%;
+
+        .hamburger {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: v.$n;
+            padding: 0%;
+            height: v.$n;
+            width: v.$n;
+
+            outline: transparent;
+        }
+    }
+
+    .humburger-container:hover {
+        border: 1px solid v.$accent-1;
+        background-color: v.$white-2;
+        cursor: pointer;
+    }
+
+    .nav-menu-container {
+        display: none;
+
+        ul {
+            list-style: none;
+            display: grid;
+            align-items: center;
+            gap: v.$m;
+            width: 100%;
+
+            a {
+                text-decoration: none;
+                color: v.$black;
+                background-color: v.$white;
+                border-radius: v.$xxl;
+                padding: v.$xs;
+                font-size: v.$m;
+            }
+
+            a:hover {
+                background-color: v.$white-1;
+            }
+        }
+    }
+}
+
+.quick-access {
+    position: fixed;
+    right: v.$n;
+    bottom: v.$n;
+
+    display: flex;
+    gap: v.$n;
+    align-items: center;
+
+    .like-icon-container {
+        display: grid;
+        gap: v.$n;
+        background-color: v.$white-1;
+        border-radius: 50%;
+
+        .like {
+            color: v.$black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: v.$xs;
+            padding: 0%;
+            height: v.$n;
+            width: v.$n;
+        }
+    }
+
+    .like-icon-container:hover {
+        border: 1px solid v.$accent-1;
+        background-color: v.$white-2;
+        cursor: pointer;
+    }
+
+    .save-icon-container {
+        display: grid;
+        gap: v.$n;
+        background-color: v.$white-1;
+        border-radius: 50%;
+
+        .save {
+            color: v.$black;
+            color: v.$black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: v.$xs;
+            padding: 0%;
+            height: v.$n;
+            width: v.$n;
+        }
+    }
+
+    .save-icon-container:hover {
+        border: 1px solid v.$accent-1;
+        background-color: v.$white-2;
+        cursor: pointer;
+    }
+
+    .plus-icon-container {
+        display: grid;
+        gap: v.$n;
+        background-color: v.$white-1;
+        border-radius: 50%;
+
+        .plus {
+            color: v.$black;
+            color: v.$black;
+            color: v.$black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: v.$n;
+            padding: 0%;
+            height: v.$n;
+            width: v.$n;
+        }
+
+        .plus-menu-container {
+            display: none;
+
+            .plus-menu {
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .plus-icon-container:hover {
+        border: 1px solid v.$accent-1;
+        background-color: v.$white-2;
+        cursor: pointer;
+    }
+}

@@ -1,77 +1,36 @@
-@use '../../color-scheme' as colors;
+@use '../../styles.scss' as v;
 
 .searchbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid lightgray;
-    border-radius: 25px;
-    background: rgba(249, 249, 249, 0.9);
-    gap: 0.5rem;
-
+    gap: v.$s;
+    padding: v.$s;
+    background: v.$white-1;
+    border-radius: v.$xs;
+    max-width: 500px;
+    
     .dropdown {
-        background: none;
-        font-size: 1rem;
-        border: none;
-        outline: none;
-        padding: 0.25rem;
-        border-radius: 5px;
-        margin-left: 0.5rem;
-        cursor: pointer;
-        color: darkgreen;
+        padding: v.$xs;
+        border: 1px solid v.$white-3;
+        border-radius: v.$xs;
     }
-
+    
     input {
         flex: 1;
-        background: none;
-        font-size: 1rem;
-        border: none;
-        outline: none;
-        margin: 0 0.5rem;
-        color: darkgreen;
-
-        &:focus {
-            outline: none;
-        }
+        padding: v.$xs;
+        border: 1px solid v.$white-3;
+        border-radius: v.$xs;
     }
-
+    
     .button {
-        background: none;
+        padding: v.$xs v.$s;
+        background: v.$accent-1;
         border: none;
+        border-radius: v.$xs;
         cursor: pointer;
-        margin-right: 0.5rem;
-        padding: 0.25rem;
-        border-radius: 25px;
-        color: darkgreen; // Color for the icon
         
-        i {
-            font-size: 1.2rem; // Size of the icon
-        }
-
         &:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .searchbar {
-        padding: 0.3rem;
-        
-        .dropdown {
-            font-size: 0.9rem;
-            margin-left: 0.3rem;
-        }
-        
-        input {
-            font-size: 0.9rem;
-            margin: 0 0.3rem;
-        }
-        
-        .button i {
-            font-size: 1rem;
+            background: v.$accent-2;
         }
     }
 }

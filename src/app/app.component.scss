@@ -1,1 +1,5 @@
 @use '../styles.scss';
+
+.router-outlet-container{
+    padding-top: 0%; // 4rem
+}

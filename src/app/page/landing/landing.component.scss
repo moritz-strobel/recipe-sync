@@ -1,1 +1,75 @@
-@use '../../../styles';
+@use '../../../styles' as v;
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: v.$m;
+}
+
+.middle-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: v.$m;
+}
+
+.text-top,
+.text-bottom {
+    text-align: center;
+    margin: v.$m 0;
+    max-width: 800px;
+}
+
+.text-left,
+.text-right {
+    flex: 1;
+    padding: v.$s;
+}
+
+.search-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    p {
+        color: v.$black-1;
+        line-height: 1.5;
+        font-family: 'Caveat', cursive; // Handwritten font
+        font-size: v.$m; // Slightly larger for handwriting effect
+        letter-spacing: 0.5px; // Mimics natural handwriting spacing
+        text-align: center; // Optional: adjust based on preference
+    }
+
+    &.text-top p,
+    &.text-bottom p,
+    &.text-left p,
+    &.text-right p {
+        font-weight: 400; // Normal weight for casual look
+        transform: rotate(0deg); // Slight tilt for handwritten feel (optional)
+    }
+}
+
+// Optional: Add slight variation to each text block for more authenticity
+.text-left p {
+    transform: rotate(0deg);
+}
+
+.text-right p {
+    transform: rotate(0deg);
+}
+
+.text-top p {
+    transform: rotate(0deg);
+}
+
+.text-bottom p {
+    transform: rotate(0deg);
+}
