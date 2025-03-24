@@ -9,6 +9,7 @@
     padding: v.$n;
     background-color: none;
     position: fixed;
+    z-index: 999;
 }
 
 .logo-container {
@@ -110,6 +111,7 @@
 
 .quick-access {
     position: fixed;
+    z-index: 998;
     right: v.$n;
     bottom: v.$n;
 

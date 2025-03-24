@@ -40,12 +40,13 @@
 
 article {
     p {
-        color: v.$black-1;
+        color: v.$black-2; // Darker for ink-like effect
         line-height: 1.5;
-        font-family: 'Caveat', cursive; // Handwritten font
-        font-size: v.$m; // Slightly larger for handwriting effect
-        letter-spacing: 0.5px; // Mimics natural handwriting spacing
-        text-align: center; // Optional: adjust based on preference
+        font-family: 'Caveat', cursive;
+        font-size: v.$m;
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-shadow: 1px 1px 1px rgba(v.$black-4, 0.2);
     }
 
     &.text-top p,
