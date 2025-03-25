@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../custom-types/recipe.type';
 import { ActivatedRoute } from '@angular/router';
-import { RecipeService } from '../../services/recipe.service';
+import { RecipeService } from '../../services';
 
 @Component({
     selector: 'app-recipe',
@@ -23,7 +23,7 @@ export class RecipeComponent implements OnInit {
         let id = this.route.snapshot.queryParamMap.get("id");
 
         if (id) {
-            this.recipeService.getRecipeById(id).subscribe({
+            this.recipeService.getById(id).subscribe({
                 next: result => {
                     console.log(result);
                     this.recipe = result;

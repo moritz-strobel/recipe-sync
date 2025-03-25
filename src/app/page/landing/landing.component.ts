@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { RecipeService } from '../../services/recipe.service';
+import { RecipeService } from '../../services/';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 import { SearchbarComponent } from "../../searchbar/searchbar.component";
 import { CardRecipeV2Component } from '../../card-recipe-v2/card-recipe-v2.component';
 
@@ -22,6 +21,6 @@ export class LandingComponent {
     recipes: Recipe[] = [];
 
     constructor(private readonly recipeService: RecipeService) {
-        this.recipe$ = this.recipeService.getRecipeById("1")
+        this.recipe$ = this.recipeService.getById("1")
     }
 }
