@@ -2,7 +2,7 @@
     <div class="logo-container">
         <div class="logo">
             <p>RECIPES<br>
-            SYNC.</p>
+                SYNC.</p>
         </div>
     </div>
 
@@ -19,25 +19,23 @@
             <a href="./">Profile</a>
         </div>
 
-        <div class="humburger-container">
-            <div class="hamburger" (click)="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="hamburger-container">
+            <input type="checkbox" class="check" id="menu-toggle">
+            <label for="menu-toggle" class="icon-label">
+                <div class="hamburger">
+                    <i class="fas fa-bars bar"></i>
+                    <i class="fas fa-x x"></i>
+                </div>
+            </label>
 
             <div class="nav-menu-container">
                 <ul class="nav-menu" [class.open]="menuOpen">
                     <li><a href="./" (click)="toggleMenu()">Home</a></li>
-                    <!--
-                        divider elem
-                    -->
-                    <li><a href="" (click)="toggleMenu()">Log In</a></li>
-                    <li><a href="" (click)="toggleMenu()">Register</a></li>
-                    <!--
-                        divider elem
-                    -->
-                    <li><a href="" (click)="toggleMenu()">About Us</a></li>
-                    <li><a href="" (click)="toggleMenu()">Guidelines</a></li>
-                    <li><a href="" (click)="toggleMenu()">Report</a></li>
+                    <li><a href="./login" (click)="toggleMenu()">Log In</a></li>
+                    <li><a href="./register" (click)="toggleMenu()">Register</a></li>
+                    <li><a href="./about-us" (click)="toggleMenu()">About Us</a></li>
+                    <li><a href="./guidelines" (click)="toggleMenu()">Guidelines</a></li>
+                    <li><a href="./report" (click)="toggleMenu()">Report</a></li>
                 </ul>
             </div>
         </div>

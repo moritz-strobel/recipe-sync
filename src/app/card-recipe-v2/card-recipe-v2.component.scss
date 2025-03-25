@@ -1,0 +1,35 @@
+@use "../../styles.scss" as v;
+
+//variable use: v.$name
+
+.card {
+    display: flex;
+    width: 100%;
+
+    .text-container{
+        width: 50%;
+
+        .meta-data{
+            padding: v.$b;
+
+           ul{
+            list-style: none;
+            padding: 0%;
+            margin: 0%;
+           }
+        }
+
+        .describtion-container{
+            padding: v.$b;
+        }
+    }
+
+    .img-container{
+        width: 50%;
+        padding: v.$b;
+
+        img{
+            border-radius: v.$n;
+        }
+    }
+}
