@@ -16,11 +16,11 @@
                 If logged in link to "Profile"
                 Else link to "Log In"
             -->
-            <a href="./">Profile</a>
+            <a href="./profile">Profile</a>
         </div>
 
         <div class="hamburger-container">
-            <input type="checkbox" class="check" id="menu-toggle">
+            <input type="checkbox" class="check" id="menu-toggle" (change)="onCheckboxChange()">
             <label for="menu-toggle" class="icon-label">
                 <div class="hamburger">
                     <i class="fas fa-bars bar"></i>
@@ -29,13 +29,14 @@
             </label>
 
             <div class="nav-menu-container">
-                <ul class="nav-menu" [class.open]="menuOpen">
-                    <li><a href="./" (click)="toggleMenu()">Home</a></li>
-                    <li><a href="./login" (click)="toggleMenu()">Log In</a></li>
-                    <li><a href="./register" (click)="toggleMenu()">Register</a></li>
-                    <li><a href="./about-us" (click)="toggleMenu()">About Us</a></li>
-                    <li><a href="./guidelines" (click)="toggleMenu()">Guidelines</a></li>
-                    <li><a href="./report" (click)="toggleMenu()">Report</a></li>
+                <ul class="nav-menu">
+                    <li><a href="./">Home</a></li>
+                    <li [hidden]="is_user_logged_in"><a href="./login">Log In</a></li>                    
+                    <li [hidden]="is_user_logged_in"><a href="./register">Register</a></li>
+                    <li><a href="./about-us">About Us</a></li>
+                    <li><a href="./guidelines">Guidelines</a></li>
+                    <li><a href="./impress">Impressum</a></li>
+                    <li><a href="./report">Report</a></li>
                 </ul>
             </div>
         </div>
@@ -47,26 +48,26 @@
         Show like-save container only on pages 'cookbook' & 'recipe'
     -->
     <div class="like-icon-container">
-        <div class="like" (click)="toggleMenu()">
+        <div class="like">
             <i class="fas fa-thumbs-up"></i>
         </div>
     </div>
 
     <div class="save-icon-container">
-        <div class="save" (click)="toggleMenu()">
+        <div class="save">
             <i class="fas fa-bookmark"></i>
         </div>
     </div>
 
     <div class="plus-icon-container">
-        <div class="plus" (click)="togglePlusMenu()">
+        <div class="plus">
             <i class="fas fa-add"></i>
         </div>
 
         <div class="plus-menu-container">
-            <ul class="plus-menu" [class.open]="menuOpen">
-                <li><a href="./" (click)="togglePlusMenu()">Create Cookbook</a></li>
-                <li><a href="./" (click)="togglePlusMenu()">Create Recipe</a></li>
+            <ul class="plus-menu">
+                <li><a href="./">Create Cookbook</a></li>
+                <li><a href="./">Create Recipe</a></li>
             </ul>
         </div>
     </div>

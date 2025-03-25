@@ -7,26 +7,27 @@
     <div>
       <img
         src="https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3"
-        alt="Recipe Cover" class="responsive-img" />
+        alt="Recipe Cover"
+        class="responsive-img" />
     </div>
 
     <div>
       <div>
-        <p><strong>User:</strong> {{ recipe.user.username }} </p>
+        <p><strong>User:</strong> {{ recipe.user.username }}</p>
       </div>
 
       <div>
-        <p><strong>Created At:</strong> {{ recipe.createdAt | date }} </p>
-        <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }} </p>
+        <p><strong>Created At:</strong> {{ recipe.createdAt | date }}</p>
+        <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }}</p>
       </div>
     </div>
 
     <div class="tags-container">
       <p>
         <strong>Tags:</strong>
-        @for (tag of (recipe.tags); track recipe.id){
-          {{ tag }}
-          }
+        @for (tag of tags; track tag) {
+          <span class="tag">{{ tag }}</span>
+        }
       </p>
     </div>
 
@@ -39,27 +40,20 @@
     </div>
   </section>
 
-  <!--
-    divider
-  -->
+  <hr class="divider" />
 
   <section class="ingredients-section">
     <div>
       <h2>Ingredients</h2>
     </div>
-    <!--
-      here, also implement a portion calculator
-    -->
     <ul>
-      @for (ingredient of (recipe.ingredients); track recipe.id){
-      <li>{{ ingredient }}</li>
+      @for (ingredient of ingredients; track ingredient) {
+        <li>{{ ingredient }}</li>
       }
     </ul>
   </section>
 
-  <!--
-    divider
-  -->
+  <hr class="divider" />
 
   <section class="recipe-text-section">
     <div>

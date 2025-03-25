@@ -1,40 +1,20 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardRecipeComponent } from '../card-recipe/card-recipe.component';
-
-// Types
 import { Recipe } from '../custom-types/recipe.type';
 
 @Component({
-    selector: 'app-cards-recipe-container',
-    imports: [
-        CommonModule,
-        CardRecipeComponent
-    ],
-    templateUrl: './cards-recipe-container.component.html',
-    styleUrl: './cards-recipe-container.component.scss'
+  selector: 'app-cards-recipe-container',
+  imports: [
+    CommonModule,
+    CardRecipeComponent
+  ],
+  templateUrl: './cards-recipe-container.component.html',
+  styleUrl: './cards-recipe-container.component.scss'
 })
-
 export class CardsRecipeContainerComponent {
-    @Input({alias: "heading", required: false}) heading!: string;
-    @Input({alias: "recipes", required: true}) recipes!: Recipe[];
+  @Input({ alias: "heading", required: false }) heading!: string;
+  @Input({ alias: "recipes", required: true }) recipes!: Recipe[];
 
-    constructor() {
-    }
-
-    @ViewChild('cardContainer') cardContainer!: ElementRef;
-
-    scrollLeft(): void {
-        this.cardContainer.nativeElement.scrollBy({
-            left: -300, // Adjust this value as needed
-            behavior: 'smooth'
-        });
-    }
-
-    scrollRight(): void {
-        this.cardContainer.nativeElement.scrollBy({
-            left: 300, // Adjust this value as needed
-            behavior: 'smooth'
-        });
-    }
+  constructor() {}
 }

@@ -81,3 +81,15 @@ article {
 .text-bottom p {
     transform: rotate(0deg);
 }
+
+.browse-recipes{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    background-color: aqua;
+
+    margin: 0;
+    padding: 0%;
+    
+    gap: 1rem;
+}

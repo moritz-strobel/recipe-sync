@@ -1,0 +1,32 @@
+@use '../../styles' as v;
+
+.recipe-column-section {
+  padding: v.$m 0; // Vertical padding for spacing
+
+  h2 {
+    color: v.$black;
+    font-size: v.$l; // 2.5rem
+    margin-bottom: v.$n; // 1rem
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1200px; // Consistent with other designs
+    margin: 0 auto; // Center horizontally
+    padding: 0 v.$n; // Horizontal padding
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column; // Single column
+    gap: v.$n; // 1rem gap between cards
+    align-items: center; // Center cards horizontally in the column
+
+    // Style overrides for child cards if needed
+    > app-card-recipe-v2,
+    > app-card-recipe-v3 {
+      width: 85%; // Match original card width
+      max-width: 800px; // Optional: cap width for larger screens
+    }
+  }
+}

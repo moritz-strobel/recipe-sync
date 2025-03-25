@@ -1,87 +1,36 @@
-import { Component, signal } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { merge } from 'rxjs';
-import { CookBook } from '../../custom-types/cookbook.type';
-import { User } from '../../custom-types/user.type';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardRecipeV2Component } from "../../card-recipe-v2/card-recipe-v2.component";
+import { ActivatedRoute } from '@angular/router';
+import { CookbookService } from '../../services';
+import { CookBook } from '../../custom-types/cookbook.type';
+import { CardsRecipeColumnComponent } from '../../cards-recipe-column/cards-recipe-column.component';
+
 
 @Component({
   selector: 'app-cookbook',
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CardRecipeV2Component
-],
+    CardsRecipeColumnComponent
+  ],
   templateUrl: './cookbook.component.html',
   styleUrls: ['./cookbook.component.scss']
 })
-
 export class CookbookComponent {
-  readonly title = new FormControl('', [Validators.required]);
-  readonly coverImage = new FormControl('');
-  readonly description = new FormControl('');
+  cookbook!: CookBook;
 
-  cookbook: CookBook | null = null;
+  constructor(private route: ActivatedRoute, private cookbookService: CookbookService) {}
 
-  titleErrorMessage = signal('');
-  isDeleteable = signal(true); // Example: Update based on cookbook details
+  ngOnInit(): void {
+    let id = this.route.snapshot.queryParamMap.get("id");
 
-  constructor() {
-    merge(this.title.statusChanges, this.title.valueChanges)
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateTitleErrorMessage());
-  }
-
-  updateTitleErrorMessage() {
-    if (this.title.hasError('required')) {
-      this.titleErrorMessage.set('Title is required');
-    } else {
-      this.titleErrorMessage.set('');
-    }
-  }
-
-  saveCookbook() {
-    this.cookbook = {
-      id: '1',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      user: {
-        id: 'user1',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        first_name: 'John',
-        last_name: 'Doe',
-        username: 'JohnDoe',
-        email: 'john.doe@example.com',
-        password: 'hashed_password_here',
-        profileText: 'Sample profile text',
-        profileImage: 'base64string_of_profile_image',
-        recipes: [],
-        cookbooks: []
-      },
-    
-      title: this.title.value || '',
-      isFavorite: false,
-      isDeletable: this.isDeleteable(),
-      isPublic: false,
-      description: this.description.value || '',
-      coverImage: this.coverImage.value || '',
-      recipes: [] // Add logic to associate recipes
-    };
-  }
-
-  deleteCookbook() {
-    if (this.isDeleteable()) {
-      this.cookbook = null; // Reset or remove the cookbook
+    if (id) {
+      this.cookbookService.getByTitle(id).subscribe({
+        next: result => {
+          console.log(result);
+          this.cookbook = result;
+        },
+        error: err => console.log(err)
+      });
     }
   }
 }

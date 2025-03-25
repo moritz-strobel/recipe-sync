@@ -21,26 +21,24 @@
         </article>
     </section>
 
-    <section class="recipes-container-container">
-        <!--
+    <section class="container-container">
         <article class="user-own-recipes">
-            <app-cards-recipe-container heading="My Recipes" [recipes]="recipes"></app-cards-recipe-container>
+            <app-cards-recipe-container heading="My Recipes" [recipes]="ownRecipes"></app-cards-recipe-container>
         </article>
-
+        
         <article class="user-own-cookbooks">
-            <app-cards-recipe-container heading="My cookbooks" [recipes]="recipes"></app-cards-recipe-container>
+            <app-cards-cookbook-container heading="My Cookbooks" [cookbooks]="owncookBooks"></app-cards-cookbook-container>
         </article>
-        -->
     </section>
-
-    <section class="cookbooks-container-container">
-        <!--
-        <article class="user-saved-recipes">
-            <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
-        </article>
     
-        <article class="user-saved-cookbooks">
-            <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
+    <section class="container-container">
+        <!--
+            <article class="user-saved-recipes">
+                <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
+            </article>
+            
+            <article class="user-saved-cookbooks">
+            <app-cards-recipe-container heading="My cookbooks" [recipes]="recipes"></app-cards-recipe-container>
         </article>
         -->
     </section>

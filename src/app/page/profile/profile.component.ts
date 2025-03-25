@@ -10,7 +10,8 @@ import { CookbookService } from '../../services';
 import { RecipeService } from '../../services';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../custom-types/user.type';
-import { U } from '@angular/cdk/keycodes';
+import { Recipe } from '../../custom-types/recipe.type';
+import { CookBook } from '../../custom-types/cookbook.type';
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +19,9 @@ import { U } from '@angular/cdk/keycodes';
     CommonModule,
     FormsModule,
     EditableImageComponent,
-    EditableInputComponent
-    //CardsCookbookContainerComponent,
-    //CardsRecipeContainerComponent
+    EditableInputComponent,
+    CardsCookbookContainerComponent,
+    CardsRecipeContainerComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
@@ -31,6 +32,10 @@ export class ProfileComponent {
   @ViewChild("#name") name!: EditableInputComponent;
 
   user!: User;
+  ownRecipes!: Recipe[];
+  favoriteRecipes!: Recipe[];
+  owncookBooks!: CookBook[];
+  otherCookbooks!: CookBook[];
 
   constructor(private cookbookService: CookbookService, private recipeService: RecipeService, private userService: UserService){
     var temp = localStorage.getItem("userID");
@@ -42,7 +47,20 @@ export class ProfileComponent {
           error: (error) => console.log(error)
         }
       );
-    }
 
+      recipeService.getByUser(temp).subscribe(
+        {
+          next: (recipes) => this.ownRecipes = recipes,
+          error: (error) => console.log(error)
+        }
+      );
+
+      cookbookService.getByUserId(temp).subscribe(
+        {
+          next: (cookbooks) => this.owncookBooks = cookbooks,
+          error: (error) => console.log(error)
+        }
+      );
+    }
   }
 }

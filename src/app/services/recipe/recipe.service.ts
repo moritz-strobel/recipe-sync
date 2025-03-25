@@ -18,7 +18,7 @@ export class RecipeService {
         return this.http.get<Recipe>(BASE_URL + `/recipe/${id}`);
     }
 
-    getByUser(userId: number) {
+    getByUser(userId: string) {
         return this.http.get<Recipe[]>(BASE_URL + `/recipe?userId=${userId}`);
     }
 

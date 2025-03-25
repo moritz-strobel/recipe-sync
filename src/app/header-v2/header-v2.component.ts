@@ -1,20 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header-v2',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './header-v2.component.html',
   styleUrl: './header-v2.component.scss'
 })
 export class HeaderV2Component {
-  menuOpen: boolean = false;
-  plusMenuOpen: boolean = false;
+  is_user_logged_in: Boolean = false;
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  ngOnInit() {
+    this.is_user_logged_in = localStorage.getItem("userID") ? true : false;
   }
 
-  togglePlusMenu() {
-    this.plusMenuOpen = !this.plusMenuOpen;
+  onCheckboxChange() {
+    this.is_user_logged_in = localStorage.getItem("userID") ? true : false;
+    console.log(this.is_user_logged_in);
   }
 }

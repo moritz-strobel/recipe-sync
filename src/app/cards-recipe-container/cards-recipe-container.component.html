@@ -1,28 +1,13 @@
-<section>
-    @if(heading){
-    <h2>{{ heading }}</h2>
+<section class="recipe-cards-section">
+    @if (heading) {
+      <h2>{{ heading }}</h2>
     }
-
+  
     <div class="container">
-        <button class="nav-button" (click)="scrollLeft()">&lt;</button>
-
-        <div class="card-container" #cardContainer>
-            @for (recipe of (recipes); track recipe.id){
-            <app-card-recipe [recipe]="recipe"></app-card-recipe>
-            }
-        </div>
-
-        <button class="nav-button" (click)="scrollRight()">&gt;</button>
+      <div class="card-container">
+        @for (recipe of recipes; track recipe.id) {
+          <app-card-recipe [recipe]="recipe"></app-card-recipe>
+        }
+      </div>
     </div>
-</section>
-
-
-<!-- usage
-
-    <app-cards-recipe-container heading="Best of Today: Breakfast" [recipes]="recipes"></app-cards-recipe-container>
-
-    <app-cards-recipe-container heading="Best of Today: Lunch" [recipes]="recipes"></app-cards-recipe-container>
-
-    <app-cards-recipe-container heading="Best of Today: Dinner" [recipes]="recipes"></app-cards-recipe-container>
-
--->
+  </section>

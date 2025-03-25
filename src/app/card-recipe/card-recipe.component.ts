@@ -1,38 +1,33 @@
 import { Component, Input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { Recipe } from '../custom-types/recipe.type';
+import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-recipe',
   imports: [
-    MatButtonModule,
-    MatCardModule,
+    DatePipe,
     RouterLink
   ],
   templateUrl: './card-recipe.component.html',
   styleUrl: './card-recipe.component.scss'
 })
-
 export class CardRecipeComponent {
   @Input({ alias: "recipe", required: true }) recipe!: Recipe;
 
-  constructor() { }
-
-  toggleFavorite() {
-    //this.recipe.isFavorite = !this.recipe.isFavorite;
-    //console.log(`Cookbook "${this.recipe.title}" is now ${this.recipe.isFavorite ? 'a favorite' : 'not a favorite'}`);
+  // Getter for tags, converting string to array if needed
+  get tags(): string[] {
+    if (typeof this.recipe.tags === 'string') {
+      return (this.recipe.tags as string).split(',').map(tag => tag.trim());
+    }
+    return this.recipe.tags as string[];
   }
 
-  deleteCookBook() {
-    /*
-    if (!this.recipe.isPublic) {
-      console.warn('This cookbook cannot be deleted.');
-      return;
+  // Getter for ingredients, converting string to array if needed
+  get ingredients(): string[] {
+    if (typeof this.recipe.ingredients === 'string') {
+      return (this.recipe.ingredients as string).split(',').map(ingredient => ingredient.trim());
     }
-    console.log(`Cookbook "${this.recipe.title}" deleted.`);
-    // Add logic to delete the cookbook via an API call
-    */
+    return this.recipe.ingredients as string[];
   }
 }
