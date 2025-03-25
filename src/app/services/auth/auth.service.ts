@@ -12,7 +12,7 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-        return this.http.post(BASE_URL + '/auth/login', {email, password})
+        return this.http.post<User>(BASE_URL + '/auth/login', {email, password})
     }
 
     register(user: User) {

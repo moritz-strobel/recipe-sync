@@ -18,6 +18,10 @@ export class RecipeService {
         return this.http.get<Recipe>(BASE_URL + `/recipe/${id}`);
     }
 
+    getByUser(userId: number) {
+        return this.http.get<Recipe[]>(BASE_URL + `/recipe?userId=${userId}`);
+    }
+
     getByTitle(title: string) {
         return this.http.get<Recipe>(BASE_URL + `/recipe?title=${title}`);
     }
