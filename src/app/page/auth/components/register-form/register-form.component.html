@@ -1,0 +1,34 @@
+<h1>Sign Up</h1>
+<form (ngSubmit)="onSubmit($event)" [formGroup]="signupForm">
+    <span>
+        <div>
+            <input formControlName="first_name" id="first_name" required type="text">
+            <label for="first_name">First Name</label>
+        </div>
+        <div>
+            <input formControlName="last_name" id="last_name" required type="text">
+            <label for="last_name">Last Name</label>
+        </div>
+    </span>
+    <div>
+        <input formControlName="username" id="username" required type="text">
+        <label for="username">Username</label>
+    </div>
+    <div>
+        <input formControlName="email" id="email" required type="text">
+        <label for="email">Email</label>
+    </div>
+    <div>
+        <input formControlName="password" id="password" required type="password">
+        <label for="password">Password</label>
+    </div>
+    <app-submit-button>Continue</app-submit-button>
+</form>
+<ng-container #errorMessage/>
+
+<section>
+    <div>
+        Don't have an account yet?
+        <app-switch-form-button url="/login">Sign In</app-switch-form-button>
+    </div>
+</section>

@@ -7,8 +7,8 @@ import { LandingComponent } from './page/landing/landing.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { RecipeComponent } from './page/recipe/recipe.component';
 import { ReportComponent } from './page/report/report.component';
-import { LoginComponent } from './page/login/login.component';
-import { RegisterComponent } from './page/register/register.component';
+import { LoginComponent } from './page/auth/login/login.component';
+import { RegisterComponent } from './page/auth/register/register.component';
 import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 import { SearchResultContainerComponent } from './page/search-result-container/search-result-container.component';
 
@@ -24,6 +24,6 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'report', component: ReportComponent },
-    { path: 'search', component: SearchResultContainerComponent },  
+    { path: 'search', component: SearchResultContainerComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

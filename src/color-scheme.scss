@@ -15,10 +15,10 @@
 .form-input {
     border-bottom: 1px solid $baseColor;
     color: inherit;
-    
+
     &.error {
         border-bottom-color: $errorColor;
-        
+
         & ~ label {
             color: $errorColor;
         }
@@ -29,11 +29,11 @@
 .button {
     background: $baseColor;
     color: $secondaryColor;
-    
+
     &.disabled {
         color: #aaa;  // Disabled text color
     }
-    
+
     &.link-button {
         color: $linkColor;
         &.alt-style {
@@ -43,7 +43,7 @@
 }
 
 // Additional color-related styles
-.login-container {
+.auth-container {
     background: rgba(255, 255, 255, 0.25);  // Semi-transparent white
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); // Dark shadow
 }
@@ -53,11 +53,11 @@
     &.hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     }
-    
+
     &.disabled {
         box-shadow: rgba(0, 0, 0, 0.75) 0 0 7px inset;
     }
-    
+
     &.button-hover {
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.75);
     }

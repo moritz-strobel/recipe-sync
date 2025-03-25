@@ -15,7 +15,7 @@ export class AuthService {
         return this.http.post<User>(BASE_URL + '/auth/login', {email, password})
     }
 
-    register(user: User) {
+    register(user: { first_name: string; last_name: string; username: string; email: string; password: string }) {
         return this.http.post<User>(BASE_URL + '/auth/register', user)
     }
 

@@ -1,7 +1,7 @@
 <h1>Sign In</h1>
 <form (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
     <div>
-        <input formControlName="username_or_email" id="email" required type="text">
+        <input formControlName="email" id="email" required type="text">
         <label for="email">Email</label>
     </div>
     <div>
@@ -20,5 +20,5 @@
     <div>
         Forgot password?
         <app-switch-form-button url="/forgot-password">Reset Password</app-switch-form-button>
-    </div>    
+    </div>
 </section>
