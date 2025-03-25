@@ -6,14 +6,13 @@ export type User = {
     createdAt: Date;
     updatedAt: Date;
 
-    username: string;
     first_name: string;
     last_name: string;
+    username: string;
     email: string;
-    passwordHash: string;   
+    password: string;   
     profileText: string;
     profileImage: string; // base64string image
-
-    //recipes: Recipe[];
-    //cookbooks: CookBook[];
+    recipes: Recipe[];
+    cookbooks: CookBook[];
 }

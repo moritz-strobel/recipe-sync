@@ -9,7 +9,7 @@ export type CookBook = {
     user: User;  // Reference to an user
     title: string; 
     isFavorite: boolean; 
-    isDeleteable: boolean; // e.g. every user has a list of favorite recipes. this list shall not be public nor shall it be deleted (deletion results in empty cookbook) 
+    isDeletable: boolean; // e.g. every user has a list of favorite recipes. this list shall not be public nor shall it be deleted (deletion results in empty cookbook) 
     isPublic: boolean;
     description: string;
     coverImage: string; // URL zum Titelbild

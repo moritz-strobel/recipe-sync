@@ -1,4 +1,3 @@
-import { Tag } from "./tag.type";
 import { User } from "./user.type";
 
 export type Recipe = {
@@ -12,12 +11,10 @@ export type Recipe = {
     generalScore: "healthy" | "neutral" | "unhealthy";
     nutriScore: "A" | "B" | "C" | "D" | "E";
     ingredients: string[]; // Array of strings, each string beeing a ingredient
-    steps: bigint; // How many steps
-    preparationTime: bigint; // how long for preperation e.g. cut vegetables
-    overallCookTime: bigint; // how long for cooking
+    steps: number; // How many steps
+    preparationTime: number; // how long for preperation e.g. cut vegetables
+    overallCookTime: number; // how long for cooking
     recipeText: string; // Actual recipe text
-    images?: string[]; // image as base64string
-    videoUrl?: string // optional video link to e.g. YT
     coverImage: string; // image as base64string
-    tags: Tag[]; // Array references to Tags
+    tags: string[]; // Array references to Tags
 }
