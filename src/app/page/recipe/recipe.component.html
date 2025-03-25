@@ -24,9 +24,9 @@
     <div class="tags-container">
       <p>
         <strong>Tags:</strong>
-        @for (tag of (recipe.tags); track tag.id){
-        {{ tag.name }}
-        }
+        @for (tag of (recipe.tags); track recipe.id){
+          {{ tag }}
+          }
       </p>
     </div>
 
@@ -36,12 +36,6 @@
       <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
       <p><strong>Preparation Time:</strong> {{ recipe.preparationTime }} minutes</p>
       <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookTime }} minutes</p>
-      @if (recipe.videoUrl) {
-      <p>
-        <strong>Video</strong>
-        <a [href]="recipe.videoUrl" target="_blank">Watch a Video</a>
-      </p>
-      }
     </div>
   </section>
 
@@ -73,23 +67,4 @@
     </div>
     <p>{{ recipe.recipeText }}</p>
   </section>
-
-  @if (recipe.images) {
-  <!--
-    divider
-  -->
-
-  <section class="additional-images-section">
-    <div>
-      <h2>Additional Images</h2>
-    </div>
-
-    <div class="images-container">
-      @for (image of (recipe.images); track recipe.id){
-      <img [src]='image' alt="">
-      }
-    </div>
-  </section>
-  }
-
 </main>

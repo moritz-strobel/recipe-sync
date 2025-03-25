@@ -6,8 +6,11 @@ import { CardsCookbookContainerComponent } from "../../cards-cookbook-container/
 import { CardsRecipeContainerComponent } from "../../cards-recipe-container/cards-recipe-container.component";
 import { EditableInputComponent } from '../../editable-input/editable-input.component';
 
+import { CookbookService } from '../../services';
+import { RecipeService } from '../../services';
+import { UserService } from '../../services/user/user.service';
 import { User } from '../../custom-types/user.type';
-import { RecipeService } from '../../services/recipe.service';
+import { U } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-profile',
@@ -27,16 +30,19 @@ export class ProfileComponent {
   @ViewChild("#profileImage") profileImage!: EditableImageComponent;
   @ViewChild("#name") name!: EditableInputComponent;
 
-  user = {
-    createdAt: new Date,
-    updatedAt: new Date,
-    id: '',
-    first_name: '',
-    last_name: '',
-    username: '',
-    email: '',
-    passwordHash: '',
-    profileText: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic similique ratione sit expedita eum libero, ipsam adipisci voluptates voluptas voluptate, mollitia nobis quam eos inventore dolorem. Mollitia nam animi similique.',
-    profileImage: '', // Base64 string representation of the image
-  };
+  user!: User;
+
+  constructor(private cookbookService: CookbookService, private recipeService: RecipeService, private userService: UserService){
+    var temp = localStorage.getItem("userID");
+
+    if(temp){
+      userService.getById(temp).subscribe(
+        {
+          next: (user) => this.user = user,
+          error: (error) => console.log(error)
+        }
+      );
+    }
+
+  }
 }

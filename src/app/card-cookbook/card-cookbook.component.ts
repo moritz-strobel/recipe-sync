@@ -26,7 +26,7 @@ export class CardCookbookComponent {
   }
 
   deleteCookBook() {
-    if (!this.cookbook.isDeleteable) {
+    if (!this.cookbook.isDeletable) {
       console.warn('This cookbook cannot be deleted.');
       return;
     }

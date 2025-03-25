@@ -5,11 +5,11 @@
             
             <section class="info">
                 <div class="userData">
-                    <app-editable-input [text]="'MyUserName'" [heading]="'Username'"></app-editable-input>
-                    <app-editable-input [text]="'Jane'"[heading]="'First Name'" ></app-editable-input>
-                    <app-editable-input [text]="'Doe'"[heading]="'Last Name'" ></app-editable-input>
-                    <app-editable-input [text]="'example@mail.com'"[heading]="'Email'" ></app-editable-input>
-                    <app-editable-input [text]="'**************'"[heading]="'Password'" ></app-editable-input>
+                    <app-editable-input [text]="user.username" [heading]="'Username'"></app-editable-input>
+                    <app-editable-input [text]="user.first_name"[heading]="'First Name'" ></app-editable-input>
+                    <app-editable-input [text]="user.last_name"[heading]="'Last Name'" ></app-editable-input>
+                    <app-editable-input [text]="user.email"[heading]="'Email'" ></app-editable-input>
+                    <app-editable-input [text]="user.password"[heading]="'Password'" ></app-editable-input>
                 </div>
             </section>
         </section>

@@ -7,8 +7,8 @@
         <p>
           Tags:
           <span>
-            @for (tag of (recipe.tags); track tag.id){
-            {{ tag.name }}
+            @for (tag of (recipe.tags); track recipe.id){
+            {{ tag }}
             }
           </span>
         </p>

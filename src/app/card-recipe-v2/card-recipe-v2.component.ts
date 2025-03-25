@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Recipe } from '../custom-types/recipe.type';
 
 @Component({
   selector: 'app-card-recipe-v2',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './card-recipe-v2.component.scss'
 })
 export class CardRecipeV2Component {
-
+   @Input({ alias: "recipe", required: true }) recipe!: Recipe;
 }

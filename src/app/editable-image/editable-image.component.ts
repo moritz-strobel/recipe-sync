@@ -42,6 +42,7 @@ export class EditableImageComponent {
         this.showPlaceholder = false; // Ensure the placeholder is hidden
       };
       reader.readAsDataURL(input.files[0]); // Convert the image to Base64
+      console.log(reader);
     }
   }
 }

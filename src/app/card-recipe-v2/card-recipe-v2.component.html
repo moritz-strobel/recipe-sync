@@ -2,11 +2,9 @@
     <div class="text-container">
         <div class="meta-data">
             <ul>
-                <li>cooking time</li>
-                <li>cooking time</li>
-                <li>cooking time</li>
-                <li>cooking time</li>
-                <li>cooking time</li>
+                @for (tag of (recipe.tags); track recipe.id){
+                    {{ tag }}
+                    }
             </ul>
         </div>
 
