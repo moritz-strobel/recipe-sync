@@ -5,7 +5,7 @@
 
     <div class="heading">
         <h1 class="title">{{ cookbook.title }}</h1>
-        <p class="subtitle">{{ cookbook.user.username }}</p>
+        <p class="subtitle">{{ cookbook.user.username }}, {{ cookbook.createdAt|date:"dd.MM.yyyy" }}</p>
     </div>
 
     <div class="content">

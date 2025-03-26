@@ -4,12 +4,10 @@
   </div>
 
   <div class="text-container">
-      <h1>{{ recipe.title }}</h1>
-
-      <div class="who-when">
-          <p>SuperCoolUsername,</p>
-          <!--<p> {{ recipe.user.username }}, </p>-->
-          <p>{{ recipe.createdAt | date:'dd.MM.yyyy' }}</p>
+      
+      <div class="heading">
+          <h1 class="title">{{ recipe.title }}</h1>
+          <p class="subtitle">recipe.user.username, {{ recipe.createdAt | date:'dd.MM.yyyy' }}</p>
       </div>
 
       <div class="describtion-container">
