@@ -1,17 +1,24 @@
-// header.component.ts
-import { Component } from '@angular/core';
-import { SearchbarComponent } from "../searchbar/searchbar.component";
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  imports: [SearchbarComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [
+        RouterLink
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  menuOpen: boolean = false;
+    @ViewChild('navMenu') navMenu!: ElementRef<HTMLElement>;
+    isLoggedIn: boolean = false;
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
+    ngOnInit() {
+        this.isLoggedIn = !!localStorage.getItem("userID");
+    }
+
+    onClick() {
+        const navMenuStyle = this.navMenu.nativeElement.style;
+        navMenuStyle.display = navMenuStyle.display === 'flex' ? 'none' : 'flex';
+    }
 }

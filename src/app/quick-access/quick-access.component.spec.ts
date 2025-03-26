@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderV2Component } from './header-v2.component';
+import { QuickAccessComponent } from './quick-access.component';
 
-describe('HeaderV2Component', () => {
-  let component: HeaderV2Component;
-  let fixture: ComponentFixture<HeaderV2Component>;
+describe('QuickAccessComponent', () => {
+  let component: QuickAccessComponent;
+  let fixture: ComponentFixture<QuickAccessComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderV2Component]
+      imports: [QuickAccessComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderV2Component);
+    fixture = TestBed.createComponent(QuickAccessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

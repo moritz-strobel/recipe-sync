@@ -1,15 +1,27 @@
-<!-- header.component.html -->
-<header>
-    <div class="logo"><h1>Recipe<br>sync.</h1></div>
-    
-    <app-searchbar></app-searchbar>
+<div routerLink="/" class="logo-container">
+    <div class="logo">
+        <p>RECIPES<br>
+            SYNC.</p>
+    </div>
+</div>
 
-    <button class="hamburger" (click)="toggleMenu()">☰</button>
-    
-    <ul class="nav-menu" [class.open]="menuOpen">
-        <li><a href="./cookbook-home" (click)="toggleMenu()">Cookbook</a></li>
-        <li><a href="./profile" (click)="toggleMenu()">Profile</a></li>
-        <li><a href="./" (click)="toggleMenu()">Home</a></li>
-        <li><a href="./login" (click)="toggleMenu()">Login</a></li>
-    </ul>
-</header> 
+<div class="nav-container">
+    <a routerLink="/profile">Profile</a>
+    <nav (click)="onClick()">
+        <div class="button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <ul #navMenu>
+            <a routerLink="/">Home</a>
+            <a [hidden]="isLoggedIn" routerLink="/login">Log In</a>
+            <a [hidden]="isLoggedIn" routerLink="/register">Register</a>
+            <a routerLink="/about-us">About Us</a>
+            <a routerLink="/guidelines">Guidelines</a>
+            <a routerLink="/impress">Impress</a>
+            <a routerLink="/report">Report</a>
+        </ul>
+    </nav>
+</div>

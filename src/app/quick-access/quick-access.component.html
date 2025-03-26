@@ -1,0 +1,25 @@
+<!--
+    Show like-save container only on pages 'cookbook' & 'recipe'
+-->
+<div class="like-icon-container">
+    <div class="like">
+        <i class="fas fa-thumbs-up"></i>
+    </div>
+</div>
+
+<div class="save-icon-container">
+    <div class="save">
+        <i class="fas fa-bookmark"></i>
+    </div>
+</div>
+
+<div class="plus-container" (click)="onClick()">
+    <div class="plus">
+        <i class="fas fa-add"></i>
+    </div>
+
+    <ul #plusMenu>
+        <a routerLink="/">Create Cookbook</a>
+        <a routerLink="/">Create Recipe</a>
+    </ul>
+</div>
