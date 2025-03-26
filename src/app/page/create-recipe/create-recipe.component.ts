@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Recipe } from '../../custom-types/recipe.type';
 import { RecipeService } from '../../services';
 import { Router } from '@angular/router';
@@ -25,7 +25,7 @@ export class CreateRecipeComponent implements OnInit {
       isPublic: [true, Validators.required],
       generalScore: ['neutral', Validators.required],
       nutriScore: ['C', Validators.required],
-      ingredients: this.fb.array([this.fb.control('', Validators.required)], Validators.minLength(1)),
+      ingredients: this.fb.array([this.fb.control('')], [this.atLeastOneNonEmpty]), // Custom Validator hier anwenden
       steps: [1, [Validators.required, Validators.min(1)]],
       preparationTime: [0, [Validators.required, Validators.min(0)]],
       overallCookTime: [0, [Validators.required, Validators.min(0)]],
@@ -37,16 +37,23 @@ export class CreateRecipeComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // Benutzerdefinierter Validator für das ingredients FormArray
+  private atLeastOneNonEmpty(control: AbstractControl): ValidationErrors | null {
+    const controls = (control as FormArray).controls;
+    const hasNonEmpty = controls.some((ctrl) => ctrl.value.trim() !== '');
+    return hasNonEmpty ? null : { atLeastOneNonEmpty: true };
+  }
+
   get ingredients(): FormArray<FormControl> {
     return this.recipeForm.get('ingredients') as FormArray<FormControl>;
   }
 
-  get tags(): FormArray<FormControl> {  // Updated typing for tags
+  get tags(): FormArray<FormControl> {
     return this.recipeForm.get('tags') as FormArray<FormControl>;
   }
 
   addIngredient() {
-    this.ingredients.push(this.fb.control('', Validators.required));
+    this.ingredients.push(this.fb.control(''));
     console.log('Ingredients after adding:', this.ingredients.value);
   }
 
@@ -59,13 +66,13 @@ export class CreateRecipeComponent implements OnInit {
 
   addTag() {
     this.tags.push(this.fb.control('', Validators.required));
-    console.log('Tags after adding:', this.tags.value);  // Added for debugging
+    console.log('Tags after adding:', this.tags.value);
   }
 
   removeTag(index: number) {
     if (this.tags.length > 1) {
       this.tags.removeAt(index);
-      console.log('Tags after removing:', this.tags.value);  // Added for debugging
+      console.log('Tags after removing:', this.tags.value);
     }
   }
 
@@ -90,7 +97,7 @@ export class CreateRecipeComponent implements OnInit {
         coverImage: formValue.coverImage
       };
 
-      this.recipeService.create(localStorage.getItem("userID")! ,recipe).subscribe({
+      this.recipeService.create(localStorage.getItem("userID")!, recipe).subscribe({
         next: (result) => {
           console.log('Recipe created:', result);
           //this.router.navigate(['/recipe'], { queryParams: { id: result.id } });
