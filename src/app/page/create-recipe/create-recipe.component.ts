@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Recipe } from '../../custom-types/recipe.type';
 import { RecipeService } from '../../services';
 import { Router } from '@angular/router';
-import { EditableImageComponent } from '../../editable-image/editable-image.component'; // Adjust path as needed
+import { EditableImageComponent } from '../../editable-image/editable-image.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-recipe',
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    EditableImageComponent
-  ],
+  imports: [CommonModule, ReactiveFormsModule, EditableImageComponent],
   templateUrl: './create-recipe.component.html',
   styleUrls: ['./create-recipe.component.scss']
 })
@@ -35,14 +31,14 @@ export class CreateRecipeComponent implements OnInit {
       overallCookTime: [0, [Validators.required, Validators.min(0)]],
       recipeText: ['', Validators.required],
       tags: this.fb.array([this.fb.control('', Validators.required)], Validators.minLength(1)),
-      coverImage: [''] // Still a form control, but populated by EditableImageComponent
+      coverImage: ['']
     });
   }
 
   ngOnInit(): void {}
 
-  get ingredients(): FormArray {
-    return this.recipeForm.get('ingredients') as FormArray;
+  get ingredients(): FormArray<FormControl> {  // Updated typing
+    return this.recipeForm.get('ingredients') as FormArray<FormControl>;
   }
 
   get tags(): FormArray {
@@ -51,12 +47,13 @@ export class CreateRecipeComponent implements OnInit {
 
   addIngredient() {
     this.ingredients.push(this.fb.control('', Validators.required));
-    console.log(this.ingredients);
+    console.log('Ingredients after adding:', this.ingredients.value);
   }
 
   removeIngredient(index: number) {
     if (this.ingredients.length > 1) {
       this.ingredients.removeAt(index);
+      console.log('Ingredients after removing:', this.ingredients.value);
     }
   }
 
@@ -70,7 +67,6 @@ export class CreateRecipeComponent implements OnInit {
     }
   }
 
-  // Handle image change from EditableImageComponent
   onImageChange(base64String: string) {
     this.recipeForm.patchValue({ coverImage: base64String });
   }
@@ -79,11 +75,11 @@ export class CreateRecipeComponent implements OnInit {
     if (this.recipeForm.valid) {
       const formValue = this.recipeForm.value;
       const recipe: Recipe = {
-        id: '', // Set by backend
-        createdAt: new Date(), // Temporary, set by backend
-        updatedAt: new Date(), // Temporary, set by backend
+        id: '',
+        createdAt: new Date(),
+        updatedAt: new Date(),
         title: formValue.title,
-        user: { username: 'currentUser' } as any, // Replace with actual user from auth service
+        user: { username: 'currentUser' } as any,
         isPublic: formValue.isPublic,
         generalScore: formValue.generalScore,
         nutriScore: formValue.nutriScore,
@@ -106,5 +102,9 @@ export class CreateRecipeComponent implements OnInit {
     } else {
       this.recipeForm.markAllAsTouched();
     }
+  }
+
+  trackByFn(index: number, item: any): number {
+    return index;
   }
 }

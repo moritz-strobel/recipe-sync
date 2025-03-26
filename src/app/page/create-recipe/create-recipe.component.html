@@ -51,10 +51,10 @@
       <div class="form-group">
         <label>Ingredients</label>
         <div class="input-list">
-          <div *ngFor="let control of ingredients.controls; let i = index" class="input-item">
+          <div *ngFor="let control of ingredients.controls; let i = index; trackBy: trackByFn" class="input-item">
             <input
               type="text"
-              [formControlName]="i"
+              [formControl]="control"
               placeholder="Enter an ingredient" />
             <button type="button" (click)="removeIngredient(i)" class="remove-btn" [disabled]="ingredients.length <= 1">
               Remove
