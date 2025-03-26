@@ -23,10 +23,13 @@ export class CookbookComponent {
   ngOnInit(): void {
     let id = this.route.snapshot.queryParamMap.get("id");
 
+    console.log(id)
+
     if (id) {
-      this.cookbookService.getByTitle(id).subscribe({
+      this.cookbookService.getById(id).subscribe({
         next: result => {
           this.cookbook = result;
+          console.log(result)
         },
         error: err => console.log(err)
       });

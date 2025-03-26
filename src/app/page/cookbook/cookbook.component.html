@@ -1,4 +1,4 @@
-<main class="main">
+<main *ngIf="cookbook" class="main">
     <section class="cookbook-data-section">
       <div>
         <h1>{{ cookbook.title }}</h1>
@@ -6,7 +6,7 @@
   
       <div>
         <img
-          [src]="cookbook.coverImage || 'https://www.daskochrezept.de/sites/daskochrezept.de/files/styles/700_530/public/rezepte/2009/3/Eierpfannkuchen-Grundrezept-49be3fcfd22f9.jpg?h=5a135609&itok=HFSlSXI3'"
+          [src]="cookbook.coverImage"
           alt="Cookbook Cover"
           class="responsive-img" />
       </div>

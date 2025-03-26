@@ -15,6 +15,10 @@ export class CookbookService {
         return this.http.get<CookBook[]>(BASE_URL + '/cookbook?userId=' + userId);
     }
 
+    getById(id: string) {
+        return this.http.get<CookBook>(BASE_URL + '/cookbook?id=' + id);
+    }
+
     getByTitle(title: string) {
         return this.http.get<CookBook>(BASE_URL + `/cookbook?title=${title}`);
     }
