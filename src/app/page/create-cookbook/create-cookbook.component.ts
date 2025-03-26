@@ -23,7 +23,8 @@ export class CreateCookbookComponent implements OnInit {
     this.cookbookForm = this.fb.group({
       title: ['', Validators.required],
       isPublic: [true, Validators.required],
-      coverImage: ['']
+      coverImage: [''],
+      description: ['']
     });
   }
 
@@ -39,16 +40,16 @@ export class CreateCookbookComponent implements OnInit {
       const cookbook = {
         title: formValue.title,
         isPublic: formValue.isPublic,
-        isFavorite: false,
-        isDeletable: false,
-        description: '',
+        isFavorite: false, //set by backend
+        isDeletable: false, //set by backend
+        description: formValue.description, 
         coverImage: formValue.coverImage
       };
 
       this.cookbookService.create(localStorage.getItem('userID')!, cookbook).subscribe({
         next: (result) => {
           console.log('Cookbook created:', result);
-          //this.router.navigate(['/cookbook'], { queryParams: { id: result.id } }); // Optional: Navigation nach Erstellung
+          //this.router.navigate(['/cookbook'], { queryParams: { id: result.id } });
         },
         error: (err) => console.error('Error creating cookbook:', err)
       });

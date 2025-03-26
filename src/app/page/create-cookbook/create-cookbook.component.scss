@@ -36,7 +36,8 @@
       }
 
       input,
-      select {
+      select,
+      textarea {
         padding: v.$s;
         border: 1px solid v.$white-3;
         border-radius: v.$s;
@@ -53,6 +54,11 @@
         &[class="ng-invalid ng-touched"] {
           border-color: v.$accent-5;
         }
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
       }
 
       .error {

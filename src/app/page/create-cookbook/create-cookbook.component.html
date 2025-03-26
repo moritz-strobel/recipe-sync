@@ -1,46 +1,55 @@
 <main class="main">
-    <section class="create-cookbook-section">
-      <h1>Create a New Cookbook</h1>
-  
-      <form [formGroup]="cookbookForm" (ngSubmit)="onSubmit()" class="cookbook-form">
-        <!-- Title -->
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            formControlName="title"
-            placeholder="Enter cookbook title" />
-          <span class="error" *ngIf="cookbookForm.get('title')?.touched && cookbookForm.get('title')?.hasError('required')">
-            Title is required.
-          </span>
+  <section class="create-cookbook-section">
+    <h1>Create a New Cookbook</h1>
+
+    <form [formGroup]="cookbookForm" (ngSubmit)="onSubmit()" class="cookbook-form">
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          placeholder="Enter cookbook title" />
+        <span class="error" *ngIf="cookbookForm.get('title')?.touched && cookbookForm.get('title')?.hasError('required')">
+          Title is required.
+        </span>
+      </div>
+
+      <!-- Public/Private Toggle -->
+      <div class="form-group">
+        <label for="isPublic">Visibility</label>
+        <select id="isPublic" formControlName="isPublic">
+          <option [value]="true">Public</option>
+          <option [value]="false">Private</option>
+        </select>
+      </div>
+
+      <!-- Cover Image with EditableImageComponent -->
+      <div class="form-group">
+        <label>Cover Image (Optional)</label>
+        <div class="img">
+          <app-editable-image
+            [src]="cookbookForm.get('coverImage')?.value"
+            alt="Cookbook Cover Image"
+            (imageChanged)="onImageChange($event)">
+          </app-editable-image>
         </div>
-  
-        <!-- Public/Private Toggle -->
-        <div class="form-group">
-          <label for="isPublic">Visibility</label>
-          <select id="isPublic" formControlName="isPublic">
-            <option [value]="true">Public</option>
-            <option [value]="false">Private</option>
-          </select>
-        </div>
-  
-        <!-- Cover Image with EditableImageComponent -->
-        <div class="form-group">
-          <label>Cover Image (Optional)</label>
-          <div class="img">
-            <app-editable-image
-              [src]="cookbookForm.get('coverImage')?.value"
-              alt="Cookbook Cover Image"
-              (imageChanged)="onImageChange($event)">
-            </app-editable-image>
-          </div>
-        </div>
-  
-        <!-- Submit Button -->
-        <div class="form-actions">
-          <button type="submit" [disabled]="cookbookForm.invalid" class="submit-btn">Create Cookbook</button>
-        </div>
-      </form>
-    </section>
-  </main>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description (Optional)</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          placeholder="Enter a description for your cookbook"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="submit" [disabled]="cookbookForm.invalid" class="submit-btn">Create Cookbook</button>
+      </div>
+    </form>
+  </section>
+</main>
