@@ -1,0 +1,154 @@
+<main class="main">
+  <section class="create-recipe-section">
+    <h1>Create a New Recipe</h1>
+
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="recipe-form">
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          placeholder="Enter recipe title" />
+        <span class="error" *ngIf="recipeForm.get('title')?.touched && recipeForm.get('title')?.hasError('required')">
+          Title is required.
+        </span>
+      </div>
+
+      <!-- Public/Private Toggle -->
+      <div class="form-group">
+        <label for="isPublic">Visibility</label>
+        <select id="isPublic" formControlName="isPublic">
+          <option [value]="true">Public</option>
+          <option [value]="false">Private</option>
+        </select>
+      </div>
+
+      <!-- General Score -->
+      <div class="form-group">
+        <label for="generalScore">General Score</label>
+        <select id="generalScore" formControlName="generalScore">
+          <option value="healthy">Healthy</option>
+          <option value="neutral">Neutral</option>
+          <option value="unhealthy">Unhealthy</option>
+        </select>
+      </div>
+
+      <!-- Nutri-Score -->
+      <div class="form-group">
+        <label for="nutriScore">Nutri-Score</label>
+        <select id="nutriScore" formControlName="nutriScore">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="form-group">
+        <label>Ingredients</label>
+        <div class="input-list">
+          <div *ngFor="let control of ingredients.controls; let i = index" class="input-item">
+            <input
+              type="text"
+              [formControlName]="i"
+              placeholder="Enter an ingredient" />
+            <button type="button" (click)="removeIngredient(i)" class="remove-btn" [disabled]="ingredients.length <= 1">
+              Remove
+            </button>
+          </div>
+          <button type="button" (click)="addIngredient()" class="add-btn">Add Ingredient</button>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-group">
+        <label for="steps">Number of Steps</label>
+        <input
+          type="number"
+          id="steps"
+          formControlName="steps"
+          placeholder="Enter number of steps" />
+        <span class="error" *ngIf="recipeForm.get('steps')?.touched && recipeForm.get('steps')?.hasError('min')">
+          Steps must be at least 1.
+        </span>
+      </div>
+
+      <!-- Preparation Time -->
+      <div class="form-group">
+        <label for="preparationTime">Preparation Time (minutes)</label>
+        <input
+          type="number"
+          id="preparationTime"
+          formControlName="preparationTime"
+          placeholder="Enter preparation time" />
+        <span class="error" *ngIf="recipeForm.get('preparationTime')?.touched && recipeForm.get('preparationTime')?.hasError('min')">
+          Preparation time must be 0 or greater.
+        </span>
+      </div>
+
+      <!-- Overall Cooking Time -->
+      <div class="form-group">
+        <label for="overallCookTime">Overall Cooking Time (minutes)</label>
+        <input
+          type="number"
+          id="overallCookTime"
+          formControlName="overallCookTime"
+          placeholder="Enter overall cooking time" />
+        <span class="error" *ngIf="recipeForm.get('overallCookTime')?.touched && recipeForm.get('overallCookTime')?.hasError('min')">
+          Cooking time must be 0 or greater.
+        </span>
+      </div>
+
+      <!-- Recipe Text -->
+      <div class="form-group">
+        <label for="recipeText">Recipe Instructions</label>
+        <textarea
+          id="recipeText"
+          formControlName="recipeText"
+          placeholder="Enter the recipe instructions"></textarea>
+        <span class="error" *ngIf="recipeForm.get('recipeText')?.touched && recipeForm.get('recipeText')?.hasError('required')">
+          Recipe instructions are required.
+        </span>
+      </div>
+
+      <!-- Tags -->
+      <div class="form-group">
+        <label>Tags</label>
+        <div class="input-list">
+          <div *ngFor="let control of tags.controls; let i = index" class="input-item">
+            <input
+              type="text"
+              [formControlName]="i"
+              placeholder="Enter a tag" />
+            <button type="button" (click)="removeTag(i)" class="remove-btn" [disabled]="tags.length <= 1">
+              Remove
+            </button>
+          </div>
+          <button type="button" (click)="addTag()" class="add-btn">Add Tag</button>
+        </div>
+      </div>
+
+      <!-- Cover Image with EditableImageComponent -->
+      <div class="form-group">
+        <label>Cover Image (Optional)</label>
+
+        <div class="img">
+          <app-editable-image
+            [src]="recipeForm.get('coverImage')?.value"
+            alt="Recipe Cover Image"
+            (imageChanged)="onImageChange($event)">
+          </app-editable-image>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="submit" [disabled]="recipeForm.invalid" class="submit-btn">Create Recipe</button>
+      </div>
+    </form>
+  </section>
+</main>

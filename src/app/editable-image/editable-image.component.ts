@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-editable-image',
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   templateUrl: './editable-image.component.html',
   styleUrls: ['./editable-image.component.scss']
 })
 export class EditableImageComponent {
   @Input() src?: string; // Holds the source of the image
   @Input() alt?: string; // Holds the alt text of the image
+  @Output() imageChanged = new EventEmitter<string>(); // Emit the new Base64 string
 
   showPlaceholder: boolean = true; // Initially show the placeholder icon
 
@@ -24,13 +23,13 @@ export class EditableImageComponent {
   }
 
   onEdit() {
-    const fileInput = document.createElement('input'); // Dynamically create an <input type="file">
+    const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = 'image/*'; // Allow only image files
+    fileInput.accept = 'image/*';
     fileInput.addEventListener('change', (event: Event) => {
-      this.onFileSelected(event); // Handle file selection
+      this.onFileSelected(event);
     });
-    fileInput.click(); // Open the file picker
+    fileInput.click();
   }
 
   private onFileSelected(event: Event) {
@@ -38,11 +37,11 @@ export class EditableImageComponent {
     if (input?.files?.length) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.src = reader.result as string; // Update the image source
-        this.showPlaceholder = false; // Ensure the placeholder is hidden
+        this.src = reader.result as string; // Update local src
+        this.showPlaceholder = false;
+        this.imageChanged.emit(this.src); // Emit the Base64 string to parent
       };
-      reader.readAsDataURL(input.files[0]); // Convert the image to Base64
-      console.log(reader);
+      reader.readAsDataURL(input.files[0]);
     }
   }
 }
