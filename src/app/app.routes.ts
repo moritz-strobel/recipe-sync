@@ -12,6 +12,7 @@ import { RegisterComponent } from './page/auth/register/register.component';
 import { SearchResultContainerComponent } from './page/search-result-container/search-result-container.component';
 import { authGuard } from './guards/auth.guard';
 import { CreateRecipeComponent } from './page/create-recipe/create-recipe.component';
+import { CreateCookbookComponent } from './page/create-cookbook/create-cookbook.component';
 
 export const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -25,7 +26,7 @@ export const routes: Routes = [
     {path: 'recipe', component: RecipeComponent},
     {path: 'create-recipe', canActivate: [authGuard], component: CreateRecipeComponent},
     {path: 'cookbook', component: CookbookComponent},
-    {path: 'create-cookbook', canActivate: [authGuard], component: CookbookComponent}, ///
+    {path: 'create-cookbook', canActivate: [authGuard], component: CreateCookbookComponent},
     {path: 'profile', canActivate: [authGuard], component: ProfileComponent},
     {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

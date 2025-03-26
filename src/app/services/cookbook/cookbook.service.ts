@@ -19,8 +19,8 @@ export class CookbookService {
         return this.http.get<CookBook>(BASE_URL + `/cookbook?title=${title}`);
     }
 
-    create(cookbook: CookBook) {
-        return this.http.post<CookBook>(BASE_URL + `/cookbook`, cookbook);
+    create(userId: string, createCookbookDto: any) {
+        return this.http.post<CookBook>(BASE_URL + `/cookbook`, {userId, cookbook : createCookbookDto});
     }
 
     addRecipe(cookbookId: string, userId: number, recipeId: string) {
