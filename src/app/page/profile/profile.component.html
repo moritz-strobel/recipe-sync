@@ -1,39 +1,85 @@
 <main *ngIf="user" class="main">
     <section class="user-container">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
         <section class="top-container">
-            <app-editable-image></app-editable-image>
-
-            <section class="info">
-                <div class="userData">
-                    <app-editable-input [text]="user.username" [heading]="'Username'"></app-editable-input>
-                    <app-editable-input [text]="user.first_name" [heading]="'First Name'"></app-editable-input>
-                    <app-editable-input [text]="user.last_name" [heading]="'Last Name'"></app-editable-input>
-                    <app-editable-input [text]="user.email" [heading]="'Email'"></app-editable-input>
-                    <app-editable-input [text]="user.password" [heading]="'Password'"></app-editable-input>
-                </div>
-            </section>
+          <!-- Profile Image -->
+          <div class="form-group">
+            <div class="img">
+              <app-editable-image
+                [src]="profileForm.get('profileImage')?.value"
+                alt="Profile Image"
+                (imageChanged)="onImageChange($event)">
+              </app-editable-image>
+            </div>
+          </div>
+  
+          <!-- User Data -->
+          <section class="info">
+            <div class="userData">
+              <div class="form-group">
+                <app-editable-input
+                  [text]="profileForm.get('username')?.value"
+                  (textChange)="onTextChange('username', $event)"
+                  [heading]="'Username'">
+                </app-editable-input>
+              </div>
+  
+              <div class="form-group">
+                <app-editable-input
+                  [text]="profileForm.get('firstName')?.value"
+                  (textChange)="onTextChange('firstName', $event)"
+                  [heading]="'First Name'">
+                </app-editable-input>
+              </div>
+  
+              <div class="form-group">
+                <app-editable-input
+                  [text]="profileForm.get('lastName')?.value"
+                  (textChange)="onTextChange('lastName', $event)"
+                  [heading]="'Last Name'">
+                </app-editable-input>
+              </div>
+  
+              <div class="form-group">
+                <app-editable-input
+                  [text]="profileForm.get('email')?.value"
+                  (textChange)="onTextChange('email', $event)"
+                  [heading]="'Email'">
+                </app-editable-input>
+              </div>
+  
+              <div class="form-group">
+                <app-editable-input
+                  [text]="profileForm.get('password')?.value"
+                  (textChange)="onTextChange('password', $event)"
+                  [heading]="'Password'">
+                </app-editable-input>
+              </div>
+            </div>
+          </section>
         </section>
-
-        <article class="user-bio">
-            <p>
-                {{ user.profileText }}
-            </p>
-        </article>
+        <section class="user-bio">
+            <app-editable-textarea
+              [text]="profileForm.get('profileText')?.value"
+              (textChange)="onTextChange('profileText', $event)"
+              [heading]="'Bio'">
+            </app-editable-textarea>
+          </section>
+      </form>
+        
     </section>
-
+    
     <section class="container-container">
-        <article class="container">
-            <app-cards-recipe-container heading="My Recipes" [recipes]="ownRecipes"></app-cards-recipe-container>
-        </article>
-
-        <article class="container">
-            <app-cards-cookbook-container heading="My Cookbooks"
-                [cookbooks]="owncookBooks"></app-cards-cookbook-container>
-        </article>
-
-        <article class="container">
-            <app-cards-cookbook-container heading="Saved Cookbooks"
-                [cookbooks]="savedCookbooks"></app-cards-cookbook-container>
-        </article>
+      <article class="container">
+        <app-cards-recipe-container heading="My Recipes" [recipes]="ownRecipes"></app-cards-recipe-container>
+      </article>
+  
+      <article class="container">
+        <app-cards-cookbook-container heading="My Cookbooks" [cookbooks]="owncookBooks"></app-cards-cookbook-container>
+      </article>
+  
+      <article class="container">
+        <app-cards-cookbook-container heading="Saved Cookbooks" [cookbooks]="savedCookbooks"></app-cards-cookbook-container>
+      </article>
     </section>
-</main>
+  </main>

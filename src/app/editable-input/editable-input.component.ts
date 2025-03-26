@@ -9,13 +9,12 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@
   templateUrl: './editable-input.component.html',
   styleUrl: './editable-input.component.scss'
 })
-
 export class EditableInputComponent {
   @Input({ alias: 'heading', required: false }) heading!: string;
   @Input() text: string = '';
   @Input() defaultText: string = 'Enter text here';
   @Output() textChange: EventEmitter<string> = new EventEmitter<string>();
-  @ViewChild('editableInput') inputElement!: ElementRef;
+  @ViewChild('editableInput') inputElement!: ElementRef<HTMLInputElement>;
 
   editing: boolean = false;
 
@@ -24,32 +23,18 @@ export class EditableInputComponent {
     setTimeout(() => this.focusInput(), 0); // Focus after rendering
   }
 
-  updateProfileField(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input) {
-      this.text = input.value;
-    }
-  }
-
   saveProfileField(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input) {
-      this.text = input.value.trim();
-      this.editing = false;
-      this.textChange.emit(this.text);
-    }
-  }
-
-  finishProfileEdit(event: FocusEvent) {
-    const input = event.target as HTMLInputElement;
-    if (input) {
-      this.text = input.value.trim();
-      this.editing = false;
-      this.textChange.emit(this.text);
+      this.text = input.value.trim(); // Trim the value
+      this.editing = false; // Exit editing mode
+      this.textChange.emit(this.text); // Emit the updated value
     }
   }
 
   focusInput() {
-    this.inputElement.nativeElement.focus();
+    if (this.inputElement?.nativeElement) {
+      this.inputElement.nativeElement.focus();
+    }
   }
 }
