@@ -5,14 +5,16 @@ import { CardRecipeV2Component } from '../../card-recipe-v2/card-recipe-v2.compo
 
 import { Recipe } from '../../custom-types/recipe.type';
 import { CardRecipeV3Component } from "../../card-recipe-v3/card-recipe-v3.component";
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-landing',
     imports: [
-    CardRecipeV2Component,
-    SearchbarComponent,
-    CardRecipeV3Component
-],
+        CardRecipeV2Component,
+        SearchbarComponent,
+        CardRecipeV3Component,
+        NgIf
+    ],
     templateUrl: './landing.component.html',
     styleUrl: './landing.component.scss'
 })

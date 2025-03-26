@@ -34,7 +34,7 @@
     </article>
   </section>
 
-  <div class="browse-recipes">
+  <div class="browse-recipes" *ngIf="recipes">
       <app-card-recipe-v2 [recipe]="recipes[0]"></app-card-recipe-v2>
       <app-card-recipe-v3 [recipe]="recipes[0]"></app-card-recipe-v3>
       <app-card-recipe-v2 [recipe]="recipes[0]"></app-card-recipe-v2>

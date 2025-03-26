@@ -21,7 +21,6 @@ export class RecipeComponent implements OnInit {
         if (id) {
             this.recipeService.getById(id).subscribe({
                 next: result => {
-                    console.log(result);
                     this.recipe = result;
                 },
                 error: err => console.log(err)
@@ -37,7 +36,7 @@ export class RecipeComponent implements OnInit {
             }
             return this.recipe.tags as string[];
           }
-        
+
           // Getter for ingredients, converting string to array if needed
           get ingredients(): string[] {
             if (typeof this.recipe.ingredients === 'string') {
