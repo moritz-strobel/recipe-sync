@@ -2,16 +2,17 @@
 
 .recipe-cards-section {
   padding: v.$m 0; // Vertical padding for breathing room
+  background-color: v.$white-1;
+  border-radius: v.$n;
 
   h2 {
+    padding-left: v.$b;
     color: v.$black;
     font-size: v.$l; // 2.5rem
     margin-bottom: v.$n; // 1rem
-    text-align: center;
   }
 
   .container {
-    max-width: 1200px; // Consistent with recipe page
     margin: 0 auto; // Center horizontally
     padding: 0 v.$n; // Horizontal padding
   }
@@ -21,31 +22,5 @@
     flex-wrap: wrap; // Wrap to new row after filling
     gap: v.$n; // 1rem gap between cards
     justify-content: center; // Center cards horizontally
-
-    // Ensure max 3 cards per row
-    > app-card-recipe {
-      flex: 1 1 calc(33.333% - v.$n * 2 / 3); // 33.33% width minus gap adjustments
-      max-width: calc(33.333% - v.$n * 2 / 3); // Cap width for 3 per row
-      min-width: 300px; // Minimum width to prevent squashing
-    }
-  }
-}
-
-// Responsive adjustments
-@media (max-width: 900px) {
-  .card-container {
-    > app-card-recipe {
-      flex: 1 1 calc(50% - v.$n); // 2 cards per row
-      max-width: calc(50% - v.$n);
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .card-container {
-    > app-card-recipe {
-      flex: 1 1 100%; // 1 card per row
-      max-width: 100%;
-    }
   }
 }

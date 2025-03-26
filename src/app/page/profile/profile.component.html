@@ -2,14 +2,14 @@
     <section class="user-container">
         <section class="top-container">
             <app-editable-image></app-editable-image>
-            
+
             <section class="info">
                 <div class="userData">
                     <app-editable-input [text]="user.username" [heading]="'Username'"></app-editable-input>
-                    <app-editable-input [text]="user.first_name"[heading]="'First Name'" ></app-editable-input>
-                    <app-editable-input [text]="user.last_name"[heading]="'Last Name'" ></app-editable-input>
-                    <app-editable-input [text]="user.email"[heading]="'Email'" ></app-editable-input>
-                    <app-editable-input [text]="user.password"[heading]="'Password'" ></app-editable-input>
+                    <app-editable-input [text]="user.first_name" [heading]="'First Name'"></app-editable-input>
+                    <app-editable-input [text]="user.last_name" [heading]="'Last Name'"></app-editable-input>
+                    <app-editable-input [text]="user.email" [heading]="'Email'"></app-editable-input>
+                    <app-editable-input [text]="user.password" [heading]="'Password'"></app-editable-input>
                 </div>
             </section>
         </section>
@@ -25,21 +25,15 @@
         <article class="user-own-recipes">
             <app-cards-recipe-container heading="My Recipes" [recipes]="ownRecipes"></app-cards-recipe-container>
         </article>
-        
+
         <article class="user-own-cookbooks">
-            <app-cards-cookbook-container heading="My Cookbooks" [cookbooks]="owncookBooks"></app-cards-cookbook-container>
+            <app-cards-cookbook-container heading="My Cookbooks"
+                [cookbooks]="owncookBooks"></app-cards-cookbook-container>
         </article>
-    </section>
-    
-    <section class="container-container">
-        <!--
-            <article class="user-saved-recipes">
-                <app-cards-cookbook-container heading="Favorite cookbooks" [cookbooks]="cookbooks"></app-cards-cookbook-container>
-            </article>
-            
-            <article class="user-saved-cookbooks">
-            <app-cards-recipe-container heading="My cookbooks" [recipes]="recipes"></app-cards-recipe-container>
+
+        <article class="user-saved-cookbooks">
+            <app-cards-cookbook-container heading="Saved Cookbooks"
+                [cookbooks]="savedCookbooks"></app-cards-cookbook-container>
         </article>
-        -->
     </section>
 </main>

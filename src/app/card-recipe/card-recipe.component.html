@@ -1,53 +1,54 @@
 <div class="card" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
   <div class="img-container">
-    <img src="https://www.chefkoch.de/magazin/sites/default/files/styles/hero/public/media/image/2017-08/763948-960x720-karibischer-eintopf.jpg" alt="Recipe cover">
+      <img [src]="recipe.coverImage" alt="Recipe cover">
   </div>
 
   <div class="text-container">
-    <h1>{{ recipe.title }}</h1>
+      <h1>{{ recipe.title }}</h1>
 
-    <div class="who-when">
-      <p>{{ recipe.user.username }},</p>
-      <p>{{ recipe.createdAt | date:'dd.MM.yyyy' }}</p>
-    </div>
+      <div class="who-when">
+          <p>SuperCoolUsername,</p>
+          <!--<p> {{ recipe.user.username }}, </p>-->
+          <p>{{ recipe.createdAt | date:'dd.MM.yyyy' }}</p>
+      </div>
 
-    <div class="tags-container">
-      <span>
-        <strong>Tags: </strong>
-        @for (tag of tags; track tag) {
-          <span class="tag">#{{ tag }}</span>
-        }
-      </span>
-    </div>
+      <div class="describtion-container">
+          <span>
+              <strong>Tags: </strong>
+              @for (v of tags; track v) {
+                  #{{ v }}
+              }
+          </span>
+      </div>
 
-    <div class="meta-data">
-      <table class="info-table">
-        <tr>
-          <td>Overall</td>
-          <td>{{ recipe.generalScore }}</td>
-        </tr>
-        <tr>
-          <td>Nutri-Score:</td>
-          <td>{{ recipe.nutriScore }}</td>
-        </tr>
-        <tr>
-          <td>Cooking Time:</td>
-          <td>{{ recipe.overallCookTime }} minutes</td>
-        </tr>
-        <tr>
-          <td>Steps:</td>
-          <td>{{ recipe.steps }}</td>
-        </tr>
-      </table>
-    </div>
+      <div class="meta-data">
+          <table class="info-table">
+              <tr>
+                  <td>Overall</td>
+                  <td>{{ recipe.generalScore }}</td>
+              </tr>
+              <tr>
+                  <td>Nutri-Score:</td>
+                  <td>{{ recipe.nutriScore }}</td>
+              </tr>
+              <tr>
+                  <td>Overall cooking time:</td>
+                  <td>{{ recipe.overallCookTime }} minutes</td>
+              </tr>
+              <tr>
+                  <td>Steps:</td>
+                  <td>{{ recipe.steps }}</td>
+              </tr>
+          </table>
+      </div>
 
-    <div class="ingredients-container">
-      <h3>Ingredients</h3>
-      <ul>
-        @for (ingredient of ingredients; track ingredient) {
-          <li>{{ ingredient }}</li>
-        }
-      </ul>
-    </div>
+      <div>
+          <h3>Ingredients</h3>
+          <ul>
+              @for (v of ingredients; track v) {
+                  <li>{{ v }}</li>
+              }
+          </ul>
+      </div>
   </div>
 </div>

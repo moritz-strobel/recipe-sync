@@ -1,17 +1,13 @@
-<section>
+<section class="recipe-cards-section">
     @if(heading){
     <h2>{{ heading }}</h2>
     }
 
     <div class="container">
-        <button class="nav-button"  (click)="scrollLeft()">&lt;</button>
-
-        <div class="card-container" #cardContainer>
+        <div class="card-container">
             @for (cookbook of (cookbooks); track cookbook.id){
             <app-card-cookbook [cookbook]="cookbook"></app-card-cookbook>
             }
         </div>
-
-        <button class="nav-button" (click)="scrollRight()">&gt;</button>
     </div>
 </section>

@@ -33,9 +33,8 @@ export class ProfileComponent {
 
   user!: User;
   ownRecipes!: Recipe[];
-  favoriteRecipes!: Recipe[];
   owncookBooks!: CookBook[];
-  otherCookbooks!: CookBook[];
+  savedCookbooks!: CookBook[];
 
   constructor(private cookbookService: CookbookService, private recipeService: RecipeService, private userService: UserService){
     var temp = localStorage.getItem("userID");
@@ -58,6 +57,13 @@ export class ProfileComponent {
       cookbookService.getByUserId(temp).subscribe(
         {
           next: (cookbooks) => this.owncookBooks = cookbooks,
+          error: (error) => console.log(error)
+        }
+      );
+      
+      cookbookService.getByUserId(temp).subscribe(
+        {
+          next: (cookbooks) => this.savedCookbooks = cookbooks,
           error: (error) => console.log(error)
         }
       );

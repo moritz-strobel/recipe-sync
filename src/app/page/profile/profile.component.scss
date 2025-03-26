@@ -1,4 +1,10 @@
-@use '../../../styles.scss';
+@use '../../../styles.scss' as v;
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .userData {
     align-content: center;
@@ -24,4 +30,8 @@
 
 .user-bio{
     width: 60rem;
+}
+
+.container-container{
+    padding: v.$b;
 }

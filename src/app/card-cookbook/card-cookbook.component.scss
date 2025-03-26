@@ -1,1 +1,56 @@
-@use '../../styles.scss';
+@use '../../styles.scss' as v;
+
+.card {
+    display: flex;
+    flex-direction: column; 
+    background-color: v.$white-1;
+    padding: v.$n;
+    gap: v.$n;
+    cursor: pointer;
+    border-radius: v.$n;
+    width: 100%;
+    border: 1px solid #e0e0e0; 
+}
+
+.card-button {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: v.$n ;
+}
+
+.title {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: gray;
+    margin: 0; 
+}
+
+.img-container {
+    width: 100%; 
+    img {
+        width: 100%; 
+        height: auto; 
+        max-height: 300px; 
+        object-fit: cover; 
+        border-radius: 0; 
+    }
+}
+
+.content {
+    padding: v.$b; 
+    p {
+        margin: 0; 
+    }
+}
