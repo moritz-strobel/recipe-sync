@@ -30,8 +30,8 @@ export class RecipeService {
         return this.http.get<Recipe[]>(BASE_URL + `/recipe?tags=${tags}`);
     }
 
-    create(recipe: Recipe) {
-        return this.http.post<Recipe>(BASE_URL + `/recipe`, recipe);
+    create(userId: string, createRecipeDto: any) {
+        return this.http.post<Recipe>(BASE_URL + `/recipe`, {userId, createRecipeDto});
     }
 
 }
