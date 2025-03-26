@@ -51,6 +51,7 @@ export class CreateRecipeComponent implements OnInit {
 
   addIngredient() {
     this.ingredients.push(this.fb.control('', Validators.required));
+    console.log(this.ingredients);
   }
 
   removeIngredient(index: number) {
