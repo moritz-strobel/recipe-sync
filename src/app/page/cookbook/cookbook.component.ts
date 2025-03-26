@@ -26,7 +26,6 @@ export class CookbookComponent {
     if (id) {
       this.cookbookService.getByTitle(id).subscribe({
         next: result => {
-          console.log(result);
           this.cookbook = result;
         },
         error: err => console.log(err)

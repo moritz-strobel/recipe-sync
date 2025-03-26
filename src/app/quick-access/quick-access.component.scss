@@ -6,6 +6,10 @@
     right: 1rem;
     display: flex;
     gap: 1rem;
+
+    & > div {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
 }
 
 div {
@@ -17,7 +21,7 @@ div {
     cursor: pointer;
 }
 
-.plus-container {
+.container {
     position: relative;
 
     ul {
@@ -25,8 +29,8 @@ div {
         position: absolute;
         bottom: 3.25rem;
         right: 0;
-        flex-direction: column;
         background-color: $white-1;
+        flex-direction: column;
         border-radius: 1rem;
         padding: 0.5rem;
         text-wrap: nowrap;

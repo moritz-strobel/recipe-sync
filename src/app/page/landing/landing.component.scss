@@ -39,12 +39,12 @@
 }
 
 article {
-    background: 
+    background:
     linear-gradient(90deg, v.$white-2 1px, transparent 1px),
     linear-gradient(v.$white-2 1px, transparent 1px);
     background-size: 2rem 2rem; // Size of the checker squares
     background-color: v.$white;
-    
+
     p {
         color: v.$black-2; // Darker for ink-like effect
         line-height: 1.5;
@@ -83,13 +83,13 @@ article {
 }
 
 .browse-recipes{
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //display: grid;
+    //place-items: center;
     width: 100%;
     background-color: aqua;
 
-    margin: 0;
-    padding: 0%;
-    
     gap: 1rem;
 }

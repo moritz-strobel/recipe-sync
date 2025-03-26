@@ -5,7 +5,7 @@
         <router-outlet/>
     </div>
 
-    <app-quick-access/>
+    <app-quick-access *ngIf="router.url.startsWith('/recipe') || router.url.startsWith('/cookbook')"/>
 
     <app-footer/>
 </div>

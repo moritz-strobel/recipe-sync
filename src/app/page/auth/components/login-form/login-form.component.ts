@@ -42,15 +42,6 @@ export class LoginFormComponent {
             email: this.loginForm.value.email!,
             password: this.loginForm.value.password!,
         }
-
-        this.authService.login(data.email, data.password).subscribe({
-                next: (user) => {
-                    localStorage.setItem("userID", user.id);
-                    void this.router.navigate(['/']);
-                },
-                error: (error) => console.log(error)
-            }
-        )
         this.authService.login(data.email, data.password).subscribe({
             next: (user) => {
                 localStorage.setItem("userID", user.id);

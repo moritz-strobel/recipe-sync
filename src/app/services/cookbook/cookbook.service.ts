@@ -12,7 +12,7 @@ export class CookbookService {
     }
 
     getByUserId(userId: string) {
-        return this.http.post<CookBook[]>(BASE_URL + '/cookbook', { userId });
+        return this.http.post<CookBook[]>(BASE_URL + '/cookbook', {userId});
     }
 
     getByTitle(title: string) {
@@ -24,6 +24,6 @@ export class CookbookService {
     }
 
     addRecipe(cookbookId: string, userId: number, recipeId: string) {
-        return this.http.put<CookBook>(BASE_URL + `/cookbook/${cookbookId}`, { userId, recipeId });
+        return this.http.put<CookBook>(BASE_URL + `/cookbook/${cookbookId}`, {userId, recipeId});
     }
 }

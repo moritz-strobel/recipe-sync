@@ -2,13 +2,12 @@
 
 .card{
     display: flex;
-    justify-content: space-around;
     background-color: v.$white-1;
     padding: v.$n;
     gap: v.$n;
     cursor: pointer;
     border-radius: v.$n;
-    width: 85%;
+    width: 100%;
 }
 
 .text-container{
@@ -28,7 +27,7 @@
 .img-container{
     width: 60%;
     img{
-        
+
             width: fit-content; /* Match the container's width */
             height: fit-content; /* Match the container's height */
             max-width: 100%;
