@@ -119,10 +119,10 @@
       <div class="form-group">
         <label>Tags</label>
         <div class="input-list">
-          <div *ngFor="let control of tags.controls; let i = index" class="input-item">
+          <div *ngFor="let control of tags.controls; let i = index; trackBy: trackByFn" class="input-item">
             <input
               type="text"
-              [formControlName]="i"
+              [formControl]="control"
               placeholder="Enter a tag" />
             <button type="button" (click)="removeTag(i)" class="remove-btn" [disabled]="tags.length <= 1">
               Remove

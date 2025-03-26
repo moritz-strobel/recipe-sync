@@ -37,12 +37,12 @@ export class CreateRecipeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  get ingredients(): FormArray<FormControl> {  // Updated typing
+  get ingredients(): FormArray<FormControl> {
     return this.recipeForm.get('ingredients') as FormArray<FormControl>;
   }
 
-  get tags(): FormArray {
-    return this.recipeForm.get('tags') as FormArray;
+  get tags(): FormArray<FormControl> {  // Updated typing for tags
+    return this.recipeForm.get('tags') as FormArray<FormControl>;
   }
 
   addIngredient() {
@@ -59,11 +59,13 @@ export class CreateRecipeComponent implements OnInit {
 
   addTag() {
     this.tags.push(this.fb.control('', Validators.required));
+    console.log('Tags after adding:', this.tags.value);  // Added for debugging
   }
 
   removeTag(index: number) {
     if (this.tags.length > 1) {
       this.tags.removeAt(index);
+      console.log('Tags after removing:', this.tags.value);  // Added for debugging
     }
   }
 
@@ -74,28 +76,24 @@ export class CreateRecipeComponent implements OnInit {
   onSubmit() {
     if (this.recipeForm.valid) {
       const formValue = this.recipeForm.value;
-      const recipe: Recipe = {
-        id: '',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+      const recipe = {
         title: formValue.title,
-        user: { username: 'currentUser' } as any,
         isPublic: formValue.isPublic,
         generalScore: formValue.generalScore,
         nutriScore: formValue.nutriScore,
-        ingredients: formValue.ingredients.filter((i: string) => i.trim() !== ''),
+        ingredients: formValue.ingredients.filter((i: string) => i.trim() !== '').join(","),
         steps: formValue.steps,
         preparationTime: formValue.preparationTime,
         overallCookTime: formValue.overallCookTime,
         recipeText: formValue.recipeText,
-        coverImage: formValue.coverImage,
-        tags: formValue.tags.filter((t: string) => t.trim() !== '')
+        tags: formValue.tags.filter((t: string) => t.trim() !== '').join(","),
+        coverImage: formValue.coverImage
       };
 
-      this.recipeService.create(recipe).subscribe({
+      this.recipeService.create(localStorage.getItem("userID")! ,recipe).subscribe({
         next: (result) => {
           console.log('Recipe created:', result);
-          this.router.navigate(['/recipe'], { queryParams: { id: result.id } });
+          //this.router.navigate(['/recipe'], { queryParams: { id: result.id } });
         },
         error: (err) => console.error('Error creating recipe:', err)
       });
