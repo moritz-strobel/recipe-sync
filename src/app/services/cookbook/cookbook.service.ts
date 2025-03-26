@@ -24,6 +24,6 @@ export class CookbookService {
     }
 
     addRecipe(cookbookId: string, userId: number, recipeId: string) {
-        return this.http.put<CookBook>(BASE_URL + `/cookbook/${cookbookId}`, {userId, recipeId});
+        this.http.put<CookBook>(BASE_URL + `/cookbook/${cookbookId}`, {userId, recipeId}).subscribe();
     }
 }
