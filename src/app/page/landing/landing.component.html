@@ -1,43 +1,32 @@
 <main class="main">
-  <section class="hero">
-    <!-- Top Text -->
-    <article class="text-top">
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fugiat incidunt natus illum accusamus aut minima quisquam necessitatibus enim nulla ab quam nihil veniam soluta reprehenderit rem inventore, id quaerat!</p>
-      </div>
-    </article>
+    <header class="header">
+        <h1>Welcome to Recipe Sync</h1>
+        <p>Your ultimate destination for delicious recipes</p>
+    </header>
 
-    <!-- Middle section with left text, searchbar, and right text -->
-    <div class="middle-container">
-      <article class="text-left">
-        <div>
-          <p>Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <section class="features">
+        <div class="feature">
+            <h2>Discover New Recipes</h2>
+            <p>Explore a wide variety of recipes from different cuisines and dietary preferences.</p>
         </div>
-      </article>
-
-      <div class="search-container">
-        <app-searchbar></app-searchbar>
-      </div>
-
-      <article class="text-right">
-        <div>
-          <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        <div class="feature">
+            <h2>Share Your Creations</h2>
+            <p>Upload your own recipes and share them with our community of food lovers.</p>
         </div>
-      </article>
+        <div class="feature">
+            <h2>Rate and Review</h2>
+            <p>Rate recipes and leave reviews to help others find the best dishes.</p>
+        </div>
+        <div class="feature">
+            <h2>Save Your Favorites</h2>
+            <p>Create a personal collection of your favorite recipes for easy access.</p>
+        </div>
+    </section>
+
+    <div class="browse-recipes">
+        <h2>Browse Recipes</h2>
+        <div>
+            <app-card-recipe-v2 *ngFor="let recipe of recipes; let i = index" [recipe]="recipe"></app-card-recipe-v2>
+        </div>
     </div>
-
-    <!-- Bottom Text -->
-    <article class="text-bottom">
-      <div>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </article>
-  </section>
-
-  <div class="browse-recipes" *ngIf="recipes">
-      <app-card-recipe-v2 [recipe]="recipes[0]"></app-card-recipe-v2>
-      <app-card-recipe-v3 [recipe]="recipes[0]"></app-card-recipe-v3>
-      <app-card-recipe-v2 [recipe]="recipes[0]"></app-card-recipe-v2>
-      <app-card-recipe-v3 [recipe]="recipes[0]"></app-card-recipe-v3>
-  </div>
 </main>

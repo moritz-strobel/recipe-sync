@@ -1,26 +1,23 @@
-<div class="card" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
+<div class="card" routerLink="/recipe" [queryParams]="{ id: recipe.id }">
     <div class="text-container">
         <h1>
-            {{recipe.title}}
+            {{ recipe.title }}
         </h1>
 
         <div class="who-when">
-            <p>SuperCoolUsername,</p>
-            <!--<p> {{ recipe.user.username }}, </p>-->
-            <p> {{ recipe.createdAt | date:'dd.MM.yyyy'}} </p>
+            <p>{{ recipe.user.username }},</p>
+            <p> {{ recipe.createdAt | date:'dd.MM.yyyy' }} </p>
         </div>
 
-        <div class="describtion-container">
+        <div>
             <span>
                 <strong>Tags: </strong>
-                    @for (v of tags; track v) {
-                        #{{ v }}
-                    }
+                    <a *ngFor="let tag of recipe.tags.split(',')">#{{ tag }}</a>
             </span>
         </div>
 
-        <div class="meta-data">
-            <table class="info-table">
+        <div>
+            <table>
                 <tr>
                     <td>Overall</td>
                     <td>{{ recipe.generalScore }}</td>
@@ -39,18 +36,19 @@
                 </tr>
             </table>
         </div>
-        
+
         <div>
             <h3>Ingredients</h3>
             <ul>
-                @for (v of ingredients; track v) {
-                    <li>{{ v }}</li>
-                }
+                <li *ngFor="let ingredient of recipe.ingredients.split(',')">{{ ingredient }}</li>
             </ul>
         </div>
     </div>
 
-    <div class="img-container">
-        <img src="https://www.chefkoch.de/magazin/sites/default/files/styles/hero/public/media/image/2017-08/763948-960x720-karibischer-eintopf.jpg" alt="">
-    </div>
+    <img *ngIf="recipe.coverImage; else placeHolder" [src]="recipe.coverImage" alt="">
+    <ng-template #placeHolder>
+        <div class="placeholder-icon">
+            <i class="fas fa-image"></i>
+        </div>
+    </ng-template>
 </div>

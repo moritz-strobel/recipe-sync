@@ -60,8 +60,8 @@ export class ProfileComponent {
           error: (error) => console.log(error)
         }
       );
-      
-      cookbookService.getByUserId(temp).subscribe(
+
+      cookbookService.getUserSaved(temp).subscribe(
         {
           next: (cookbooks) => this.savedCookbooks = cookbooks,
           error: (error) => console.log(error)

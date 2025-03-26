@@ -19,12 +19,16 @@ export class CookbookService {
         return this.http.get<CookBook>(BASE_URL + '/cookbook?id=' + id);
     }
 
+    getUserSaved(userId: string) {
+        return this.http.get<CookBook[]>(BASE_URL + `/cookbook/saved?userId=${userId}`);
+    }
+
     getByTitle(title: string) {
         return this.http.get<CookBook>(BASE_URL + `/cookbook?title=${title}`);
     }
 
     create(userId: string, createCookbookDto: any) {
-        return this.http.post<CookBook>(BASE_URL + `/cookbook`, {userId, cookbook : createCookbookDto});
+        return this.http.post<CookBook>(BASE_URL + `/cookbook`, {userId, cookbook: createCookbookDto});
     }
 
     addRecipe(cookbookId: string, userId: number, recipeId: string) {

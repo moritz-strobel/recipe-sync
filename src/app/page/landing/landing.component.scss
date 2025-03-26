@@ -1,95 +1,72 @@
 @use '../../../styles' as v;
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
 
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: v.$m;
+:host {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.middle-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    gap: v.$m;
-}
-
-.text-top,
-.text-bottom {
+.header {
+    background-color: v.$accent-2;
+    color: #fff;
     text-align: center;
-    margin: v.$m 0;
-    max-width: 800px;
-}
+    padding: 50px 20px;
 
-.text-left,
-.text-right {
-    flex: 1;
-    padding: v.$s;
-}
-
-.search-container {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-article {
-    background:
-    linear-gradient(90deg, v.$white-2 1px, transparent 1px),
-    linear-gradient(v.$white-2 1px, transparent 1px);
-    background-size: 2rem 2rem; // Size of the checker squares
-    background-color: v.$white;
+    h1 {
+        font-size: 48px;
+        margin: 0;
+    }
 
     p {
-        color: v.$black-2; // Darker for ink-like effect
-        line-height: 1.5;
-        font-family: 'Caveat', cursive;
-        font-size: v.$m;
-        letter-spacing: 0.5px;
+        font-size: 24px;
+        margin: 10px 0 0;
+    }
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #fff;
+
+    .feature {
+        flex: 1 1 300px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
         text-align: center;
-        text-shadow: 1px 1px 1px rgba(v.$black-4, 0.2);
-        background: rgba(v.$white, 0.6);
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 0;
+        }
     }
-
-    &.text-top p,
-    &.text-bottom p,
-    &.text-left p,
-    &.text-right p {
-        font-weight: 400; // Normal weight for casual look
-        transform: rotate(0deg); // Slight tilt for handwritten feel (optional)
-    }
 }
 
-// Optional: Add slight variation to each text block for more authenticity
-.text-left p {
-    transform: rotate(0deg);
-}
-
-.text-right p {
-    transform: rotate(0deg);
-}
-
-.text-top p {
-    transform: rotate(0deg);
-}
-
-.text-bottom p {
-    transform: rotate(0deg);
-}
 
 .browse-recipes{
+    background-color: #f9f9f9;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    //display: grid;
-    //place-items: center;
+    text-align: center;
     width: 100%;
-    background-color: aqua;
-
+    overflow: scroll;
     gap: 1rem;
+
+    div {
+        gap: 1rem;
+        display: flex;
+        overflow: scroll;
+        padding: 1rem;
+    }
 }
