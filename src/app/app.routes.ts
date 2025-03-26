@@ -9,21 +9,20 @@ import { RecipeComponent } from './page/recipe/recipe.component';
 import { ReportComponent } from './page/report/report.component';
 import { LoginComponent } from './page/auth/login/login.component';
 import { RegisterComponent } from './page/auth/register/register.component';
-import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 import { SearchResultContainerComponent } from './page/search-result-container/search-result-container.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    { path: '', component: LandingComponent },
-    { path: 'about-us', component: AboutUsComponent },
-    { path: 'cookbook', component: CookbookComponent },
-    { path: 'guidelines', component: GuidelinesComponent },
-    { path: 'impress', component: ImpressComponent },
-    { path: 'login', component: LoginComponent},
-    { path: 'profile', component: ProfileComponent },
-    { path: 'recipe', component: RecipeComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'forgot-password', component: ForgotPasswordComponent },
-    { path: 'report', component: ReportComponent },
-    { path: 'search', component: SearchResultContainerComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    {path: '', component: LandingComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path: 'about-us', component: AboutUsComponent},
+    {path: 'impress', component: ImpressComponent},
+    {path: 'report', component: ReportComponent},
+    {path: 'guidelines', component: GuidelinesComponent},
+    {path: 'search', component: SearchResultContainerComponent},
+    {path: 'recipe', canActivate: [authGuard], component: RecipeComponent},
+    {path: 'cookbook', canActivate: [authGuard], component: CookbookComponent},
+    {path: 'profile', canActivate: [authGuard], component: ProfileComponent},
+    {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
