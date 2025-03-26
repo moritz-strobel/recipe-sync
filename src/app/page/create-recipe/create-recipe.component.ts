@@ -25,19 +25,19 @@ export class CreateRecipeComponent implements OnInit {
       isPublic: [true, Validators.required],
       generalScore: ['neutral', Validators.required],
       nutriScore: ['C', Validators.required],
-      ingredients: this.fb.array([this.fb.control('')], [this.atLeastOneNonEmpty]), // Custom Validator hier anwenden
+      ingredients: this.fb.array([this.fb.control('')], [this.atLeastOneNonEmpty]),
       steps: [1, [Validators.required, Validators.min(1)]],
       preparationTime: [0, [Validators.required, Validators.min(0)]],
       overallCookTime: [0, [Validators.required, Validators.min(0)]],
       recipeText: ['', Validators.required],
-      tags: this.fb.array([this.fb.control('', Validators.required)], Validators.minLength(1)),
+      tags: this.fb.array([this.fb.control('')], [this.atLeastOneNonEmpty]),
       coverImage: ['']
     });
   }
 
   ngOnInit(): void {}
 
-  // Benutzerdefinierter Validator für das ingredients FormArray
+  // custom validator
   private atLeastOneNonEmpty(control: AbstractControl): ValidationErrors | null {
     const controls = (control as FormArray).controls;
     const hasNonEmpty = controls.some((ctrl) => ctrl.value.trim() !== '');
@@ -65,7 +65,7 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   addTag() {
-    this.tags.push(this.fb.control('', Validators.required));
+    this.tags.push(this.fb.control(''));
     console.log('Tags after adding:', this.tags.value);
   }
 

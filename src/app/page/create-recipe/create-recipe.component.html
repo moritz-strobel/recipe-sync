@@ -62,6 +62,9 @@
           </div>
           <button type="button" (click)="addIngredient()" class="add-btn">Add Ingredient</button>
         </div>
+        <span class="error" *ngIf="recipeForm.get('ingredients')?.touched && recipeForm.get('ingredients')?.hasError('atLeastOneNonEmpty')">
+          At least one ingredient is required.
+        </span>
       </div>
 
       <!-- Steps -->
@@ -130,6 +133,9 @@
           </div>
           <button type="button" (click)="addTag()" class="add-btn">Add Tag</button>
         </div>
+        <span class="error" *ngIf="recipeForm.get('tags')?.touched && recipeForm.get('tags')?.hasError('atLeastOneNonEmpty')">
+          At least one tag is required.
+        </span>
       </div>
 
       <!-- Cover Image with EditableImageComponent -->
