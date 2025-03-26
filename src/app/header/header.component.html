@@ -22,6 +22,7 @@
             <a routerLink="/guidelines">Guidelines</a>
             <a routerLink="/impress">Impress</a>
             <a routerLink="/report">Report</a>
+            <a [hidden]="!isLoggedIn" (click)="onLogout()">Log Out</a>
         </ul>
     </nav>
 </div>

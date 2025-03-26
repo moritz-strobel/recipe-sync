@@ -13,7 +13,8 @@ import { RecipeService } from '../../services';
 export class RecipeComponent implements OnInit {
     recipe!: Recipe;
 
-    constructor(private route: ActivatedRoute, private recipeService: RecipeService) {}
+    constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
+    }
 
     ngOnInit(): void {
         let id = this.route.snapshot.queryParamMap.get("id");
@@ -29,19 +30,19 @@ export class RecipeComponent implements OnInit {
 
     }
 
-         // Getter for tags, converting string to array if needed
-         get tags(): string[] {
-            if (typeof this.recipe.tags === 'string') {
-              return (this.recipe.tags as string).split(',').map(tag => tag.trim());
-            }
-            return this.recipe.tags as string[];
-          }
+    // Getter for tags, converting string to array if needed
+    get tags(): string[] {
+        if (typeof this.recipe.tags === 'string') {
+            return (this.recipe.tags as string).split(',').map(tag => tag.trim());
+        }
+        return this.recipe.tags as string[];
+    }
 
-          // Getter for ingredients, converting string to array if needed
-          get ingredients(): string[] {
-            if (typeof this.recipe.ingredients === 'string') {
-              return (this.recipe.ingredients as string).split(',').map(ingredient => ingredient.trim());
-            }
-            return this.recipe.ingredients as string[];
-          }
+    // Getter for ingredients, converting string to array if needed
+    get ingredients(): string[] {
+        if (typeof this.recipe.ingredients === 'string') {
+            return (this.recipe.ingredients as string).split(',').map(ingredient => ingredient.trim());
+        }
+        return this.recipe.ingredients as string[];
+    }
 }

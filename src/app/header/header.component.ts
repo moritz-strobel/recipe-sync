@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     @ViewChild('navMenu') navMenu!: ElementRef<HTMLElement>;
     isLoggedIn: boolean = false;
 
@@ -20,5 +20,10 @@ export class HeaderComponent {
     onClick() {
         const navMenuStyle = this.navMenu.nativeElement.style;
         navMenuStyle.display = navMenuStyle.display === 'flex' ? 'none' : 'flex';
+    }
+
+    onLogout() {
+        localStorage.removeItem("userID");
+        location.reload();
     }
 }
