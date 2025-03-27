@@ -1,0 +1,79 @@
+.editable-textarea-container {
+    background-color: transparent; /* Matches profile-field-container */
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem 1rem;
+    width: fit-content;
+  
+    h3 {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 0.25rem;
+      color: #2E4A2E; /* Dark green for headings */
+    }
+  }
+  
+  .header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .edit-toggle {
+    background: rgba(46, 74, 46, 0.8); /* Dark green with opacity, like profile-edit-toggle */
+    border: none;
+    padding: 0.1rem;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #E9FCE9; /* Light green tint for icon */
+    visibility: hidden; /* Hidden by default */
+    cursor: pointer;
+    margin-left: 0.5rem;
+  
+    &:hover {
+      background: #2E4A2E; /* Solid dark green on hover */
+    }
+  }
+  
+  .editable-textarea-container:hover .edit-toggle {
+    visibility: visible; /* Show edit button on container hover */
+  }
+  
+  .content-container {
+    width: 30rem; /* Wider than input-container's 20rem, suitable for textarea */
+  }
+  
+  .display-text {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.5rem; /* Padding for readability */
+    width: 100%;
+    box-sizing: border-box;
+    color: #2E4A2E; /* Dark green text */
+    cursor: pointer; /* Indicates editability */
+    white-space: pre-wrap; /* Preserves line breaks for multi-line text */
+  
+    &.placeholder {
+      color: #A9BFA9; /* Light green tint for placeholder */
+      font-style: italic;
+    }
+  }
+  
+  .editableTextarea {
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background: transparent; /* Matches profile-field-editor */
+    padding: 0.5rem; /* Padding for usability */
+    width: 190%;
+    min-height:100px;
+    box-sizing: border-box;
+    color: #2E4A2E; /* Dark green text */
+    border-bottom: 1px solid #2E4A2E; /* Dark green underline */
+    resize: vertical; /* Allows vertical resizing */
+  
+    &:focus {
+      border-bottom: 2px solid #2E4A2E; /* Thicker underline on focus */
+    }
+  }

@@ -1,0 +1,25 @@
+<div class="editable-textarea-container">
+  <div class="header-row">
+    <h3>{{ heading }}</h3>
+    <button type="button" class="edit-toggle" (click)="startEdit()">
+      <i class="fas fa-edit"></i>
+    </button>
+  </div>
+  <div class="content-container">
+    <div
+      class="display-text"
+      [class.placeholder]="!text"
+      *ngIf="!editing"
+      (click)="startEdit()"
+    >
+      {{ text || defaultText }}
+    </div>
+    <textarea
+      #editableTextarea
+      class="editableTextarea"
+      *ngIf="editing"
+      [value]="text"
+      (blur)="save($event)"
+    ></textarea>
+  </div>
+</div>

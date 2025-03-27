@@ -1,6 +1,6 @@
 <div class="card" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
     <div class="img-container">
-        <img src="https://www.chefkoch.de/magazin/sites/default/files/styles/hero/public/media/image/2017-08/763948-960x720-karibischer-eintopf.jpg" alt="">
+        <img [src]="recipe.coverImage" alt="">
     </div>
     
     <div class="text-container">
