@@ -1,0 +1,22 @@
+@use "../button/button.component" as styles;
+
+:host {
+    width: 100%;
+}
+
+button {
+    @include styles.button;
+    background-color: #1A2A3A;
+    transition: box-shadow 0.3s;
+    color: #EAE9FC;
+    font-size: 1em;
+
+    &:hover:not(:disabled) {
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.75);
+    }
+
+    &:disabled {
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.75) inset;
+        color: #aaa;
+    }
+}

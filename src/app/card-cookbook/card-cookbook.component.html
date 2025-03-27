@@ -1,1 +1,14 @@
-<p>card-cookbook works!</p>
+<div class="card" [routerLink]="'/cookbook'" [queryParams]="{ id: cookbook.id }">
+    <div class="img-container">
+        <img [src]="cookbook.coverImage" alt="Cookbook cover image" />
+    </div>
+
+    <div class="heading">
+        <h1 class="title">{{ cookbook.title }}</h1>
+        <p class="subtitle">{{ cookbook.user.username }}, {{ cookbook.createdAt|date:"dd.MM.yyyy" }}</p>
+    </div>
+
+    <div class="content">
+        <p>{{ cookbook.description }}</p>
+    </div>
+</div>

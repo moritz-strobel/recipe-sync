@@ -1,4 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //font-family: Roboto, sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Background Shades (Whites)
+$white: #ffffff;
+$white-1: #e3e3e3;
+$white-2: #c7c7c7;
+$white-3: #ababab;
+$white-4: #8f8f8f;
+
+// Text Shades (Blacks)
+$black: #1c1c1c;
+$black-1: #383838;
+$black-2: #545454;
+$black-3: #707070;
+$black-4: #8c8c8c;
+
+// Accent Colors
+$accent-1: #3acb67;
+$accent-2: #4cd686;
+$accent-3: #71e0a8;
+$accent-4: #e0a86c;
+$accent-5: #df535c;
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+// Rem sizes
+$xxs:     0.25rem; 
+$xs:      0.5rem;
+$s:       0.75rem;  //samll
+$n:       1rem;     //normal
+$m:       1.25rem;  //medium
+$b:       1.75rem;  //big
+$l:       2.5rem;   //large
+$xl:      3.75rem;
+$xxl:     6.25rem; 
+$threeXl: 10rem;
+$forXl:   15rem;

@@ -1,0 +1,39 @@
+@use "../../styles.scss" as v;
+
+.card{
+    display: flex;
+    background-color: v.$white-1;
+    padding: v.$n;
+    gap: v.$n;
+    cursor: pointer;
+    border-radius: v.$n;
+    width: 100%;
+}
+
+.text-container{
+    padding-left: v.$b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: v.$n;
+    width: 40%;
+
+   .who-when{
+    display: flex;
+    gap: v.$n;
+   }
+}
+
+.img-container{
+    width: 60%;
+    img{
+
+            width: fit-content; /* Match the container's width */
+            height: fit-content; /* Match the container's height */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: fill;
+            border-radius: 0; /* Retain existing styles */
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    }
+}

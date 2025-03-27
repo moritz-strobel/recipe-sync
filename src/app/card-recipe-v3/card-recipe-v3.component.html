@@ -1,0 +1,56 @@
+<div class="card" [routerLink]="'/recipe'" [queryParams]="{ id: recipe.id }">
+    <div class="img-container">
+        <img [src]="recipe.coverImage" alt="">
+    </div>
+    
+    <div class="text-container">
+        <h1>
+            {{recipe.title}}
+        </h1>
+
+        <div class="who-when">
+            <p>SuperCoolUsername,</p>
+            <!--<p> {{ recipe.user.username }}, </p>-->
+            <p> {{ recipe.createdAt | date:'dd.MM.yyyy'}} </p>
+        </div>
+
+        <div class="describtion-container">
+            <span>
+                <strong>Tags: </strong>
+                    @for (v of tags; track v) {
+                        #{{ v }}
+                    }
+            </span>
+        </div>
+
+        <div class="meta-data">
+            <table class="info-table">
+                <tr>
+                    <td>Overall</td>
+                    <td>{{ recipe.generalScore }}</td>
+                </tr>
+                <tr>
+                    <td>Nutri-Score:</td>
+                    <td>{{ recipe.nutriScore }}</td>
+                </tr>
+                <tr>
+                    <td>Overall cooking time:</td>
+                    <td>{{ recipe.overallCookTime }} minutes</td>
+                </tr>
+                <tr>
+                    <td>Steps:</td>
+                    <td>{{ recipe.steps }}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div>
+            <h3>Ingredients</h3>
+            <ul>
+                @for (v of ingredients; track v) {
+                    <li>{{ v }}</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

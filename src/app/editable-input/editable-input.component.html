@@ -1,0 +1,16 @@
+<div class="profile-field-container">
+    <div class="header-row">
+      <h3 *ngIf="heading">{{ heading }}</h3>
+      <button type="button" class="profile-edit-toggle" (click)="startProfileEdit()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+    
+    <div class="input-container">
+      <p *ngIf="!editing" class="profile-field-display" (click)="startProfileEdit()">
+        {{ text || defaultText }}
+      </p>
+      <input type="text" *ngIf="editing" [value]="text" class="profile-field-editor" (blur)="saveProfileField($event)"
+             (keyup.enter)="saveProfileField($event)" #editableInput />
+    </div>
+  </div>

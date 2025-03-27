@@ -1,1 +1,52 @@
-<p>cookbook works!</p>
+<main *ngIf="cookbook" class="main">
+    <section class="cookbook-data-section">
+      <div>
+        <h1>{{ cookbook.title }}</h1>
+      </div>
+  
+      <div>
+        <img
+          [src]="cookbook.coverImage"
+          alt="Cookbook Cover"
+          class="responsive-img" />
+      </div>
+  
+      <div>
+        <div>
+          <p><strong>User:</strong> {{ cookbook.user.username }}</p>
+        </div>
+  
+        <div>
+          <p><strong>Created At:</strong> {{ cookbook.createdAt | date }}</p>
+          <p><strong>Updated At:</strong> {{ cookbook.updatedAt | date }}</p>
+        </div>
+  
+        <div class="meta-data-container">
+          <p><strong>Public:</strong> {{ cookbook.isPublic ? 'Yes' : 'No' }}</p>
+          <p><strong>Favorite:</strong> {{ cookbook.isFavorite ? 'Yes' : 'No' }}</p>
+          <p><strong>Deletable:</strong> {{ cookbook.isDeletable ? 'Yes' : 'No' }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <hr class="divider" />
+  
+    <section class="description-section">
+      <div>
+        <h2>Description</h2>
+      </div>
+      <div>
+        <p>{{ cookbook.description }}</p>
+      </div>
+    </section>
+  
+    @if (cookbook.recipes && cookbook.recipes.length > 0) {
+      <hr class="divider" />
+      <section class="recipes-section">
+        <app-cards-recipe-column
+          [heading]="'Recipes in this Cookbook'"
+          [recipes]="cookbook.recipes">
+        </app-cards-recipe-column>
+      </section>
+    }
+  </main>

@@ -1,1 +1,32 @@
-<p>landing works!</p>
+<main class="main">
+    <header class="header">
+        <h1>Welcome to Recipe Sync</h1>
+        <p>Your ultimate destination for delicious recipes</p>
+    </header>
+
+    <section class="features">
+        <div class="feature">
+            <h2>Discover New Recipes</h2>
+            <p>Explore a wide variety of recipes from different cuisines and dietary preferences.</p>
+        </div>
+        <div class="feature">
+            <h2>Share Your Creations</h2>
+            <p>Upload your own recipes and share them with our community of food lovers.</p>
+        </div>
+        <div class="feature">
+            <h2>Rate and Review</h2>
+            <p>Rate recipes and leave reviews to help others find the best dishes.</p>
+        </div>
+        <div class="feature">
+            <h2>Save Your Favorites</h2>
+            <p>Create a personal collection of your favorite recipes for easy access.</p>
+        </div>
+    </section>
+
+    <div class="browse-recipes">
+        <h2>Browse Recipes</h2>
+        <div>
+            <app-card-recipe-v2 *ngFor="let recipe of recipes; let i = index" [recipe]="recipe"></app-card-recipe-v2>
+        </div>
+    </div>
+</main>

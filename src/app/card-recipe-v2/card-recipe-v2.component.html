@@ -1,0 +1,54 @@
+<div class="card" routerLink="/recipe" [queryParams]="{ id: recipe.id }">
+    <div class="text-container">
+        <h1>
+            {{ recipe.title }}
+        </h1>
+
+        <div class="who-when">
+            <p>{{ recipe.user.username }},</p>
+            <p> {{ recipe.createdAt | date:'dd.MM.yyyy' }} </p>
+        </div>
+
+        <div>
+            <span>
+                <strong>Tags: </strong>
+                    <a *ngFor="let tag of recipe.tags.split(',')">#{{ tag }}</a>
+            </span>
+        </div>
+
+        <div>
+            <table>
+                <tr>
+                    <td>Overall</td>
+                    <td>{{ recipe.generalScore }}</td>
+                </tr>
+                <tr>
+                    <td>Nutri-Score:</td>
+                    <td>{{ recipe.nutriScore }}</td>
+                </tr>
+                <tr>
+                    <td>Overall cooking time:</td>
+                    <td>{{ recipe.overallCookTime }} minutes</td>
+                </tr>
+                <tr>
+                    <td>Steps:</td>
+                    <td>{{ recipe.steps }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3>Ingredients</h3>
+            <ul>
+                <li *ngFor="let ingredient of recipe.ingredients.split(',')">{{ ingredient }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <img *ngIf="recipe.coverImage; else placeHolder" [src]="recipe.coverImage" alt="">
+    <ng-template #placeHolder>
+        <div class="placeholder-icon">
+            <i class="fas fa-image"></i>
+        </div>
+    </ng-template>
+</div>

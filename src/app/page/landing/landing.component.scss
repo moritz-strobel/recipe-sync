@@ -1,0 +1,72 @@
+@use '../../../styles' as v;
+
+:host {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.header {
+    background-color: v.$accent-2;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+
+    h1 {
+        font-size: 48px;
+        margin: 0;
+    }
+
+    p {
+        font-size: 24px;
+        margin: 10px 0 0;
+    }
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #fff;
+
+    .feature {
+        flex: 1 1 300px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        text-align: center;
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+}
+
+
+.browse-recipes{
+    background-color: #f9f9f9;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    overflow: scroll;
+    gap: 1rem;
+
+    div {
+        gap: 1rem;
+        display: flex;
+        overflow: scroll;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,29 @@
+<!--
+    Show like-save container only on pages 'cookbook' & 'recipe'
+-->
+<div class="like-icon-container" (click)="onLike(likeIcon)" *ngIf="router.url.startsWith('/recipe') || router.url.startsWith('/cookbook')">
+    <div class="like">
+        <i #likeIcon class="fas fa-thumbs-up"></i>
+    </div>
+</div>
+
+<div class="container" (click)="onClick(saveMenu)" *ngIf="router.url.startsWith('/recipe') || router.url.startsWith('/cookbook')">
+    <div class="save">
+        <i #saveIcon class="fas fa-bookmark"></i>
+    </div>
+
+    <ul #saveMenu>
+        <a *ngFor="let cookbook of cookbooks" (click)="onSave(saveIcon, cookbook)">{{ cookbook.title }}</a>
+    </ul>
+</div>
+
+<div class="container" (click)="onClick(plusMenu)">
+    <div class="plus">
+        <i class="fas fa-add"></i>
+    </div>
+
+    <ul #plusMenu>
+        <a routerLink="/create-cookbook">Create Cookbook</a>
+        <a routerLink="/create-recipe">Create Recipe</a>
+    </ul>
+</div>

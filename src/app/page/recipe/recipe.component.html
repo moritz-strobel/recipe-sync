@@ -1,1 +1,64 @@
-<p>recipe works!</p>
+<main class="main" *ngIf="recipe">
+  <section class="recipe-data-section">
+    <div>
+      <h1>{{ recipe.title }}</h1>
+    </div>
+
+    <div>
+      <img
+        [src]="recipe.coverImage"
+        alt="Recipe Cover"
+        class="responsive-img" />
+    </div>
+
+    <div>
+      <div>
+        <p><strong>User:</strong> {{ recipe.user.username }}</p>
+      </div>
+
+      <div>
+        <p><strong>Created At:</strong> {{ recipe.createdAt | date }}</p>
+        <p><strong>Updated At:</strong> {{ recipe.updatedAt | date }}</p>
+      </div>
+    </div>
+
+    <div class="tags-container">
+      <p>
+        <strong>Tags:</strong>
+        @for (tag of tags; track tag) {
+          <span class="tag">{{ tag }}</span>
+        }
+      </p>
+    </div>
+
+    <div class="meta-data-container">
+      <p><strong>Nutri-Score:</strong> {{ recipe.nutriScore }}</p>
+      <p><strong>General Score:</strong> {{ recipe.generalScore }}</p>
+      <p><strong>Number of Steps:</strong> {{ recipe.steps }}</p>
+      <p><strong>Preparation Time:</strong> {{ recipe.preparationTime }} minutes</p>
+      <p><strong>Overall Cooking Time:</strong> {{ recipe.overallCookTime }} minutes</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="ingredients-section">
+    <div>
+      <h2>Ingredients</h2>
+    </div>
+    <ul>
+      @for (ingredient of ingredients; track ingredient) {
+        <li>{{ ingredient }}</li>
+      }
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="recipe-text-section">
+    <div>
+      <h2>Recipe</h2>
+    </div>
+    <p>{{ recipe.recipeText }}</p>
+  </section>
+</main>

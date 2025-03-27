@@ -1,0 +1,36 @@
+@use '../../styles.scss' as v;
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    gap: v.$s;
+    padding: v.$s;
+    background: v.$white-1;
+    border-radius: v.$xs;
+    max-width: 500px;
+    
+    .dropdown {
+        padding: v.$xs;
+        border: 1px solid v.$white-3;
+        border-radius: v.$xs;
+    }
+    
+    input {
+        flex: 1;
+        padding: v.$xs;
+        border: 1px solid v.$white-3;
+        border-radius: v.$xs;
+    }
+    
+    .button {
+        padding: v.$xs v.$s;
+        background: v.$accent-1;
+        border: none;
+        border-radius: v.$xs;
+        cursor: pointer;
+        
+        &:hover {
+            background: v.$accent-2;
+        }
+    }
+}

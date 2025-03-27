@@ -1,0 +1,92 @@
+@use '../../styles' as *;
+
+:host {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.logo-container {
+    background-color: #a0a0a088;
+    backdrop-filter: blur($xxs);
+    border-radius: $l;
+    padding: $n;
+    cursor: pointer;
+
+    .logo {
+        p {
+            background: transparent;
+            font-size: $l;
+            font-weight: bold;
+            font-family: serif;
+            line-height: $l;
+        }
+    }
+}
+
+.nav-container {
+    display: flex;
+    width: fit-content;
+    gap: 2rem;
+
+    * {
+        height: fit-content;
+    }
+
+    & > a {
+        text-decoration: none;
+        color: $black;
+        font-size: $m;
+        background: $white-1;
+        padding: $s;
+        border-radius: $xxl;
+    }
+
+    nav {
+        position: relative;
+        background: $white-1;
+        border-radius: 50%;
+        padding: 1rem;
+        cursor: pointer;
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            div {
+                border: 1px solid black;
+                border-radius: 5px;
+                width: 1rem;
+            }
+        }
+
+        ul {
+            display: none;
+            position: absolute;
+            background-color: $white-1;
+            right: 0;
+            top: 3rem;
+            list-style: none;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            flex-direction: column;
+
+            a {
+                border-radius: 1rem;
+                transition: background-color 0.2s ease-in-out;
+                text-decoration: none;
+                color: $black;
+                padding: 0.5rem;
+
+                &:hover {
+                    background-color: $white-2;
+                }
+            }
+        }
+
+    }
+}

@@ -1,14 +1,11 @@
-<app-header></app-header>
+<div class="app-container">
+    <app-header/>
 
-<router-outlet/>
+    <div class="router-outlet-container">
+        <router-outlet/>
+    </div>
 
-<app-footer></app-footer>
+    <app-quick-access *ngIf="!router.url.startsWith('/login') || !router.url.startsWith('/register')"/>
 
-<!--
-Definiere main structure 
-approutes festlegen
-abhängigkeiten und biolerplate
-
-    favicon mit initialien -> Rs
-
--->
+    <app-footer/>
+</div>

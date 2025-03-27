@@ -1,0 +1,106 @@
+@use '../../../styles.scss' as v;
+@use 'sass:color';
+
+.main {
+  max-width: 800px;
+  margin: v.$l auto;
+  padding: v.$n;
+  background-color: v.$white;
+  border-radius: v.$n;
+  box-shadow: 0 0 v.$m rgba(0, 0, 0, 0.1);
+}
+
+.create-cookbook-section {
+  padding: v.$n;
+
+  h1 {
+    color: v.$black;
+    font-size: v.$xl;
+    margin-bottom: v.$m;
+    text-align: center;
+  }
+
+  .cookbook-form {
+    display: grid;
+    gap: v.$n;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: v.$s;
+
+      label {
+        color: v.$black-1;
+        font-size: v.$n;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: v.$s;
+        border: 1px solid v.$white-3;
+        border-radius: v.$s;
+        font-size: v.$n;
+        color: v.$black-1;
+        background-color: v.$white-1;
+
+        &:focus {
+          outline: none;
+          border-color: v.$accent-1;
+          box-shadow: 0 0 v.$xs v.$accent-3;
+        }
+
+        &[class="ng-invalid ng-touched"] {
+          border-color: v.$accent-5;
+        }
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      .error {
+        color: v.$accent-5;
+        font-size: v.$s;
+        margin-top: v.$xs;
+      }
+
+      app-editable-image {
+        width: 100%;
+        max-width: 30rem;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: v.$m;
+
+      .submit-btn {
+        padding: v.$s v.$m;
+        background-color: v.$accent-2;
+        color: v.$white;
+        border: none;
+        border-radius: v.$n;
+        font-size: v.$n;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: v.$white-3;
+          cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+          background-color: color.adjust(v.$accent-2, $lightness: -10%);
+        }
+      }
+    }
+  }
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+}

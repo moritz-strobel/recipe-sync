@@ -1,0 +1,88 @@
+@use "../../../styles.scss" as v;
+
+.main {
+  max-width: 1200px;
+  margin: v.$l auto;
+  padding: v.$m v.$s;
+  background: v.$white;
+  color: v.$black;
+
+  div {
+    h1 {
+      font-size: v.$xl;
+      color: v.$black;
+      margin-bottom: v.$m;
+      padding-bottom: v.$xs;
+      border-bottom: 2px solid v.$accent-1;
+    }
+  }
+
+  section {
+    .report-form {
+      display: flex;
+      flex-direction: column;
+      gap: v.$s;
+      max-width: 600px;
+      margin: v.$m auto;
+      padding: v.$m;
+      background: v.$white-1;
+      border-radius: v.$xs;
+
+      label {
+        font-size: v.$n;
+        color: v.$black-2;
+        margin-bottom: v.$xxs;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: v.$xs;
+        border: 1px solid v.$white-3;
+        border-radius: v.$xxs;
+        font-size: v.$n;
+        background: v.$white;
+
+        &:focus {
+          border-color: v.$accent-1;
+          outline: none;
+          box-shadow: 0 0 5px rgba(v.$accent-1, 0.3);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      button {
+        padding: v.$xs v.$s;
+        background: v.$accent-1;
+        color: v.$white;
+        border: none;
+        border-radius: v.$xxs;
+        cursor: pointer;
+        font-size: v.$n;
+        margin-top: v.$s;
+
+        &:hover {
+          background: v.$accent-2;
+          transition: background 0.3s ease;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin: v.$s;
+    padding: v.$s;
+
+    h1 {
+      font-size: v.$l;
+    }
+
+    .report-form {
+      max-width: 100%;
+    }
+  }
+}

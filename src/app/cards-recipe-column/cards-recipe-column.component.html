@@ -1,0 +1,13 @@
+<section class="recipe-column-section">
+    @if (heading) {
+        <h2>{{ heading }}</h2>
+    }
+
+    <div class="container">
+        <div class="card-container">
+            @for (recipe of recipes; track recipe.id; let i = $index) {
+                <app-card-recipe [recipe]="recipe"></app-card-recipe>
+            }
+        </div>
+    </div>
+</section>

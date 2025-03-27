@@ -1,0 +1,73 @@
+@use '../../../styles.scss' as v;
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto; // Centered with large margin top/bottom
+  padding: v.$n;
+  background-color: v.$white;
+  border-radius: v.$n;
+  box-shadow: 0 0 v.$m rgba(0, 0, 0, 0.1);
+  margin-bottom: v.$m;
+}
+
+.cookbook-data-section {
+  display: grid;
+  gap: v.$n;
+  padding: v.$n;
+
+  h1 {
+    color: v.$black;
+    font-size: v.$xl;
+    margin-bottom: v.$s;
+  }
+
+  .responsive-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: v.$n;
+    box-shadow: 0 0 v.$s rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    color: v.$black-1;
+    font-size: v.$n;
+    margin: v.$xs 0;
+  }
+
+  .meta-data-container {
+    display: grid;
+    gap: v.$s;
+    background-color: v.$white-1;
+    padding: v.$n;
+    border-radius: v.$n;
+  }
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: v.$white-3;
+  margin: v.$m 0;
+}
+
+.description-section {
+  padding: v.$n;
+
+  h2 {
+    color: v.$black;
+    font-size: v.$l;
+    margin-bottom: v.$n;
+  }
+
+  p {
+    color: v.$black-1;
+    font-size: v.$n;
+    line-height: 1.6;
+  }
+}
+
+.recipes-section {
+  padding: v.$n;
+  // Styling handled by app-cards-recipe-column
+}

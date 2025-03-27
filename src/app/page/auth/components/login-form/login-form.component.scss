@@ -1,0 +1,91 @@
+$baseColor: #1A2A3A;
+$secondaryColor: #D3D3D3;
+$errorColor: #C0000D;
+
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: $baseColor;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5em;
+
+    div {
+        position: relative;
+        font-size: 1rem;
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $baseColor;;
+            outline: none;
+            font-size: inherit;
+            padding-left: 0.5rem;
+            color: inherit;
+
+            &:focus ~ label,
+            &:valid ~ label {
+                transform: translateY(-90%);
+            }
+
+            &.ng-invalid.ng-dirty:valid {
+                border-bottom-color: $errorColor;
+
+                & ~ label {
+                    color: $errorColor;
+                }
+            }
+        }
+
+        label {
+            position: absolute;
+            left: 0.5rem;
+            pointer-events: none;
+            transition: transform 0.5s ease;
+        }
+    }
+
+    app-button {
+        text-align: center;
+        width: 100%;
+        background: $baseColor;
+        color: $secondaryColor;
+        font-size: 1.3em;
+        box-shadow: none;
+        transition: box-shadow 0.3s ease;
+
+        &:hover:not(.disabled) {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+            background-color: $baseColor;
+        }
+
+        &.disabled {
+            box-shadow: rgba(0, 0, 0, 0.75) 0 0 7px inset;
+            color: #aaa;
+        }
+    }
+}
+
+
+section{
+    width: 100%;
+    align-items: center;
+
+    div{
+        text-align: center;
+        margin-bottom: .5rem;
+    }
+}

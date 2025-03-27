@@ -1,25 +1,32 @@
-<!--
-   on mobile burger menu on left side icon on the right
--->
+<div routerLink="/" class="logo-container">
+    <div class="logo">
+        <p>RECIPE<br>
+            SYNC.</p>
+    </div>
+</div>
 
-<!--
-    https://material.angular.io/components/grid-list/overview#grid-list-overview
--->
-    
-<mat-grid-list cols="1">
-
-    <p>HeaderComponent works!</p>
-
-    <app-icon-name-container></app-icon-name-container>
-
+<div class="search-container">
     <app-searchbar></app-searchbar>
+</div>
 
-    <app-button-icon-link-container></app-button-icon-link-container>
+<div class="nav-container">
+    <a routerLink="/profile">Profile</a>
+    <nav (click)="onClick()">
+        <div class="button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
 
-    <mat-divider></mat-divider>
-
-</mat-grid-list>
-
-<!--
-   /on mobile burger menu on left side icon on the right
--->
+        <ul #navMenu>
+            <a routerLink="/">Home</a>
+            <a [hidden]="isLoggedIn" routerLink="/login">Log In</a>
+            <a [hidden]="isLoggedIn" routerLink="/register">Register</a>
+            <a routerLink="/about-us">About Us</a>
+            <a routerLink="/guidelines">Guidelines</a>
+            <a routerLink="/impress">Impress</a>
+            <a routerLink="/report">Report</a>
+            <a [hidden]="!isLoggedIn" (click)="onLogout()">Log Out</a>
+        </ul>
+    </nav>
+</div>

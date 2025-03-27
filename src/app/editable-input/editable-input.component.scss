@@ -1,0 +1,74 @@
+.profile-field-container {
+  background-color: none; // Changed from rgb(173, 173, 173) to light green tint
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 1rem;
+  width: fit-content;
+
+  h3 {
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 0.25rem;
+    color: #2E4A2E; // Added dark green for text
+  }
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-edit-toggle {
+  background: rgba(46, 74, 46, 0.8); // Changed from rgba(0, 0, 0, 0.6) to dark green with opacity
+  border: none;
+  padding: 0.1rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #E9FCE9; // Changed to light green tint for contrast
+  visibility: hidden;
+  cursor: pointer;
+  margin-left: 0.5rem;
+
+  &:hover {
+    background: #2E4A2E; // Solid dark green on hover
+  }
+}
+
+.profile-field-container:hover .profile-edit-toggle {
+  visibility: visible;
+}
+
+.profile-field-display {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2E4A2E; // Added dark green for text
+}
+
+.profile-field-editor {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  min-width: fit-content;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2E4A2E; // Added dark green for input text
+  border-bottom: 1px solid #2E4A2E; // Added dark green underline
+
+  &:focus {
+    border-bottom: 2px solid #2E4A2E; // Thicker dark green when focused
+  }
+}
+
+.input-container {
+  width: 20rem;
+}

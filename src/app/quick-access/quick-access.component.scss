@@ -1,0 +1,51 @@
+@use '../../styles' as *;
+
+:host {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+
+    & > div {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+}
+
+div {
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+    background-color: $white-1;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+
+    ul {
+        display: none;
+        position: absolute;
+        bottom: 3.5rem;
+        right: 0;
+        background-color: $white-1;
+        flex-direction: column;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        text-wrap: nowrap;
+        gap: 0.5rem;
+
+        a {
+            border-radius: 1rem;
+            transition: background-color 0.2s ease-in-out;
+            text-decoration: none;
+            color: $black;
+            padding: 0.5rem;
+
+            &:hover {
+                background-color: $white-2;
+            }
+        }
+    }
+}

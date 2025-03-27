@@ -3,27 +3,51 @@
 - https://material.angular.io/components/
 
 
+#### Layout Guidelines:
+- Von außen nach innen
+- Wo grid, wo Flexbox
+- mobile First
+- main layout in appcomponent.html:
+	- header
+	- router-outlet
+	- footer
+	- overlay (hidden by default)
+	- dialog-cookies
+
+
+#### ToDo
+- font Roboto (local)
+- favicon RS
+- partial routes for search result
+- api interface
+- tag
+- searchbar
+- logo
+- icon name container
+- headers nav section
+- header
+- footer
+- card recipe
+- card cookbook
+- container
+- landing page
+- login
+- about us
+- recipe page
+- cookbook home
+- cookbook
+- guidelines
+- report
+- impress
+- cookbook page
+- search result page
+- profile
+- unify styling
+- final preps
+- presentation
+
+
 #### Components Structure & Dependencies:
-- angular-material:
-	- button
-	- checkbox
-	- chips
-	- dialog
-	- divider
-	- form-field
-	- grid
-	- icon
-	- input
-	- label
-	- list
-	- menu
-	- paginator
-	- progress-spinner
-	- table
-	- toolbar
-	- tooltip --> properties: pos:above | showDelay:250 | hideDelay:250
-	- tree
-	- sidenav
 - card-cookbook --> whole thing as click-able label
 - card-recipe
 - cards-container --> show multiple overviews (generic) 
@@ -116,12 +140,3 @@
 	- footer
 	- overlay (hidden by default)
 	- dialog-cookies
-
-
-#### ToDo
-- Implement all Components
-- Realize all dependencies
-- implement basic styling e.g. header --> position: fixed
-- Restful API to nest.js server
-- Font: Roboto
-- Favicon
